@@ -1,0 +1,19 @@
+# Data directories
+lz/data/
+lz/datasets/
+Mosaic3D/data/
+Mosaic3D/datasets/
+
+# Model weights and binary checkpoints
+*.ckpt
+*.pth
+*.pt
+*.safetensors
+*.bin
+*.onnx
+
+# Large dataset-style arrays and point-cloud dumps
+*.npy
+*.npz
+*.ply
+*.pcd

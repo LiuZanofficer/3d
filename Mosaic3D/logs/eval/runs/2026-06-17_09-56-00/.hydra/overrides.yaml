@@ -1,0 +1,3 @@
+- experiment=train_spunet_multidata_ppt
+- data=sc+ar+sc++
+- ckpt_path=./qz/sc+ar+sc++.ckptls

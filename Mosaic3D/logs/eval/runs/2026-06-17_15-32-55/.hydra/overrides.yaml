@@ -1,0 +1,6 @@
+- experiment=train_spunet_multidata_ppt
+- data=sc+ar+sc++
+- ckpt_path=./qz/sc+ar+sc++.ckpt
+- data.val_datasets.0.data_dir=/mnt/sdc/lz/3d/lz/datasets/mosaic3d/data/scannet
+- data.val_datasets.1.data_dir=/mnt/sdc/lz/3d/lz/datasets/mosaic3d/data/scannet
+- data.val_datasets.1.mask_dir=/mnt/sdc/lz/3d/lz/datasets/mosaic3d/data/scannet200_masks

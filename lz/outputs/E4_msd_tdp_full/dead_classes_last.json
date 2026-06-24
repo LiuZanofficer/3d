@@ -1,0 +1,25 @@
+{
+  "epoch": 99,
+  "best_metric_name": "val/miou_present_gt",
+  "best_metric_value": 0.2341,
+  "primary_postfix": "0",
+  "count": 2,
+  "by_dataloader": {
+    "0": [
+      {
+        "class_id": 198,
+        "class_name": "toolbox",
+        "iou": 0.0,
+        "gt_count": 536,
+        "pred_count": 0
+      },
+      {
+        "class_id": 199,
+        "class_name": "papers",
+        "iou": 0.0,
+        "gt_count": 473,
+        "pred_count": 0
+      }
+    ]
+  }
+}

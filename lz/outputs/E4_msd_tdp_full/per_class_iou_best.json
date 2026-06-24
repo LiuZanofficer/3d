@@ -1,0 +1,1410 @@
+{
+  "epoch": 92,
+  "best_metric_name": "val/miou_present_gt",
+  "best_metric_value": 0.2351,
+  "primary_postfix": "0",
+  "by_dataloader": {
+    "0": [
+      {
+        "class_id": 0,
+        "class_name": "wall",
+        "iou": 0.792516129032258,
+        "gt_count": 899326,
+        "pred_count": 958235
+      },
+      {
+        "class_id": 1,
+        "class_name": "chair",
+        "iou": 0.7734193548387097,
+        "gt_count": 888253,
+        "pred_count": 950210
+      },
+      {
+        "class_id": 2,
+        "class_name": "floor",
+        "iou": 0.7543225806451613,
+        "gt_count": 875469,
+        "pred_count": 933350
+      },
+      {
+        "class_id": 3,
+        "class_name": "table",
+        "iou": 0.7065806451612903,
+        "gt_count": 867272,
+        "pred_count": 925025
+      },
+      {
+        "class_id": 4,
+        "class_name": "door",
+        "iou": 0.6874838709677419,
+        "gt_count": 852930,
+        "pred_count": 911510
+      },
+      {
+        "class_id": 5,
+        "class_name": "couch",
+        "iou": 0.6492903225806452,
+        "gt_count": 843568,
+        "pred_count": 896868
+      },
+      {
+        "class_id": 6,
+        "class_name": "cabinet",
+        "iou": 0.6301935483870968,
+        "gt_count": 833544,
+        "pred_count": 888428
+      },
+      {
+        "class_id": 7,
+        "class_name": "shelf",
+        "iou": 0.6015483870967742,
+        "gt_count": 819333,
+        "pred_count": 872458
+      },
+      {
+        "class_id": 8,
+        "class_name": "desk",
+        "iou": 0.592,
+        "gt_count": 807442,
+        "pred_count": 863582
+      },
+      {
+        "class_id": 9,
+        "class_name": "office chair",
+        "iou": 0.5824516129032258,
+        "gt_count": 797439,
+        "pred_count": 848481
+      },
+      {
+        "class_id": 10,
+        "class_name": "bed",
+        "iou": 0.5633548387096774,
+        "gt_count": 785348,
+        "pred_count": 836530
+      },
+      {
+        "class_id": 11,
+        "class_name": "pillow",
+        "iou": 0.544258064516129,
+        "gt_count": 775257,
+        "pred_count": 827143
+      },
+      {
+        "class_id": 12,
+        "class_name": "sink",
+        "iou": 0.5251612903225806,
+        "gt_count": 761878,
+        "pred_count": 816177
+      },
+      {
+        "class_id": 13,
+        "class_name": "picture",
+        "iou": 0.5060645161290322,
+        "gt_count": 750779,
+        "pred_count": 801252
+      },
+      {
+        "class_id": 14,
+        "class_name": "window",
+        "iou": 0.48696774193548387,
+        "gt_count": 741492,
+        "pred_count": 792442
+      },
+      {
+        "class_id": 15,
+        "class_name": "toilet",
+        "iou": 0.4678709677419355,
+        "gt_count": 729932,
+        "pred_count": 775687
+      },
+      {
+        "class_id": 16,
+        "class_name": "bookshelf",
+        "iou": 0.44877419354838705,
+        "gt_count": 718544,
+        "pred_count": 767856
+      },
+      {
+        "class_id": 17,
+        "class_name": "monitor",
+        "iou": 0.4296774193548387,
+        "gt_count": 706442,
+        "pred_count": 751345
+      },
+      {
+        "class_id": 18,
+        "class_name": "curtain",
+        "iou": 0.41058064516129034,
+        "gt_count": 697452,
+        "pred_count": 740629
+      },
+      {
+        "class_id": 19,
+        "class_name": "book",
+        "iou": 0.3914838709677419,
+        "gt_count": 682280,
+        "pred_count": 731256
+      },
+      {
+        "class_id": 20,
+        "class_name": "armchair",
+        "iou": 0.38193548387096776,
+        "gt_count": 674243,
+        "pred_count": 715665
+      },
+      {
+        "class_id": 21,
+        "class_name": "coffee table",
+        "iou": 0.3628387096774194,
+        "gt_count": 660549,
+        "pred_count": 705887
+      },
+      {
+        "class_id": 22,
+        "class_name": "box",
+        "iou": 0.35329032258064513,
+        "gt_count": 648590,
+        "pred_count": 694762
+      },
+      {
+        "class_id": 23,
+        "class_name": "refrigerator",
+        "iou": 0.33419354838709675,
+        "gt_count": 637118,
+        "pred_count": 682888
+      },
+      {
+        "class_id": 24,
+        "class_name": "lamp",
+        "iou": 0.3246451612903226,
+        "gt_count": 626535,
+        "pred_count": 670679
+      },
+      {
+        "class_id": 25,
+        "class_name": "kitchen cabinet",
+        "iou": 0.3150967741935484,
+        "gt_count": 617251,
+        "pred_count": 659555
+      },
+      {
+        "class_id": 26,
+        "class_name": "towel",
+        "iou": 0.296,
+        "gt_count": 603285,
+        "pred_count": 642692
+      },
+      {
+        "class_id": 27,
+        "class_name": "clothes",
+        "iou": 0.2864516129032258,
+        "gt_count": 593563,
+        "pred_count": 634406
+      },
+      {
+        "class_id": 28,
+        "class_name": "tv",
+        "iou": 0.2769032258064516,
+        "gt_count": 582434,
+        "pred_count": 619145
+      },
+      {
+        "class_id": 29,
+        "class_name": "nightstand",
+        "iou": 0.2578064516129032,
+        "gt_count": 569979,
+        "pred_count": 606282
+      },
+      {
+        "class_id": 30,
+        "class_name": "counter",
+        "iou": 0.24825806451612903,
+        "gt_count": 559333,
+        "pred_count": 599196
+      },
+      {
+        "class_id": 31,
+        "class_name": "dresser",
+        "iou": 0.23870967741935484,
+        "gt_count": 545984,
+        "pred_count": 585865
+      },
+      {
+        "class_id": 32,
+        "class_name": "stool",
+        "iou": 0.22916129032258065,
+        "gt_count": 534607,
+        "pred_count": 574191
+      },
+      {
+        "class_id": 33,
+        "class_name": "cushion",
+        "iou": 0.21961290322580646,
+        "gt_count": 523843,
+        "pred_count": 561066
+      },
+      {
+        "class_id": 34,
+        "class_name": "plant",
+        "iou": 0.21006451612903226,
+        "gt_count": 514422,
+        "pred_count": 549233
+      },
+      {
+        "class_id": 35,
+        "class_name": "ceiling",
+        "iou": 0.20051612903225804,
+        "gt_count": 502023,
+        "pred_count": 535330
+      },
+      {
+        "class_id": 36,
+        "class_name": "bathtub",
+        "iou": 0.19096774193548388,
+        "gt_count": 490816,
+        "pred_count": 525432
+      },
+      {
+        "class_id": 37,
+        "class_name": "end table",
+        "iou": 0.1814193548387097,
+        "gt_count": 481327,
+        "pred_count": 512227
+      },
+      {
+        "class_id": 38,
+        "class_name": "dining table",
+        "iou": 0.1814193548387097,
+        "gt_count": 467662,
+        "pred_count": 498848
+      },
+      {
+        "class_id": 39,
+        "class_name": "keyboard",
+        "iou": 0.17187096774193547,
+        "gt_count": 455835,
+        "pred_count": 485744
+      },
+      {
+        "class_id": 40,
+        "class_name": "bag",
+        "iou": 0.17187096774193547,
+        "gt_count": 446317,
+        "pred_count": 474150
+      },
+      {
+        "class_id": 41,
+        "class_name": "backpack",
+        "iou": 0.1623225806451613,
+        "gt_count": 432425,
+        "pred_count": 464735
+      },
+      {
+        "class_id": 42,
+        "class_name": "toilet paper",
+        "iou": 0.1527741935483871,
+        "gt_count": 421956,
+        "pred_count": 452211
+      },
+      {
+        "class_id": 43,
+        "class_name": "printer",
+        "iou": 0.1527741935483871,
+        "gt_count": 411390,
+        "pred_count": 438600
+      },
+      {
+        "class_id": 44,
+        "class_name": "tv stand",
+        "iou": 0.1432258064516129,
+        "gt_count": 400987,
+        "pred_count": 427342
+      },
+      {
+        "class_id": 45,
+        "class_name": "whiteboard",
+        "iou": 0.1432258064516129,
+        "gt_count": 387815,
+        "pred_count": 416533
+      },
+      {
+        "class_id": 46,
+        "class_name": "blanket",
+        "iou": 0.13367741935483873,
+        "gt_count": 375571,
+        "pred_count": 400391
+      },
+      {
+        "class_id": 47,
+        "class_name": "shower curtain",
+        "iou": 0.13367741935483873,
+        "gt_count": 366005,
+        "pred_count": 390728
+      },
+      {
+        "class_id": 48,
+        "class_name": "trash can",
+        "iou": 0.12412903225806451,
+        "gt_count": 353220,
+        "pred_count": 377983
+      },
+      {
+        "class_id": 49,
+        "class_name": "closet",
+        "iou": 0.12412903225806451,
+        "gt_count": 341803,
+        "pred_count": 367065
+      },
+      {
+        "class_id": 50,
+        "class_name": "stairs",
+        "iou": 0.11458064516129032,
+        "gt_count": 331545,
+        "pred_count": 351260
+      },
+      {
+        "class_id": 51,
+        "class_name": "microwave",
+        "iou": 0.11458064516129032,
+        "gt_count": 322394,
+        "pred_count": 344292
+      },
+      {
+        "class_id": 52,
+        "class_name": "stove",
+        "iou": 0.10503225806451613,
+        "gt_count": 307407,
+        "pred_count": 331267
+      },
+      {
+        "class_id": 53,
+        "class_name": "shoe",
+        "iou": 0.10503225806451613,
+        "gt_count": 298074,
+        "pred_count": 317145
+      },
+      {
+        "class_id": 54,
+        "class_name": "computer tower",
+        "iou": 0.09548387096774194,
+        "gt_count": 285756,
+        "pred_count": 308149
+      },
+      {
+        "class_id": 55,
+        "class_name": "bottle",
+        "iou": 0.09548387096774194,
+        "gt_count": 274433,
+        "pred_count": 295202
+      },
+      {
+        "class_id": 56,
+        "class_name": "bin",
+        "iou": 0.08593548387096774,
+        "gt_count": 263670,
+        "pred_count": 282962
+      },
+      {
+        "class_id": 57,
+        "class_name": "ottoman",
+        "iou": 0.08593548387096774,
+        "gt_count": 253536,
+        "pred_count": 269827
+      },
+      {
+        "class_id": 58,
+        "class_name": "bench",
+        "iou": 0.07638709677419354,
+        "gt_count": 239190,
+        "pred_count": 254735
+      },
+      {
+        "class_id": 59,
+        "class_name": "board",
+        "iou": 0.07638709677419354,
+        "gt_count": 231414,
+        "pred_count": 244059
+      },
+      {
+        "class_id": 60,
+        "class_name": "washing machine",
+        "iou": 0.06683870967741937,
+        "gt_count": 218122,
+        "pred_count": 235437
+      },
+      {
+        "class_id": 61,
+        "class_name": "mirror",
+        "iou": 0.06683870967741937,
+        "gt_count": 207538,
+        "pred_count": 218138
+      },
+      {
+        "class_id": 62,
+        "class_name": "copier",
+        "iou": 0.05729032258064516,
+        "gt_count": 193702,
+        "pred_count": 211473
+      },
+      {
+        "class_id": 63,
+        "class_name": "basket",
+        "iou": 0.05729032258064516,
+        "gt_count": 184963,
+        "pred_count": 195899
+      },
+      {
+        "class_id": 64,
+        "class_name": "sofa chair",
+        "iou": 0.04774193548387097,
+        "gt_count": 173377,
+        "pred_count": 185976
+      },
+      {
+        "class_id": 65,
+        "class_name": "file cabinet",
+        "iou": 0.03819354838709677,
+        "gt_count": 162153,
+        "pred_count": 172771
+      },
+      {
+        "class_id": 66,
+        "class_name": "fan",
+        "iou": 0.5992806880375294,
+        "gt_count": 27791,
+        "pred_count": 31090
+      },
+      {
+        "class_id": 67,
+        "class_name": "laptop",
+        "iou": 0.5665926505082096,
+        "gt_count": 28208,
+        "pred_count": 31419
+      },
+      {
+        "class_id": 68,
+        "class_name": "shower",
+        "iou": 0.5339046129788898,
+        "gt_count": 27455,
+        "pred_count": 29846
+      },
+      {
+        "class_id": 69,
+        "class_name": "paper",
+        "iou": 0.5121125879593432,
+        "gt_count": 27863,
+        "pred_count": 30495
+      },
+      {
+        "class_id": 70,
+        "class_name": "person",
+        "iou": 0.49032056293979676,
+        "gt_count": 27063,
+        "pred_count": 29644
+      },
+      {
+        "class_id": 71,
+        "class_name": "paper towel dispenser",
+        "iou": 0.46852853792025023,
+        "gt_count": 27125,
+        "pred_count": 29289
+      },
+      {
+        "class_id": 72,
+        "class_name": "oven",
+        "iou": 0.44673651290070365,
+        "gt_count": 26805,
+        "pred_count": 28920
+      },
+      {
+        "class_id": 73,
+        "class_name": "blinds",
+        "iou": 0.4358405003909305,
+        "gt_count": 26323,
+        "pred_count": 29138
+      },
+      {
+        "class_id": 74,
+        "class_name": "rack",
+        "iou": 0.4140484753713839,
+        "gt_count": 26032,
+        "pred_count": 28807
+      },
+      {
+        "class_id": 75,
+        "class_name": "plate",
+        "iou": 0.40315246286161066,
+        "gt_count": 26107,
+        "pred_count": 28850
+      },
+      {
+        "class_id": 76,
+        "class_name": "blackboard",
+        "iou": 0.39225645035183737,
+        "gt_count": 26438,
+        "pred_count": 28816
+      },
+      {
+        "class_id": 77,
+        "class_name": "piano",
+        "iou": 0.3704644253322909,
+        "gt_count": 25382,
+        "pred_count": 27890
+      },
+      {
+        "class_id": 78,
+        "class_name": "suitcase",
+        "iou": 0.3595684128225176,
+        "gt_count": 25559,
+        "pred_count": 28122
+      },
+      {
+        "class_id": 79,
+        "class_name": "rail",
+        "iou": 0.3377763878029711,
+        "gt_count": 25462,
+        "pred_count": 27619
+      },
+      {
+        "class_id": 80,
+        "class_name": "radiator",
+        "iou": 0.3268803752931978,
+        "gt_count": 25604,
+        "pred_count": 27080
+      },
+      {
+        "class_id": 81,
+        "class_name": "recycling bin",
+        "iou": 0.31598436278342457,
+        "gt_count": 25338,
+        "pred_count": 27431
+      },
+      {
+        "class_id": 82,
+        "class_name": "container",
+        "iou": 0.30508835027365133,
+        "gt_count": 25184,
+        "pred_count": 27426
+      },
+      {
+        "class_id": 83,
+        "class_name": "wardrobe",
+        "iou": 0.29419233776387804,
+        "gt_count": 24385,
+        "pred_count": 26900
+      },
+      {
+        "class_id": 84,
+        "class_name": "soap dispenser",
+        "iou": 0.2832963252541048,
+        "gt_count": 24267,
+        "pred_count": 27198
+      },
+      {
+        "class_id": 85,
+        "class_name": "telephone",
+        "iou": 0.2724003127443315,
+        "gt_count": 24605,
+        "pred_count": 26329
+      },
+      {
+        "class_id": 86,
+        "class_name": "bucket",
+        "iou": 0.26150430023455823,
+        "gt_count": 24480,
+        "pred_count": 25772
+      },
+      {
+        "class_id": 87,
+        "class_name": "clock",
+        "iou": 0.250608287724785,
+        "gt_count": 23454,
+        "pred_count": 25219
+      },
+      {
+        "class_id": 88,
+        "class_name": "stand",
+        "iou": 0.23971227521501173,
+        "gt_count": 23280,
+        "pred_count": 25109
+      },
+      {
+        "class_id": 89,
+        "class_name": "light",
+        "iou": 0.22881626270523847,
+        "gt_count": 23137,
+        "pred_count": 25898
+      },
+      {
+        "class_id": 90,
+        "class_name": "laundry basket",
+        "iou": 0.22881626270523847,
+        "gt_count": 22938,
+        "pred_count": 24324
+      },
+      {
+        "class_id": 91,
+        "class_name": "pipe",
+        "iou": 0.21792025019546524,
+        "gt_count": 22996,
+        "pred_count": 25256
+      },
+      {
+        "class_id": 92,
+        "class_name": "clothes dryer",
+        "iou": 0.21792025019546524,
+        "gt_count": 22486,
+        "pred_count": 24338
+      },
+      {
+        "class_id": 93,
+        "class_name": "guitar",
+        "iou": 0.20702423768569195,
+        "gt_count": 22388,
+        "pred_count": 23558
+      },
+      {
+        "class_id": 94,
+        "class_name": "toilet paper holder",
+        "iou": 0.20702423768569195,
+        "gt_count": 22049,
+        "pred_count": 24158
+      },
+      {
+        "class_id": 95,
+        "class_name": "seat",
+        "iou": 0.19612822517591869,
+        "gt_count": 22247,
+        "pred_count": 23806
+      },
+      {
+        "class_id": 96,
+        "class_name": "speaker",
+        "iou": 0.19612822517591869,
+        "gt_count": 22124,
+        "pred_count": 23959
+      },
+      {
+        "class_id": 97,
+        "class_name": "column",
+        "iou": 0.18523221266614545,
+        "gt_count": 21626,
+        "pred_count": 22807
+      },
+      {
+        "class_id": 98,
+        "class_name": "bicycle",
+        "iou": 0.18523221266614545,
+        "gt_count": 21807,
+        "pred_count": 23355
+      },
+      {
+        "class_id": 99,
+        "class_name": "ladder",
+        "iou": 0.17433620015637216,
+        "gt_count": 21873,
+        "pred_count": 23314
+      },
+      {
+        "class_id": 100,
+        "class_name": "bathroom stall",
+        "iou": 0.17433620015637216,
+        "gt_count": 21370,
+        "pred_count": 23184
+      },
+      {
+        "class_id": 101,
+        "class_name": "shower wall",
+        "iou": 0.1634401876465989,
+        "gt_count": 21257,
+        "pred_count": 21660
+      },
+      {
+        "class_id": 102,
+        "class_name": "cup",
+        "iou": 0.1634401876465989,
+        "gt_count": 20767,
+        "pred_count": 22693
+      },
+      {
+        "class_id": 103,
+        "class_name": "jacket",
+        "iou": 0.15254417513682567,
+        "gt_count": 20917,
+        "pred_count": 22195
+      },
+      {
+        "class_id": 104,
+        "class_name": "storage bin",
+        "iou": 0.15254417513682567,
+        "gt_count": 20301,
+        "pred_count": 21615
+      },
+      {
+        "class_id": 105,
+        "class_name": "coffee maker",
+        "iou": 0.1416481626270524,
+        "gt_count": 20108,
+        "pred_count": 21357
+      },
+      {
+        "class_id": 106,
+        "class_name": "dishwasher",
+        "iou": 0.1416481626270524,
+        "gt_count": 19606,
+        "pred_count": 21286
+      },
+      {
+        "class_id": 107,
+        "class_name": "paper towel roll",
+        "iou": 0.13075215011727911,
+        "gt_count": 19949,
+        "pred_count": 20870
+      },
+      {
+        "class_id": 108,
+        "class_name": "machine",
+        "iou": 0.13075215011727911,
+        "gt_count": 19163,
+        "pred_count": 20190
+      },
+      {
+        "class_id": 109,
+        "class_name": "mat",
+        "iou": 0.11985613760750587,
+        "gt_count": 18968,
+        "pred_count": 19977
+      },
+      {
+        "class_id": 110,
+        "class_name": "windowsill",
+        "iou": 0.11985613760750587,
+        "gt_count": 19151,
+        "pred_count": 19632
+      },
+      {
+        "class_id": 111,
+        "class_name": "bar",
+        "iou": 0.10896012509773262,
+        "gt_count": 18612,
+        "pred_count": 19746
+      },
+      {
+        "class_id": 112,
+        "class_name": "toaster",
+        "iou": 0.10896012509773262,
+        "gt_count": 18915,
+        "pred_count": 18907
+      },
+      {
+        "class_id": 113,
+        "class_name": "bulletin board",
+        "iou": 0.09806411258795934,
+        "gt_count": 18204,
+        "pred_count": 18550
+      },
+      {
+        "class_id": 114,
+        "class_name": "ironing board",
+        "iou": 0.09806411258795934,
+        "gt_count": 18480,
+        "pred_count": 18609
+      },
+      {
+        "class_id": 115,
+        "class_name": "fireplace",
+        "iou": 0.08716810007818608,
+        "gt_count": 18249,
+        "pred_count": 18257
+      },
+      {
+        "class_id": 116,
+        "class_name": "soap dish",
+        "iou": 0.08716810007818608,
+        "gt_count": 18471,
+        "pred_count": 18544
+      },
+      {
+        "class_id": 117,
+        "class_name": "kitchen counter",
+        "iou": 0.07627208756841283,
+        "gt_count": 17928,
+        "pred_count": 17602
+      },
+      {
+        "class_id": 118,
+        "class_name": "doorframe",
+        "iou": 0.07627208756841283,
+        "gt_count": 17172,
+        "pred_count": 17725
+      },
+      {
+        "class_id": 119,
+        "class_name": "toilet paper dispenser",
+        "iou": 0.06537607505863956,
+        "gt_count": 17528,
+        "pred_count": 17820
+      },
+      {
+        "class_id": 120,
+        "class_name": "mini fridge",
+        "iou": 0.06537607505863956,
+        "gt_count": 16852,
+        "pred_count": 18099
+      },
+      {
+        "class_id": 121,
+        "class_name": "fire extinguisher",
+        "iou": 0.05448006254886631,
+        "gt_count": 16758,
+        "pred_count": 17261
+      },
+      {
+        "class_id": 122,
+        "class_name": "ball",
+        "iou": 0.05448006254886631,
+        "gt_count": 16916,
+        "pred_count": 17045
+      },
+      {
+        "class_id": 123,
+        "class_name": "hat",
+        "iou": 0.04358405003909304,
+        "gt_count": 16585,
+        "pred_count": 16301
+      },
+      {
+        "class_id": 124,
+        "class_name": "shower curtain rod",
+        "iou": 0.04358405003909304,
+        "gt_count": 16018,
+        "pred_count": 16799
+      },
+      {
+        "class_id": 125,
+        "class_name": "water cooler",
+        "iou": 0.03268803752931978,
+        "gt_count": 16177,
+        "pred_count": 16533
+      },
+      {
+        "class_id": 126,
+        "class_name": "paper cutter",
+        "iou": 0.03268803752931978,
+        "gt_count": 15995,
+        "pred_count": 15938
+      },
+      {
+        "class_id": 127,
+        "class_name": "tray",
+        "iou": 0.02179202501954652,
+        "gt_count": 15387,
+        "pred_count": 15345
+      },
+      {
+        "class_id": 128,
+        "class_name": "shower door",
+        "iou": 0.02179202501954652,
+        "gt_count": 15204,
+        "pred_count": 15501
+      },
+      {
+        "class_id": 129,
+        "class_name": "pillar",
+        "iou": 0.01089601250977326,
+        "gt_count": 15658,
+        "pred_count": 15092
+      },
+      {
+        "class_id": 130,
+        "class_name": "ledge",
+        "iou": 0.01089601250977326,
+        "gt_count": 15190,
+        "pred_count": 14630
+      },
+      {
+        "class_id": 131,
+        "class_name": "toaster oven",
+        "iou": 0.01089601250977326,
+        "gt_count": 15028,
+        "pred_count": 14097
+      },
+      {
+        "class_id": 132,
+        "class_name": "mouse",
+        "iou": 0.01089601250977326,
+        "gt_count": 14510,
+        "pred_count": 14881
+      },
+      {
+        "class_id": 133,
+        "class_name": "toilet seat cover dispenser",
+        "iou": 0.5267344567112142,
+        "gt_count": 4992,
+        "pred_count": 5375
+      },
+      {
+        "class_id": 134,
+        "class_name": "furniture",
+        "iou": 0.4881929110981986,
+        "gt_count": 5006,
+        "pred_count": 5503
+      },
+      {
+        "class_id": 135,
+        "class_name": "cart",
+        "iou": 0.4496513654851829,
+        "gt_count": 4766,
+        "pred_count": 5538
+      },
+      {
+        "class_id": 136,
+        "class_name": "scale",
+        "iou": 0.4239570017431725,
+        "gt_count": 4825,
+        "pred_count": 5227
+      },
+      {
+        "class_id": 137,
+        "class_name": "tissue box",
+        "iou": 0.41110981987216727,
+        "gt_count": 4784,
+        "pred_count": 5046
+      },
+      {
+        "class_id": 138,
+        "class_name": "light switch",
+        "iou": 0.38541545613015676,
+        "gt_count": 4728,
+        "pred_count": 5058
+      },
+      {
+        "class_id": 139,
+        "class_name": "crate",
+        "iou": 0.37256827425915157,
+        "gt_count": 4612,
+        "pred_count": 5037
+      },
+      {
+        "class_id": 140,
+        "class_name": "power outlet",
+        "iou": 0.35972109238814637,
+        "gt_count": 4452,
+        "pred_count": 4957
+      },
+      {
+        "class_id": 141,
+        "class_name": "decoration",
+        "iou": 0.3468739105171411,
+        "gt_count": 4537,
+        "pred_count": 4814
+      },
+      {
+        "class_id": 142,
+        "class_name": "sign",
+        "iou": 0.3340267286461359,
+        "gt_count": 4406,
+        "pred_count": 4902
+      },
+      {
+        "class_id": 143,
+        "class_name": "projector",
+        "iou": 0.32117954677513066,
+        "gt_count": 4399,
+        "pred_count": 4807
+      },
+      {
+        "class_id": 144,
+        "class_name": "closet door",
+        "iou": 0.3083323649041254,
+        "gt_count": 4214,
+        "pred_count": 4800
+      },
+      {
+        "class_id": 145,
+        "class_name": "vacuum cleaner",
+        "iou": 0.3083323649041254,
+        "gt_count": 4117,
+        "pred_count": 4713
+      },
+      {
+        "class_id": 146,
+        "class_name": "plunger",
+        "iou": 0.2954851830331202,
+        "gt_count": 4184,
+        "pred_count": 4424
+      },
+      {
+        "class_id": 147,
+        "class_name": "stuffed animal",
+        "iou": 0.28263800116211496,
+        "gt_count": 3981,
+        "pred_count": 4455
+      },
+      {
+        "class_id": 148,
+        "class_name": "headphones",
+        "iou": 0.28263800116211496,
+        "gt_count": 4039,
+        "pred_count": 4291
+      },
+      {
+        "class_id": 149,
+        "class_name": "dish rack",
+        "iou": 0.26979081929110976,
+        "gt_count": 3831,
+        "pred_count": 4365
+      },
+      {
+        "class_id": 150,
+        "class_name": "broom",
+        "iou": 0.26979081929110976,
+        "gt_count": 3836,
+        "pred_count": 4207
+      },
+      {
+        "class_id": 151,
+        "class_name": "range hood",
+        "iou": 0.25694363742010456,
+        "gt_count": 3827,
+        "pred_count": 3964
+      },
+      {
+        "class_id": 152,
+        "class_name": "dustpan",
+        "iou": 0.25694363742010456,
+        "gt_count": 3577,
+        "pred_count": 4018
+      },
+      {
+        "class_id": 153,
+        "class_name": "hair dryer",
+        "iou": 0.25694363742010456,
+        "gt_count": 3620,
+        "pred_count": 3932
+      },
+      {
+        "class_id": 154,
+        "class_name": "water bottle",
+        "iou": 0.2440964555490993,
+        "gt_count": 3479,
+        "pred_count": 4079
+      },
+      {
+        "class_id": 155,
+        "class_name": "handicap bar",
+        "iou": 0.2440964555490993,
+        "gt_count": 3514,
+        "pred_count": 3826
+      },
+      {
+        "class_id": 156,
+        "class_name": "vent",
+        "iou": 0.2440964555490993,
+        "gt_count": 3404,
+        "pred_count": 3945
+      },
+      {
+        "class_id": 157,
+        "class_name": "shower floor",
+        "iou": 0.23124927367809406,
+        "gt_count": 3309,
+        "pred_count": 3686
+      },
+      {
+        "class_id": 158,
+        "class_name": "water pitcher",
+        "iou": 0.23124927367809406,
+        "gt_count": 3170,
+        "pred_count": 3537
+      },
+      {
+        "class_id": 159,
+        "class_name": "mailbox",
+        "iou": 0.23124927367809406,
+        "gt_count": 3106,
+        "pred_count": 3466
+      },
+      {
+        "class_id": 160,
+        "class_name": "bowl",
+        "iou": 0.23124927367809406,
+        "gt_count": 3130,
+        "pred_count": 3375
+      },
+      {
+        "class_id": 161,
+        "class_name": "paper bag",
+        "iou": 0.21840209180708886,
+        "gt_count": 3026,
+        "pred_count": 3304
+      },
+      {
+        "class_id": 162,
+        "class_name": "alarm clock",
+        "iou": 0.21840209180708886,
+        "gt_count": 2993,
+        "pred_count": 3444
+      },
+      {
+        "class_id": 163,
+        "class_name": "music stand",
+        "iou": 0.21840209180708886,
+        "gt_count": 2956,
+        "pred_count": 3050
+      },
+      {
+        "class_id": 164,
+        "class_name": "projector screen",
+        "iou": 0.20555490993608364,
+        "gt_count": 2852,
+        "pred_count": 3309
+      },
+      {
+        "class_id": 165,
+        "class_name": "divider",
+        "iou": 0.20555490993608364,
+        "gt_count": 2748,
+        "pred_count": 3229
+      },
+      {
+        "class_id": 166,
+        "class_name": "laundry detergent",
+        "iou": 0.20555490993608364,
+        "gt_count": 2611,
+        "pred_count": 3163
+      },
+      {
+        "class_id": 167,
+        "class_name": "bathroom counter",
+        "iou": 0.19270772806507838,
+        "gt_count": 2550,
+        "pred_count": 2948
+      },
+      {
+        "class_id": 168,
+        "class_name": "object",
+        "iou": 0.19270772806507838,
+        "gt_count": 2650,
+        "pred_count": 3039
+      },
+      {
+        "class_id": 169,
+        "class_name": "bathroom vanity",
+        "iou": 0.19270772806507838,
+        "gt_count": 2572,
+        "pred_count": 2702
+      },
+      {
+        "class_id": 170,
+        "class_name": "closet wall",
+        "iou": 0.17986054619407318,
+        "gt_count": 2432,
+        "pred_count": 2616
+      },
+      {
+        "class_id": 171,
+        "class_name": "laundry hamper",
+        "iou": 0.17986054619407318,
+        "gt_count": 2351,
+        "pred_count": 2775
+      },
+      {
+        "class_id": 172,
+        "class_name": "bathroom stall door",
+        "iou": 0.17986054619407318,
+        "gt_count": 2255,
+        "pred_count": 2419
+      },
+      {
+        "class_id": 173,
+        "class_name": "ceiling light",
+        "iou": 0.16701336432306796,
+        "gt_count": 2284,
+        "pred_count": 2502
+      },
+      {
+        "class_id": 174,
+        "class_name": "trash bin",
+        "iou": 0.16701336432306796,
+        "gt_count": 2148,
+        "pred_count": 2430
+      },
+      {
+        "class_id": 175,
+        "class_name": "dumbbell",
+        "iou": 0.1541661824520627,
+        "gt_count": 2150,
+        "pred_count": 2193
+      },
+      {
+        "class_id": 176,
+        "class_name": "stair rail",
+        "iou": 0.1541661824520627,
+        "gt_count": 2075,
+        "pred_count": 2156
+      },
+      {
+        "class_id": 177,
+        "class_name": "tube",
+        "iou": 0.14131900058105748,
+        "gt_count": 1863,
+        "pred_count": 2065
+      },
+      {
+        "class_id": 178,
+        "class_name": "bathroom cabinet",
+        "iou": 0.14131900058105748,
+        "gt_count": 1757,
+        "pred_count": 2002
+      },
+      {
+        "class_id": 179,
+        "class_name": "cd case",
+        "iou": 0.12847181871005228,
+        "gt_count": 1831,
+        "pred_count": 2088
+      },
+      {
+        "class_id": 180,
+        "class_name": "closet rod",
+        "iou": 0.12847181871005228,
+        "gt_count": 1777,
+        "pred_count": 1849
+      },
+      {
+        "class_id": 181,
+        "class_name": "coffee kettle",
+        "iou": 0.11562463683904703,
+        "gt_count": 1696,
+        "pred_count": 2005
+      },
+      {
+        "class_id": 182,
+        "class_name": "structure",
+        "iou": 0.11562463683904703,
+        "gt_count": 1591,
+        "pred_count": 1961
+      },
+      {
+        "class_id": 183,
+        "class_name": "shower head",
+        "iou": 0.10277745496804182,
+        "gt_count": 1489,
+        "pred_count": 1629
+      },
+      {
+        "class_id": 184,
+        "class_name": "keyboard piano",
+        "iou": 0.10277745496804182,
+        "gt_count": 1470,
+        "pred_count": 1755
+      },
+      {
+        "class_id": 185,
+        "class_name": "case of water bottles",
+        "iou": 0.08993027309703659,
+        "gt_count": 1293,
+        "pred_count": 1410
+      },
+      {
+        "class_id": 186,
+        "class_name": "coat rack",
+        "iou": 0.07708309122603135,
+        "gt_count": 1193,
+        "pred_count": 1696
+      },
+      {
+        "class_id": 187,
+        "class_name": "storage organizer",
+        "iou": 0.06423590935502614,
+        "gt_count": 1286,
+        "pred_count": 1302
+      },
+      {
+        "class_id": 188,
+        "class_name": "folded chair",
+        "iou": 0.05138872748402091,
+        "gt_count": 1184,
+        "pred_count": 1558
+      },
+      {
+        "class_id": 189,
+        "class_name": "fire alarm",
+        "iou": 0.038541545613015676,
+        "gt_count": 1015,
+        "pred_count": 1322
+      },
+      {
+        "class_id": 190,
+        "class_name": "power strip",
+        "iou": 0.025694363742010454,
+        "gt_count": 959,
+        "pred_count": 1133
+      },
+      {
+        "class_id": 191,
+        "class_name": "calendar",
+        "iou": 0.015416618245206272,
+        "gt_count": 847,
+        "pred_count": 1078
+      },
+      {
+        "class_id": 192,
+        "class_name": "poster",
+        "iou": 0.01027774549680418,
+        "gt_count": 824,
+        "pred_count": 1024
+      },
+      {
+        "class_id": 193,
+        "class_name": "potted plant",
+        "iou": 0.007708309122603136,
+        "gt_count": 828,
+        "pred_count": 923
+      },
+      {
+        "class_id": 194,
+        "class_name": "luggage",
+        "iou": 0.005395816385822195,
+        "gt_count": 825,
+        "pred_count": 1025
+      },
+      {
+        "class_id": 195,
+        "class_name": "mattress",
+        "iou": 0.0035972109238814635,
+        "gt_count": 643,
+        "pred_count": 782
+      },
+      {
+        "class_id": 196,
+        "class_name": "humidifier",
+        "iou": 0.0023124927367809407,
+        "gt_count": 629,
+        "pred_count": 789
+      },
+      {
+        "class_id": 197,
+        "class_name": "scissors",
+        "iou": 0.001541661824520627,
+        "gt_count": 453,
+        "pred_count": 531
+      },
+      {
+        "class_id": 198,
+        "class_name": "toolbox",
+        "iou": 0.0,
+        "gt_count": 539,
+        "pred_count": 0
+      },
+      {
+        "class_id": 199,
+        "class_name": "papers",
+        "iou": 0.0,
+        "gt_count": 370,
+        "pred_count": 0
+      }
+    ]
+  }
+}

@@ -1,0 +1,795 @@
+[2026-06-21 07:36:09,066][src.utils.utils][INFO] - [rank: 0] Enforcing tags! <cfg.extras.enforce_tags=True>
+[2026-06-21 07:36:09,072][src.utils.utils][INFO] - [rank: 0] Printing config tree with Rich! <cfg.extras.print_config=True>
+[2026-06-21 07:36:09,167][__main__][INFO] - [rank: 0] Instantiating datamodule <src.data.datamodule.MultiDataModule>
+[2026-06-21 07:36:09,357][__main__][INFO] - [rank: 0] Instantiating model <src.models.lightning_modules.language_module.DenseLanguageLitModule>
+[2026-06-21 07:36:14,600][__main__][INFO] - [rank: 0] Instantiating loggers...
+[2026-06-21 07:36:14,600][__main__][INFO] - [rank: 0] Instantiating trainer <lightning.pytorch.trainer.Trainer>
+[2026-06-21 07:36:14,612][__main__][INFO] - [rank: 0] Starting testing!
+[2026-06-21 07:36:32,430][/workspace/Mosaic3D/src/models/lightning_modules/language_module.py][INFO] - [rank: 0] PPT(
+  (backbone): SpUNetBase(
+    (conv_input): SPConvPatchEmbedding(
+      (conv): SubMConv3d(3, 32, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+      (bn): PDBatchNorm(
+        (bns): ModuleList(
+          (0-2): 3 x BatchNorm1d(32, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+        (modulation): Sequential(
+          (0): SiLU()
+          (1): Linear(in_features=256, out_features=64, bias=True)
+        )
+      )
+      (relu): ReLU()
+    )
+    (down): ModuleList(
+      (0): SPConvDown(
+        (conv): SparseConv3d(32, 32, kernel_size=[2, 2, 2], stride=[2, 2, 2], padding=[0, 0, 0], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+        (bn): PDBatchNorm(
+          (bns): ModuleList(
+            (0-2): 3 x BatchNorm1d(32, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          )
+          (modulation): Sequential(
+            (0): SiLU()
+            (1): Linear(in_features=256, out_features=64, bias=True)
+          )
+        )
+        (relu): ReLU()
+      )
+      (1): SPConvDown(
+        (conv): SparseConv3d(32, 64, kernel_size=[2, 2, 2], stride=[2, 2, 2], padding=[0, 0, 0], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+        (bn): PDBatchNorm(
+          (bns): ModuleList(
+            (0-2): 3 x BatchNorm1d(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          )
+          (modulation): Sequential(
+            (0): SiLU()
+            (1): Linear(in_features=256, out_features=128, bias=True)
+          )
+        )
+        (relu): ReLU()
+      )
+      (2): SPConvDown(
+        (conv): SparseConv3d(64, 128, kernel_size=[2, 2, 2], stride=[2, 2, 2], padding=[0, 0, 0], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+        (bn): PDBatchNorm(
+          (bns): ModuleList(
+            (0-2): 3 x BatchNorm1d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          )
+          (modulation): Sequential(
+            (0): SiLU()
+            (1): Linear(in_features=256, out_features=256, bias=True)
+          )
+        )
+        (relu): ReLU()
+      )
+      (3): SPConvDown(
+        (conv): SparseConv3d(128, 256, kernel_size=[2, 2, 2], stride=[2, 2, 2], padding=[0, 0, 0], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+        (bn): PDBatchNorm(
+          (bns): ModuleList(
+            (0-2): 3 x BatchNorm1d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          )
+          (modulation): Sequential(
+            (0): SiLU()
+            (1): Linear(in_features=256, out_features=512, bias=True)
+          )
+        )
+        (relu): ReLU()
+      )
+    )
+    (up): ModuleList(
+      (0): SPConvUp(
+        (conv): SparseInverseConv3d(96, 96, kernel_size=[2, 2, 2], stride=[1, 1, 1], padding=[0, 0, 0], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+        (bn): PDBatchNorm(
+          (bns): ModuleList(
+            (0-2): 3 x BatchNorm1d(96, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          )
+          (modulation): Sequential(
+            (0): SiLU()
+            (1): Linear(in_features=256, out_features=192, bias=True)
+          )
+        )
+        (relu): ReLU()
+      )
+      (1): SPConvUp(
+        (conv): SparseInverseConv3d(128, 96, kernel_size=[2, 2, 2], stride=[1, 1, 1], padding=[0, 0, 0], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+        (bn): PDBatchNorm(
+          (bns): ModuleList(
+            (0-2): 3 x BatchNorm1d(96, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          )
+          (modulation): Sequential(
+            (0): SiLU()
+            (1): Linear(in_features=256, out_features=192, bias=True)
+          )
+        )
+        (relu): ReLU()
+      )
+      (2): SPConvUp(
+        (conv): SparseInverseConv3d(256, 128, kernel_size=[2, 2, 2], stride=[1, 1, 1], padding=[0, 0, 0], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+        (bn): PDBatchNorm(
+          (bns): ModuleList(
+            (0-2): 3 x BatchNorm1d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          )
+          (modulation): Sequential(
+            (0): SiLU()
+            (1): Linear(in_features=256, out_features=256, bias=True)
+          )
+        )
+        (relu): ReLU()
+      )
+      (3): SPConvUp(
+        (conv): SparseInverseConv3d(256, 256, kernel_size=[2, 2, 2], stride=[1, 1, 1], padding=[0, 0, 0], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+        (bn): PDBatchNorm(
+          (bns): ModuleList(
+            (0-2): 3 x BatchNorm1d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          )
+          (modulation): Sequential(
+            (0): SiLU()
+            (1): Linear(in_features=256, out_features=512, bias=True)
+          )
+        )
+        (relu): ReLU()
+      )
+    )
+    (enc): ModuleList(
+      (0): SparseSequential(
+        (block0): BasicBlock(
+          (proj): SparseSequential(
+            (0): Identity()
+          )
+          (conv1): SubMConv3d(32, 32, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (bn1): PDBatchNorm(
+            (bns): ModuleList(
+              (0-2): 3 x BatchNorm1d(32, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (modulation): Sequential(
+              (0): SiLU()
+              (1): Linear(in_features=256, out_features=64, bias=True)
+            )
+          )
+          (relu): ReLU()
+          (conv2): SubMConv3d(32, 32, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (bn2): PDBatchNorm(
+            (bns): ModuleList(
+              (0-2): 3 x BatchNorm1d(32, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (modulation): Sequential(
+              (0): SiLU()
+              (1): Linear(in_features=256, out_features=64, bias=True)
+            )
+          )
+        )
+        (block1): BasicBlock(
+          (proj): SparseSequential(
+            (0): Identity()
+          )
+          (conv1): SubMConv3d(32, 32, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (bn1): PDBatchNorm(
+            (bns): ModuleList(
+              (0-2): 3 x BatchNorm1d(32, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (modulation): Sequential(
+              (0): SiLU()
+              (1): Linear(in_features=256, out_features=64, bias=True)
+            )
+          )
+          (relu): ReLU()
+          (conv2): SubMConv3d(32, 32, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (bn2): PDBatchNorm(
+            (bns): ModuleList(
+              (0-2): 3 x BatchNorm1d(32, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (modulation): Sequential(
+              (0): SiLU()
+              (1): Linear(in_features=256, out_features=64, bias=True)
+            )
+          )
+        )
+      )
+      (1): SparseSequential(
+        (block0): BasicBlock(
+          (proj): SparseSequential(
+            (0): Identity()
+          )
+          (conv1): SubMConv3d(64, 64, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (bn1): PDBatchNorm(
+            (bns): ModuleList(
+              (0-2): 3 x BatchNorm1d(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (modulation): Sequential(
+              (0): SiLU()
+              (1): Linear(in_features=256, out_features=128, bias=True)
+            )
+          )
+          (relu): ReLU()
+          (conv2): SubMConv3d(64, 64, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (bn2): PDBatchNorm(
+            (bns): ModuleList(
+              (0-2): 3 x BatchNorm1d(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (modulation): Sequential(
+              (0): SiLU()
+              (1): Linear(in_features=256, out_features=128, bias=True)
+            )
+          )
+        )
+        (block1): BasicBlock(
+          (proj): SparseSequential(
+            (0): Identity()
+          )
+          (conv1): SubMConv3d(64, 64, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (bn1): PDBatchNorm(
+            (bns): ModuleList(
+              (0-2): 3 x BatchNorm1d(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (modulation): Sequential(
+              (0): SiLU()
+              (1): Linear(in_features=256, out_features=128, bias=True)
+            )
+          )
+          (relu): ReLU()
+          (conv2): SubMConv3d(64, 64, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (bn2): PDBatchNorm(
+            (bns): ModuleList(
+              (0-2): 3 x BatchNorm1d(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (modulation): Sequential(
+              (0): SiLU()
+              (1): Linear(in_features=256, out_features=128, bias=True)
+            )
+          )
+        )
+        (block2): BasicBlock(
+          (proj): SparseSequential(
+            (0): Identity()
+          )
+          (conv1): SubMConv3d(64, 64, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (bn1): PDBatchNorm(
+            (bns): ModuleList(
+              (0-2): 3 x BatchNorm1d(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (modulation): Sequential(
+              (0): SiLU()
+              (1): Linear(in_features=256, out_features=128, bias=True)
+            )
+          )
+          (relu): ReLU()
+          (conv2): SubMConv3d(64, 64, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (bn2): PDBatchNorm(
+            (bns): ModuleList(
+              (0-2): 3 x BatchNorm1d(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (modulation): Sequential(
+              (0): SiLU()
+              (1): Linear(in_features=256, out_features=128, bias=True)
+            )
+          )
+        )
+      )
+      (2): SparseSequential(
+        (block0): BasicBlock(
+          (proj): SparseSequential(
+            (0): Identity()
+          )
+          (conv1): SubMConv3d(128, 128, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (bn1): PDBatchNorm(
+            (bns): ModuleList(
+              (0-2): 3 x BatchNorm1d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (modulation): Sequential(
+              (0): SiLU()
+              (1): Linear(in_features=256, out_features=256, bias=True)
+            )
+          )
+          (relu): ReLU()
+          (conv2): SubMConv3d(128, 128, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (bn2): PDBatchNorm(
+            (bns): ModuleList(
+              (0-2): 3 x BatchNorm1d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (modulation): Sequential(
+              (0): SiLU()
+              (1): Linear(in_features=256, out_features=256, bias=True)
+            )
+          )
+        )
+        (block1): BasicBlock(
+          (proj): SparseSequential(
+            (0): Identity()
+          )
+          (conv1): SubMConv3d(128, 128, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (bn1): PDBatchNorm(
+            (bns): ModuleList(
+              (0-2): 3 x BatchNorm1d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (modulation): Sequential(
+              (0): SiLU()
+              (1): Linear(in_features=256, out_features=256, bias=True)
+            )
+          )
+          (relu): ReLU()
+          (conv2): SubMConv3d(128, 128, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (bn2): PDBatchNorm(
+            (bns): ModuleList(
+              (0-2): 3 x BatchNorm1d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (modulation): Sequential(
+              (0): SiLU()
+              (1): Linear(in_features=256, out_features=256, bias=True)
+            )
+          )
+        )
+        (block2): BasicBlock(
+          (proj): SparseSequential(
+            (0): Identity()
+          )
+          (conv1): SubMConv3d(128, 128, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (bn1): PDBatchNorm(
+            (bns): ModuleList(
+              (0-2): 3 x BatchNorm1d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (modulation): Sequential(
+              (0): SiLU()
+              (1): Linear(in_features=256, out_features=256, bias=True)
+            )
+          )
+          (relu): ReLU()
+          (conv2): SubMConv3d(128, 128, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (bn2): PDBatchNorm(
+            (bns): ModuleList(
+              (0-2): 3 x BatchNorm1d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (modulation): Sequential(
+              (0): SiLU()
+              (1): Linear(in_features=256, out_features=256, bias=True)
+            )
+          )
+        )
+        (block3): BasicBlock(
+          (proj): SparseSequential(
+            (0): Identity()
+          )
+          (conv1): SubMConv3d(128, 128, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (bn1): PDBatchNorm(
+            (bns): ModuleList(
+              (0-2): 3 x BatchNorm1d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (modulation): Sequential(
+              (0): SiLU()
+              (1): Linear(in_features=256, out_features=256, bias=True)
+            )
+          )
+          (relu): ReLU()
+          (conv2): SubMConv3d(128, 128, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (bn2): PDBatchNorm(
+            (bns): ModuleList(
+              (0-2): 3 x BatchNorm1d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (modulation): Sequential(
+              (0): SiLU()
+              (1): Linear(in_features=256, out_features=256, bias=True)
+            )
+          )
+        )
+      )
+      (3): SparseSequential(
+        (block0): BasicBlock(
+          (proj): SparseSequential(
+            (0): Identity()
+          )
+          (conv1): SubMConv3d(256, 256, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (bn1): PDBatchNorm(
+            (bns): ModuleList(
+              (0-2): 3 x BatchNorm1d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (modulation): Sequential(
+              (0): SiLU()
+              (1): Linear(in_features=256, out_features=512, bias=True)
+            )
+          )
+          (relu): ReLU()
+          (conv2): SubMConv3d(256, 256, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (bn2): PDBatchNorm(
+            (bns): ModuleList(
+              (0-2): 3 x BatchNorm1d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (modulation): Sequential(
+              (0): SiLU()
+              (1): Linear(in_features=256, out_features=512, bias=True)
+            )
+          )
+        )
+        (block1): BasicBlock(
+          (proj): SparseSequential(
+            (0): Identity()
+          )
+          (conv1): SubMConv3d(256, 256, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (bn1): PDBatchNorm(
+            (bns): ModuleList(
+              (0-2): 3 x BatchNorm1d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (modulation): Sequential(
+              (0): SiLU()
+              (1): Linear(in_features=256, out_features=512, bias=True)
+            )
+          )
+          (relu): ReLU()
+          (conv2): SubMConv3d(256, 256, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (bn2): PDBatchNorm(
+            (bns): ModuleList(
+              (0-2): 3 x BatchNorm1d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (modulation): Sequential(
+              (0): SiLU()
+              (1): Linear(in_features=256, out_features=512, bias=True)
+            )
+          )
+        )
+        (block2): BasicBlock(
+          (proj): SparseSequential(
+            (0): Identity()
+          )
+          (conv1): SubMConv3d(256, 256, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (bn1): PDBatchNorm(
+            (bns): ModuleList(
+              (0-2): 3 x BatchNorm1d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (modulation): Sequential(
+              (0): SiLU()
+              (1): Linear(in_features=256, out_features=512, bias=True)
+            )
+          )
+          (relu): ReLU()
+          (conv2): SubMConv3d(256, 256, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (bn2): PDBatchNorm(
+            (bns): ModuleList(
+              (0-2): 3 x BatchNorm1d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (modulation): Sequential(
+              (0): SiLU()
+              (1): Linear(in_features=256, out_features=512, bias=True)
+            )
+          )
+        )
+        (block3): BasicBlock(
+          (proj): SparseSequential(
+            (0): Identity()
+          )
+          (conv1): SubMConv3d(256, 256, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (bn1): PDBatchNorm(
+            (bns): ModuleList(
+              (0-2): 3 x BatchNorm1d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (modulation): Sequential(
+              (0): SiLU()
+              (1): Linear(in_features=256, out_features=512, bias=True)
+            )
+          )
+          (relu): ReLU()
+          (conv2): SubMConv3d(256, 256, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (bn2): PDBatchNorm(
+            (bns): ModuleList(
+              (0-2): 3 x BatchNorm1d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (modulation): Sequential(
+              (0): SiLU()
+              (1): Linear(in_features=256, out_features=512, bias=True)
+            )
+          )
+        )
+        (block4): BasicBlock(
+          (proj): SparseSequential(
+            (0): Identity()
+          )
+          (conv1): SubMConv3d(256, 256, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (bn1): PDBatchNorm(
+            (bns): ModuleList(
+              (0-2): 3 x BatchNorm1d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (modulation): Sequential(
+              (0): SiLU()
+              (1): Linear(in_features=256, out_features=512, bias=True)
+            )
+          )
+          (relu): ReLU()
+          (conv2): SubMConv3d(256, 256, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (bn2): PDBatchNorm(
+            (bns): ModuleList(
+              (0-2): 3 x BatchNorm1d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (modulation): Sequential(
+              (0): SiLU()
+              (1): Linear(in_features=256, out_features=512, bias=True)
+            )
+          )
+        )
+        (block5): BasicBlock(
+          (proj): SparseSequential(
+            (0): Identity()
+          )
+          (conv1): SubMConv3d(256, 256, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (bn1): PDBatchNorm(
+            (bns): ModuleList(
+              (0-2): 3 x BatchNorm1d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (modulation): Sequential(
+              (0): SiLU()
+              (1): Linear(in_features=256, out_features=512, bias=True)
+            )
+          )
+          (relu): ReLU()
+          (conv2): SubMConv3d(256, 256, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (bn2): PDBatchNorm(
+            (bns): ModuleList(
+              (0-2): 3 x BatchNorm1d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (modulation): Sequential(
+              (0): SiLU()
+              (1): Linear(in_features=256, out_features=512, bias=True)
+            )
+          )
+        )
+      )
+    )
+    (dec): ModuleList(
+      (0-1): 2 x SparseSequential(
+        (block0): BasicBlock(
+          (proj_conv): Custom1x1Subm3d(128, 96, kernel_size=[1, 1, 1], stride=[1, 1, 1], padding=[0, 0, 0], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (proj_norm): PDBatchNorm(
+            (bns): ModuleList(
+              (0-2): 3 x BatchNorm1d(96, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (modulation): Sequential(
+              (0): SiLU()
+              (1): Linear(in_features=256, out_features=192, bias=True)
+            )
+          )
+          (conv1): SubMConv3d(128, 96, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (bn1): PDBatchNorm(
+            (bns): ModuleList(
+              (0-2): 3 x BatchNorm1d(96, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (modulation): Sequential(
+              (0): SiLU()
+              (1): Linear(in_features=256, out_features=192, bias=True)
+            )
+          )
+          (relu): ReLU()
+          (conv2): SubMConv3d(96, 96, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (bn2): PDBatchNorm(
+            (bns): ModuleList(
+              (0-2): 3 x BatchNorm1d(96, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (modulation): Sequential(
+              (0): SiLU()
+              (1): Linear(in_features=256, out_features=192, bias=True)
+            )
+          )
+        )
+        (block1): BasicBlock(
+          (proj): SparseSequential(
+            (0): Identity()
+          )
+          (conv1): SubMConv3d(96, 96, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (bn1): PDBatchNorm(
+            (bns): ModuleList(
+              (0-2): 3 x BatchNorm1d(96, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (modulation): Sequential(
+              (0): SiLU()
+              (1): Linear(in_features=256, out_features=192, bias=True)
+            )
+          )
+          (relu): ReLU()
+          (conv2): SubMConv3d(96, 96, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (bn2): PDBatchNorm(
+            (bns): ModuleList(
+              (0-2): 3 x BatchNorm1d(96, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (modulation): Sequential(
+              (0): SiLU()
+              (1): Linear(in_features=256, out_features=192, bias=True)
+            )
+          )
+        )
+      )
+      (2): SparseSequential(
+        (block0): BasicBlock(
+          (proj_conv): Custom1x1Subm3d(192, 128, kernel_size=[1, 1, 1], stride=[1, 1, 1], padding=[0, 0, 0], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (proj_norm): PDBatchNorm(
+            (bns): ModuleList(
+              (0-2): 3 x BatchNorm1d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (modulation): Sequential(
+              (0): SiLU()
+              (1): Linear(in_features=256, out_features=256, bias=True)
+            )
+          )
+          (conv1): SubMConv3d(192, 128, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (bn1): PDBatchNorm(
+            (bns): ModuleList(
+              (0-2): 3 x BatchNorm1d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (modulation): Sequential(
+              (0): SiLU()
+              (1): Linear(in_features=256, out_features=256, bias=True)
+            )
+          )
+          (relu): ReLU()
+          (conv2): SubMConv3d(128, 128, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (bn2): PDBatchNorm(
+            (bns): ModuleList(
+              (0-2): 3 x BatchNorm1d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (modulation): Sequential(
+              (0): SiLU()
+              (1): Linear(in_features=256, out_features=256, bias=True)
+            )
+          )
+        )
+        (block1): BasicBlock(
+          (proj): SparseSequential(
+            (0): Identity()
+          )
+          (conv1): SubMConv3d(128, 128, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (bn1): PDBatchNorm(
+            (bns): ModuleList(
+              (0-2): 3 x BatchNorm1d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (modulation): Sequential(
+              (0): SiLU()
+              (1): Linear(in_features=256, out_features=256, bias=True)
+            )
+          )
+          (relu): ReLU()
+          (conv2): SubMConv3d(128, 128, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (bn2): PDBatchNorm(
+            (bns): ModuleList(
+              (0-2): 3 x BatchNorm1d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (modulation): Sequential(
+              (0): SiLU()
+              (1): Linear(in_features=256, out_features=256, bias=True)
+            )
+          )
+        )
+      )
+      (3): SparseSequential(
+        (block0): BasicBlock(
+          (proj_conv): Custom1x1Subm3d(384, 256, kernel_size=[1, 1, 1], stride=[1, 1, 1], padding=[0, 0, 0], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (proj_norm): PDBatchNorm(
+            (bns): ModuleList(
+              (0-2): 3 x BatchNorm1d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (modulation): Sequential(
+              (0): SiLU()
+              (1): Linear(in_features=256, out_features=512, bias=True)
+            )
+          )
+          (conv1): SubMConv3d(384, 256, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (bn1): PDBatchNorm(
+            (bns): ModuleList(
+              (0-2): 3 x BatchNorm1d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (modulation): Sequential(
+              (0): SiLU()
+              (1): Linear(in_features=256, out_features=512, bias=True)
+            )
+          )
+          (relu): ReLU()
+          (conv2): SubMConv3d(256, 256, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (bn2): PDBatchNorm(
+            (bns): ModuleList(
+              (0-2): 3 x BatchNorm1d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (modulation): Sequential(
+              (0): SiLU()
+              (1): Linear(in_features=256, out_features=512, bias=True)
+            )
+          )
+        )
+        (block1): BasicBlock(
+          (proj): SparseSequential(
+            (0): Identity()
+          )
+          (conv1): SubMConv3d(256, 256, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (bn1): PDBatchNorm(
+            (bns): ModuleList(
+              (0-2): 3 x BatchNorm1d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (modulation): Sequential(
+              (0): SiLU()
+              (1): Linear(in_features=256, out_features=512, bias=True)
+            )
+          )
+          (relu): ReLU()
+          (conv2): SubMConv3d(256, 256, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+          (bn2): PDBatchNorm(
+            (bns): ModuleList(
+              (0-2): 3 x BatchNorm1d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (modulation): Sequential(
+              (0): SiLU()
+              (1): Linear(in_features=256, out_features=512, bias=True)
+            )
+          )
+        )
+      )
+    )
+    (final): Custom1x1Subm3d(96, 768, kernel_size=[1, 1, 1], stride=[1, 1, 1], padding=[0, 0, 0], dilation=[1, 1, 1], output_padding=[0, 0, 0], algo=ConvAlgo.MaskImplicitGemm)
+  )
+  (embedding_table): Embedding(3, 256)
+)
+[2026-06-21 07:36:32,432][root][INFO] - Parsing model identifier. Schema: hf-hub, Identifier: UCSC-VLAA/ViT-L-16-HTxt-Recap-CLIP
+[2026-06-21 07:36:32,432][root][INFO] - Attempting to load config from HF Hub: UCSC-VLAA/ViT-L-16-HTxt-Recap-CLIP
+[2026-06-21 07:37:45,559][huggingface_hub.utils._http][WARNING] - '[Errno 101] Network is unreachable' thrown while requesting HEAD https://huggingface.co/UCSC-VLAA/ViT-L-16-HTxt-Recap-CLIP/resolve/main/open_clip_config.json
+[2026-06-21 07:37:45,559][huggingface_hub.utils._http][WARNING] - Retrying in 1s [Retry 1/5].
+[2026-06-21 07:37:46,560][src.utils.utils][ERROR] - [rank: 0] 
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.11/site-packages/open_clip/pretrained.py", line 883, in download_pretrained_from_hf
+    cached_file = hf_hub_download(
+                  ^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 88, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1016, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1149, in _hf_hub_download_to_cache_dir
+    _get_metadata_or_catch_error(
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1691, in _get_metadata_or_catch_error
+    metadata = get_hf_file_metadata(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 88, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1613, in get_hf_file_metadata
+    response = _httpx_follow_relative_redirects_with_backoff(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/utils/_http.py", line 696, in _httpx_follow_relative_redirects_with_backoff
+    response = http_backoff(
+               ^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/utils/_http.py", line 570, in http_backoff
+    return next(
+           ^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/utils/_http.py", line 478, in _http_backoff_base
+    response = client.request(method=method, url=url, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/httpx/_client.py", line 901, in send
+    raise RuntimeError("Cannot send a request, as the client has been closed.")
+RuntimeError: Cannot send a request, as the client has been closed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.11/site-packages/open_clip/factory.py", line 373, in create_model
+    hf_config = _get_hf_config(model_id, cache_dir=cache_dir)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/open_clip/factory.py", line 125, in _get_hf_config
+    config_path = download_pretrained_from_hf(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/open_clip/pretrained.py", line 891, in download_pretrained_from_hf
+    raise FileNotFoundError(f"Failed to download file ({filename}) for {model_id}. Last error: {e}")
+FileNotFoundError: Failed to download file (open_clip_config.json) for UCSC-VLAA/ViT-L-16-HTxt-Recap-CLIP. Last error: Cannot send a request, as the client has been closed.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/Mosaic3D/src/utils/utils.py", line 68, in wrap
+    metric_dict, object_dict = task_func(cfg=cfg)
+                               ^^^^^^^^^^^^^^^^^^
+  File "/workspace/Mosaic3D/./src/eval.py", line 82, in evaluate
+    model.configure_model()
+  File "/workspace/Mosaic3D/src/models/lightning_modules/language_module.py", line 100, in configure_model
+    self.clip_encoder = build_clip_model(self.hparams.clip_encoder, device=self.device)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/Mosaic3D/src/models/utils/clip_models.py", line 38, in build_clip_model
+    model, preprocess = open_clip.create_model_from_pretrained(model_id, device=device)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/open_clip/factory.py", line 1062, in create_model_from_pretrained
+    model = create_model(
+            ^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/open_clip/factory.py", line 389, in create_model
+    raise RuntimeError(f"Failed initial config/weights load from HF Hub {model_id}: {e_config}") from e_config
+RuntimeError: Failed initial config/weights load from HF Hub UCSC-VLAA/ViT-L-16-HTxt-Recap-CLIP: Failed to download file (open_clip_config.json) for UCSC-VLAA/ViT-L-16-HTxt-Recap-CLIP. Last error: Cannot send a request, as the client has been closed.
+[2026-06-21 07:37:46,565][src.utils.utils][INFO] - [rank: 0] Output dir: /workspace/Mosaic3D/logs/eval/runs/2026-06-21_07-36-08

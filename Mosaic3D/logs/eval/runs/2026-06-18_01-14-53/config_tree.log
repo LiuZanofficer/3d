@@ -1,0 +1,491 @@
+CONFIG
+├── data
+│   └── _target_: src.data.datamodule.MultiDataModule                                                                            
+│       train_dataset:                                                                                                           
+│         _target_: src.data.multi_dataloader.ConcatDataset                                                                      
+│         _partial_: true                                                                                                        
+│         ignore_label: -100                                                                                                     
+│         conditions:                                                                                                            
+│         - ScanNet                                                                                                              
+│         - ARKitScenes                                                                                                          
+│         - ScanNetPP                                                                                                            
+│         repeat: 4                                                                                                              
+│         datasets:                                                                                                              
+│         - _target_: src.data.scannet.dataset.ScanNetDataset                                                                    
+│           _partial_: true                                                                                                      
+│           data_dir: /datasets/mosaic3d/data/scannet                                                                            
+│           split: train                                                                                                         
+│           num_masks: 300                                                                                                       
+│           ignore_label: -100                                                                                                   
+│           repeat: 1                                                                                                            
+│           transforms:                                                                                                          
+│           - type: FilterCaption                                                                                                
+│             min_words: 1                                                                                                       
+│             max_words: 50                                                                                                      
+│             min_letter_ratio: 0.5                                                                                              
+│             max_repetition_ratio: 0.4                                                                                          
+│             max_consecutive: 3                                                                                                 
+│           - type: Copy                                                                                                         
+│             keys_dict:                                                                                                         
+│               coord: origin_coord                                                                                              
+│           - type: CenterShift                                                                                                  
+│             apply_z: true                                                                                                      
+│           - type: RandomRotate                                                                                                 
+│             p: 0.5                                                                                                             
+│             angle:                                                                                                             
+│             - -1                                                                                                               
+│             - 1                                                                                                                
+│             center:                                                                                                            
+│             - 0                                                                                                                
+│             - 0                                                                                                                
+│             - 0                                                                                                                
+│             axis: z                                                                                                            
+│           - type: RandomRotate                                                                                                 
+│             p: 0.5                                                                                                             
+│             angle:                                                                                                             
+│             - -0.015625                                                                                                        
+│             - 0.015625                                                                                                         
+│             axis: x                                                                                                            
+│           - type: RandomRotate                                                                                                 
+│             p: 0.5                                                                                                             
+│             angle:                                                                                                             
+│             - -0.015625                                                                                                        
+│             - 0.015625                                                                                                         
+│             axis: 'y'                                                                                                          
+│           - type: RandomScale                                                                                                  
+│             scale:                                                                                                             
+│             - 0.9                                                                                                              
+│             - 1.1                                                                                                              
+│           - type: RandomFlip                                                                                                   
+│             p: 0.5                                                                                                             
+│           - type: RandomJitter                                                                                                 
+│             sigma: 0.005                                                                                                       
+│             clip: 0.02                                                                                                         
+│           - type: ElasticDistortion                                                                                            
+│           - type: ChromaticAutoContrast                                                                                        
+│             p: 0.2                                                                                                             
+│           - type: ChromaticTranslation                                                                                         
+│             p: 0.95                                                                                                            
+│             ratio: 0.05                                                                                                        
+│           - type: ChromaticJitter                                                                                              
+│             p: 0.95                                                                                                            
+│             std: 0.05                                                                                                          
+│           - type: SphereCrop                                                                                                   
+│             point_max: 250000                                                                                                  
+│             mode: random                                                                                                       
+│           - type: CenterShift                                                                                                  
+│             apply_z: false                                                                                                     
+│           - type: NormalizeColor                                                                                               
+│           - type: Add                                                                                                          
+│             keys_dict:                                                                                                         
+│               condition: ScanNet                                                                                               
+│           - type: ToTensor                                                                                                     
+│           - type: Collect                                                                                                      
+│             keys:                                                                                                              
+│             - origin_coord                                                                                                     
+│             - coord                                                                                                            
+│             - color                                                                                                            
+│             - segment                                                                                                          
+│             - instance                                                                                                         
+│             - binary                                                                                                           
+│             - caption_data                                                                                                     
+│             - origin_idx                                                                                                       
+│             - condition                                                                                                        
+│             offset_keys_dict:                                                                                                  
+│               offset: coord                                                                                                    
+│               pc_count: origin_coord                                                                                           
+│             feat_keys:                                                                                                         
+│             - color                                                                                                            
+│         - _target_: src.data.arkitscenes.dataset.ARKitScenesDataset                                                            
+│           _partial_: true                                                                                                      
+│           data_dir: /datasets/mosaic3d/data/arkitscenes                                                                        
+│           split: train                                                                                                         
+│           num_masks: 300                                                                                                       
+│           ignore_label: -100                                                                                                   
+│           repeat: 1                                                                                                            
+│           transforms:                                                                                                          
+│           - type: FilterCaption                                                                                                
+│             min_words: 1                                                                                                       
+│             max_words: 50                                                                                                      
+│             min_letter_ratio: 0.5                                                                                              
+│             max_repetition_ratio: 0.4                                                                                          
+│             max_consecutive: 3                                                                                                 
+│           - type: Copy                                                                                                         
+│             keys_dict:                                                                                                         
+│               coord: origin_coord                                                                                              
+│           - type: CenterShift                                                                                                  
+│             apply_z: true                                                                                                      
+│           - type: RandomRotate                                                                                                 
+│             p: 0.5                                                                                                             
+│             angle:                                                                                                             
+│             - -1                                                                                                               
+│             - 1                                                                                                                
+│             center:                                                                                                            
+│             - 0                                                                                                                
+│             - 0                                                                                                                
+│             - 0                                                                                                                
+│             axis: z                                                                                                            
+│           - type: RandomRotate                                                                                                 
+│             p: 0.5                                                                                                             
+│             angle:                                                                                                             
+│             - -0.015625                                                                                                        
+│             - 0.015625                                                                                                         
+│             axis: x                                                                                                            
+│           - type: RandomRotate                                                                                                 
+│             p: 0.5                                                                                                             
+│             angle:                                                                                                             
+│             - -0.015625                                                                                                        
+│             - 0.015625                                                                                                         
+│             axis: 'y'                                                                                                          
+│           - type: RandomScale                                                                                                  
+│             scale:                                                                                                             
+│             - 0.9                                                                                                              
+│             - 1.1                                                                                                              
+│           - type: RandomFlip                                                                                                   
+│             p: 0.5                                                                                                             
+│           - type: RandomJitter                                                                                                 
+│             sigma: 0.005                                                                                                       
+│             clip: 0.02                                                                                                         
+│           - type: ElasticDistortion                                                                                            
+│           - type: ChromaticAutoContrast                                                                                        
+│             p: 0.2                                                                                                             
+│           - type: ChromaticTranslation                                                                                         
+│             p: 0.95                                                                                                            
+│             ratio: 0.05                                                                                                        
+│           - type: ChromaticJitter                                                                                              
+│             p: 0.95                                                                                                            
+│             std: 0.05                                                                                                          
+│           - type: SphereCrop                                                                                                   
+│             sample_rate: 0.8                                                                                                   
+│             mode: captioned                                                                                                    
+│           - type: SphereCrop                                                                                                   
+│             point_max: 120000                                                                                                  
+│             mode: captioned                                                                                                    
+│           - type: NormalizeColor                                                                                               
+│           - type: Add                                                                                                          
+│             keys_dict:                                                                                                         
+│               condition: ARKitScenes                                                                                           
+│           - type: ToTensor                                                                                                     
+│           - type: Collect                                                                                                      
+│             keys:                                                                                                              
+│             - origin_coord                                                                                                     
+│             - coord                                                                                                            
+│             - color                                                                                                            
+│             - segment                                                                                                          
+│             - instance                                                                                                         
+│             - binary                                                                                                           
+│             - caption_data                                                                                                     
+│             - origin_idx                                                                                                       
+│             - condition                                                                                                        
+│             offset_keys_dict:                                                                                                  
+│               offset: coord                                                                                                    
+│               pc_count: origin_coord                                                                                           
+│             feat_keys:                                                                                                         
+│             - color                                                                                                            
+│         - _target_: src.data.scannetpp.dataset.ScanNetPPDataset                                                                
+│           _partial_: true                                                                                                      
+│           data_dir: /datasets/mosaic3d/data/scannetpp                                                                          
+│           split: train                                                                                                         
+│           num_masks: 300                                                                                                       
+│           ignore_label: -100                                                                                                   
+│           repeat: 1                                                                                                            
+│           transforms:                                                                                                          
+│           - type: FilterCaption                                                                                                
+│             min_words: 1                                                                                                       
+│             max_words: 50                                                                                                      
+│             min_letter_ratio: 0.5                                                                                              
+│             max_repetition_ratio: 0.4                                                                                          
+│             max_consecutive: 3                                                                                                 
+│           - type: Copy                                                                                                         
+│             keys_dict:                                                                                                         
+│               coord: origin_coord                                                                                              
+│           - type: CenterShift                                                                                                  
+│             apply_z: true                                                                                                      
+│           - type: RandomRotate                                                                                                 
+│             p: 0.5                                                                                                             
+│             angle:                                                                                                             
+│             - -1                                                                                                               
+│             - 1                                                                                                                
+│             center:                                                                                                            
+│             - 0                                                                                                                
+│             - 0                                                                                                                
+│             - 0                                                                                                                
+│             axis: z                                                                                                            
+│           - type: RandomRotate                                                                                                 
+│             p: 0.5                                                                                                             
+│             angle:                                                                                                             
+│             - -0.015625                                                                                                        
+│             - 0.015625                                                                                                         
+│             axis: x                                                                                                            
+│           - type: RandomRotate                                                                                                 
+│             p: 0.5                                                                                                             
+│             angle:                                                                                                             
+│             - -0.015625                                                                                                        
+│             - 0.015625                                                                                                         
+│             axis: 'y'                                                                                                          
+│           - type: RandomScale                                                                                                  
+│             scale:                                                                                                             
+│             - 0.9                                                                                                              
+│             - 1.1                                                                                                              
+│           - type: RandomFlip                                                                                                   
+│             p: 0.5                                                                                                             
+│           - type: RandomJitter                                                                                                 
+│             sigma: 0.005                                                                                                       
+│             clip: 0.02                                                                                                         
+│           - type: ElasticDistortion                                                                                            
+│           - type: ChromaticAutoContrast                                                                                        
+│             p: 0.2                                                                                                             
+│           - type: ChromaticTranslation                                                                                         
+│             p: 0.95                                                                                                            
+│             ratio: 0.05                                                                                                        
+│           - type: ChromaticJitter                                                                                              
+│             p: 0.95                                                                                                            
+│             std: 0.05                                                                                                          
+│           - type: SphereCrop                                                                                                   
+│             sample_rate: 0.8                                                                                                   
+│             mode: captioned                                                                                                    
+│           - type: SphereCrop                                                                                                   
+│             point_max: 120000                                                                                                  
+│             mode: captioned                                                                                                    
+│           - type: NormalizeColor                                                                                               
+│           - type: Add                                                                                                          
+│             keys_dict:                                                                                                         
+│               condition: ScanNetPP                                                                                             
+│           - type: ToTensor                                                                                                     
+│           - type: Collect                                                                                                      
+│             keys:                                                                                                              
+│             - origin_coord                                                                                                     
+│             - coord                                                                                                            
+│             - color                                                                                                            
+│             - segment                                                                                                          
+│             - instance                                                                                                         
+│             - binary                                                                                                           
+│             - caption_data                                                                                                     
+│             - origin_idx                                                                                                       
+│             - condition                                                                                                        
+│             offset_keys_dict:                                                                                                  
+│               offset: coord                                                                                                    
+│               pc_count: origin_coord                                                                                           
+│             feat_keys:                                                                                                         
+│             - color                                                                                                            
+│       val_datasets:                                                                                                            
+│       - _target_: src.data.scannet.dataset.ScanNetDataset                                                                      
+│         _partial_: true                                                                                                        
+│         data_dir: /datasets/mosaic3d/data/scannet                                                                              
+│         split: val                                                                                                             
+│         ignore_label: -100                                                                                                     
+│         transforms:                                                                                                            
+│         - type: Copy                                                                                                           
+│           keys_dict:                                                                                                           
+│             coord: origin_coord                                                                                                
+│         - type: CenterShift                                                                                                    
+│           apply_z: true                                                                                                        
+│         - type: NormalizeColor                                                                                                 
+│         - type: Add                                                                                                            
+│           keys_dict:                                                                                                           
+│             condition: ScanNet                                                                                                 
+│         - type: ToTensor                                                                                                       
+│         - type: Collect                                                                                                        
+│           keys:                                                                                                                
+│           - origin_coord                                                                                                       
+│           - coord                                                                                                              
+│           - color                                                                                                              
+│           - segment                                                                                                            
+│           - instance                                                                                                           
+│           - binary                                                                                                             
+│           - caption_data                                                                                                       
+│           - origin_idx                                                                                                         
+│           - condition                                                                                                          
+│           offset_keys_dict:                                                                                                    
+│             offset: coord                                                                                                      
+│             pc_count: origin_coord                                                                                             
+│           feat_keys:                                                                                                           
+│           - color                                                                                                              
+│       - _target_: src.data.scannet.dataset.ScanNet200Dataset                                                                   
+│         _partial_: true                                                                                                        
+│         data_dir: /datasets/mosaic3d/data/scannet                                                                              
+│         split: val                                                                                                             
+│         mask_dir: /datasets/mosaic3d/data/scannet200_masks                                                                     
+│         ignore_label: -100                                                                                                     
+│         transforms:                                                                                                            
+│         - type: Copy                                                                                                           
+│           keys_dict:                                                                                                           
+│             coord: origin_coord                                                                                                
+│         - type: CenterShift                                                                                                    
+│           apply_z: true                                                                                                        
+│         - type: NormalizeColor                                                                                                 
+│         - type: Add                                                                                                            
+│           keys_dict:                                                                                                           
+│             condition: ScanNet                                                                                                 
+│         - type: ToTensor                                                                                                       
+│         - type: Collect                                                                                                        
+│           keys:                                                                                                                
+│           - origin_coord                                                                                                       
+│           - coord                                                                                                              
+│           - color                                                                                                              
+│           - segment                                                                                                            
+│           - instance                                                                                                           
+│           - binary                                                                                                             
+│           - caption_data                                                                                                       
+│           - origin_idx                                                                                                         
+│           - condition                                                                                                          
+│           offset_keys_dict:                                                                                                    
+│             offset: coord                                                                                                      
+│             pc_count: origin_coord                                                                                             
+│           feat_keys:                                                                                                           
+│           - color                                                                                                              
+│       collate_fn:                                                                                                              
+│         _target_: src.data.utils.collate.point_collate_fn_with_masks                                                           
+│         _partial_: true                                                                                                        
+│         grid_size: 0.02                                                                                                        
+│       batch_size: 4                                                                                                            
+│       num_workers: 8                                                                                                           
+│       in_channel: 3                                                                                                            
+│       checkpoint_monitor: val_scannet200/miou                                                                                  
+│                                                                                                                                
+├── model
+│   └── _target_: src.models.lightning_modules.language_module.DenseLanguageLitModule                                            
+│       net:                                                                                                                     
+│         _target_: src.models.networks.ppt.model.PPT                                                                            
+│         _partial_: true                                                                                                        
+│         conditions:                                                                                                            
+│         - ScanNet                                                                                                              
+│         - ARKitScenes                                                                                                          
+│         - ScanNetPP                                                                                                            
+│         context_channels: 256                                                                                                  
+│         backbone:                                                                                                              
+│           _target_: src.models.networks.spunet.spconv_unet_v1m3_pdnorm.SpUNetBase                                              
+│           _partial_: true                                                                                                      
+│           in_channels: 3                                                                                                       
+│           out_channels: 768                                                                                                    
+│           base_channels: 32                                                                                                    
+│           channels:                                                                                                            
+│           - 32                                                                                                                 
+│           - 64                                                                                                                 
+│           - 128                                                                                                                
+│           - 256                                                                                                                
+│           - 256                                                                                                                
+│           - 128                                                                                                                
+│           - 96                                                                                                                 
+│           - 96                                                                                                                 
+│           layers:                                                                                                              
+│           - 2                                                                                                                  
+│           - 3                                                                                                                  
+│           - 4                                                                                                                  
+│           - 6                                                                                                                  
+│           - 2                                                                                                                  
+│           - 2                                                                                                                  
+│           - 2                                                                                                                  
+│           - 2                                                                                                                  
+│           norm_decouple: true                                                                                                  
+│           norm_adaptive: true                                                                                                  
+│           norm_affine: true                                                                                                    
+│           conditions:                                                                                                          
+│           - ScanNet                                                                                                            
+│           - ARKitScenes                                                                                                        
+│           - ScanNetPP                                                                                                          
+│           zero_init: true                                                                                                      
+│       eval_cfg:                                                                                                                
+│         eval_clip_text_alignment: false                                                                                        
+│         eval_clip_image_alignment: false                                                                                       
+│         ignore_background: false                                                                                               
+│         ignore_class_prob: false                                                                                               
+│         seg_eval:                                                                                                              
+│           normalize_input: false                                                                                               
+│           text_clip_path: null                                                                                                 
+│       use_prompt: true                                                                                                         
+│       compile: false                                                                                                           
+│       clip_encoder:                                                                                                            
+│         model_id: hf-hub:UCSC-VLAA/ViT-L-16-HTxt-Recap-CLIP                                                                    
+│         text_dim: 768                                                                                                          
+│       loss_cfg:                                                                                                                
+│         caption_loss:                                                                                                          
+│           reduction: weighted_sum                                                                                              
+│           use_logit_scale: true                                                                                                
+│         seg_loss:                                                                                                              
+│           normalize_input: false                                                                                               
+│           text_clip_path: null                                                                                                 
+│           loss_type: cross_entropy                                                                                             
+│           ignore_label: -100                                                                                                   
+│           learnable_logit: false                                                                                               
+│           eval_only: true                                                                                                      
+│         binary_loss: false                                                                                                     
+│         weights:                                                                                                               
+│           binary_loss: 0.0                                                                                                     
+│           caption_loss: 1.0                                                                                                    
+│           seg_loss: 0.0                                                                                                        
+│         sync_dist: false                                                                                                       
+│       optimizer:                                                                                                               
+│         _target_: torch.optim.SGD                                                                                              
+│         _partial_: true                                                                                                        
+│         lr: 0.05                                                                                                               
+│         momentum: 0.9                                                                                                          
+│         weight_decay: 0.0001                                                                                                   
+│         nesterov: true                                                                                                         
+│       scheduler:                                                                                                               
+│         _target_: torch.optim.lr_scheduler.OneCycleLR                                                                          
+│         _partial_: true                                                                                                        
+│         max_lr: 0.05                                                                                                           
+│         pct_start: 0.05                                                                                                        
+│         anneal_strategy: cos                                                                                                   
+│         div_factor: 10                                                                                                         
+│         final_div_factor: 10000.0                                                                                              
+│       scheduler_interval: step                                                                                                 
+│       best_metric: val_scannet200/miou                                                                                         
+│                                                                                                                                
+├── callbacks
+│   └── model_checkpoint:                                                                                                        
+│         _target_: lightning.pytorch.callbacks.ModelCheckpoint                                                                  
+│         dirpath: /workspace/Mosaic3D/logs/eval/runs/2026-06-18_01-14-53/checkpoints                                            
+│         filename: epoch_{epoch:03d}                                                                                            
+│         monitor: val_scannet200/miou                                                                                           
+│         verbose: false                                                                                                         
+│         save_last: true                                                                                                        
+│         save_top_k: 1                                                                                                          
+│         mode: max                                                                                                              
+│         auto_insert_metric_name: false                                                                                         
+│         save_weights_only: false                                                                                               
+│         every_n_train_steps: null                                                                                              
+│         train_time_interval: null                                                                                              
+│         every_n_epochs: null                                                                                                   
+│         save_on_train_epoch_end: null                                                                                          
+│       model_summary:                                                                                                           
+│         _target_: lightning.pytorch.callbacks.RichModelSummary                                                                 
+│         max_depth: -1                                                                                                          
+│                                                                                                                                
+├── logger
+│   └── wandb:                                                                                                                   
+│         tags:                                                                                                                  
+│         - dev                                                                                                                  
+│         group: mosaic3d                                                                                                        
+│                                                                                                                                
+├── trainer
+│   └── _target_: lightning.pytorch.trainer.Trainer                                                                              
+│       default_root_dir: /workspace/Mosaic3D/logs/eval/runs/2026-06-18_01-14-53                                                 
+│       min_epochs: 1                                                                                                            
+│       max_epochs: 128                                                                                                          
+│       accelerator: gpu                                                                                                         
+│       devices: 1                                                                                                               
+│       check_val_every_n_epoch: 1                                                                                               
+│       deterministic: false                                                                                                     
+│                                                                                                                                
+├── paths
+│   └── root_dir: /workspace/Mosaic3D                                                                                            
+│       data_dir: /workspace/Mosaic3D/data/                                                                                      
+│       log_dir: /workspace/Mosaic3D/logs/                                                                                       
+│       output_dir: /workspace/Mosaic3D/logs/eval/runs/2026-06-18_01-14-53                                                       
+│       work_dir: /workspace/Mosaic3D                                                                                            
+│                                                                                                                                
+├── extras
+│   └── ignore_warnings: false                                                                                                   
+│       enforce_tags: true                                                                                                       
+│       print_config: true                                                                                                       
+│                                                                                                                                
+├── task_name
+│   └── eval                                                                                                                     
+├── tags
+│   └── ['dev']                                                                                                                  
+├── ckpt_path
+│   └── ./qz/sc+ar+sc++.ckpt                                                                                                     
+└── seed
+    └── 12345                                                                                                                    

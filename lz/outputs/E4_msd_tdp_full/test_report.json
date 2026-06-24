@@ -1,0 +1,54 @@
+{
+  "run_name": "E4_msd_tdp_full_seed42",
+  "ckpt": "outputs/E4_msd_tdp_full/checkpoints/epoch=92-val_f_miou=23.51.ckpt",
+  "test_split": "ScanNet200 val (312 scenes)",
+  "test_start": "2026-05-02 06:29:34",
+  "test_end": "2026-05-02 06:44:11",
+  "metrics": {
+    "f_mIoU": 23.4,
+    "mIoU_all200": 22.7,
+    "overall_accuracy": 78.4,
+    "mean_accuracy": 31.2,
+    "per_group": {
+      "head": {
+        "num_cls": 66,
+        "mIoU": 29.6,
+        "mAcc": 41.8
+      },
+      "common": {
+        "num_cls": 67,
+        "mIoU": 20.8,
+        "mAcc": 30.4
+      },
+      "tail": {
+        "num_cls": 67,
+        "mIoU": 19.8,
+        "mAcc": 28.2
+      }
+    },
+    "dead_classes": {
+      "count": 2,
+      "ids": [
+        132,
+        187
+      ],
+      "names": [
+        "clock",
+        "humidifier"
+      ]
+    }
+  },
+  "config": {
+    "seed": 42,
+    "epochs": 100,
+    "batch_size": 6,
+    "lr": 0.0004,
+    "voxel_size": 0.02,
+    "precision": "bf16-mixed",
+    "tdcl_lambda": [
+      1.0,
+      0.5,
+      0.2
+    ]
+  }
+}

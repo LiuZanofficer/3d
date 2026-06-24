@@ -40,12 +40,9 @@ env/
 *.pth
 *.ckpt
 checkpoints/
-outputs/
 
 # Experiments
-experiments/results/
 wandb/
-logs/
 
 # Data
 data/
