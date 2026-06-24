@@ -1,0 +1,13 @@
+# @package _global_
+
+model:
+  eval_cfg:
+    use_tta: true
+    rotations: [0, 90, 180, 270]
+    flips: [false, true]
+    temperature: 1.1
+    use_adapter_tta: true
+    adapter_steps: 3
+    adapter_lr: 0.0005
+    adapter_weight_decay: 0.0
+    entropy_weight: 1.0

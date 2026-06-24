@@ -1,0 +1,50 @@
+# @package _global_
+#
+# E4 (Full) — MSD-Encoder + TDP Decoder + TDCL on ScanNet200, A800 80GB.
+#
+# Designed for a single-GPU A800 (~80 GB VRAM); uses physical batch size 6
+# and bf16 mixed precision instead of the 4090-friendly batch=1 + accum=8
+# pattern. Override `model` and `model/loss` so the run uses the MSD/TDP/TDCL
+# stack rather than the default MSSOE-FPN baseline.
+
+defaults:
+  - override /data: sc+ar+mp_phaseA
+  - override /model: msd_tdp_full
+  - override /model/loss: tdcl
+
+trainer:
+  accelerator: gpu
+  devices: 1
+  precision: bf16-mixed
+  max_epochs: 100
+  accumulate_grad_batches: 1
+  gradient_clip_val: 1.0
+  log_every_n_steps: 20
+
+data:
+  batch_size: 6
+  num_workers: 8
+  # persistent_workers/prefetch_factor disabled — they triggered DataLoader deadlock
+  # on AutoDL fork mode + ACBSSampler at epoch 0 (~12 batches in). Re-enable later
+  # only after isolating cause.
+
+sampler:
+  min_tail_ratio: 0.40
+  temperature_start: 0.40
+  temperature_end: 1.0
+  tail_boost_factor: 2.5
+
+model:
+  text_encoder_cfg:
+    use_clip: true
+    device: cuda
+  loss:
+    weights:
+      hpza_loss: 0.0
+  best_metric: val/miou_present_gt
+
+optim:
+  lr: 0.0004
+  weight_decay: 0.01
+
+optimized_metric: val/miou_present_gt

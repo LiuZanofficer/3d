@@ -1,0 +1,3 @@
+root_dir: ${hydra:runtime.cwd}
+data_dir: /path/to/Mosaic3D/data
+output_dir: ${root_dir}/outputs

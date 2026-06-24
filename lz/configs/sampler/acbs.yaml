@@ -1,0 +1,9 @@
+name: acbs
+class_freq_path: ${paths.output_dir}/class_freq_scannet200.json
+temperature_start: 0.5
+temperature_end: 1.0
+tail_boost_factor: 2.0
+min_tail_ratio: 0.3
+num_epochs: ${trainer.max_epochs}
+shuffle: true
+seed: 42

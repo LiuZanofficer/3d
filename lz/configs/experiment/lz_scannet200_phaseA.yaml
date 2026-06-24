@@ -1,0 +1,42 @@
+# @package _global_
+
+defaults:
+  - override /data: sc+ar+mp_phaseA
+
+trainer:
+  accelerator: gpu
+  devices: 1
+  precision: 16-mixed
+  max_epochs: 30
+  accumulate_grad_batches: 8
+  gradient_clip_val: 1.0
+  log_every_n_steps: 20
+
+data:
+  batch_size: 1
+  num_workers: 8
+
+sampler:
+  min_tail_ratio: 0.40
+  temperature_start: 0.40
+  temperature_end: 1.0
+  tail_boost_factor: 2.5
+
+model:
+  text_encoder_cfg:
+    use_clip: true
+    device: cuda
+  loss_cfg:
+    seg_loss:
+      ce_weight: 1.0
+      lovasz_weight: 0.7
+      label_smoothing: 0.03
+    weights:
+      seg_loss: 1.0
+      instance_loss: 0.8
+      hpza_loss: 1.0
+
+optim:
+  lr: 0.0004
+
+optimized_metric: val/miou

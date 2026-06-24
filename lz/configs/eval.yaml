@@ -1,0 +1,16 @@
+defaults:
+  - paths: default
+  - data: sc
+  - model: lz
+  - model/loss: lz
+  - trainer: default
+  - logger: tensorboard
+  - optim: adamw
+  - scheduler: onecycle
+  - hydra: default
+
+seed: 42
+train: false
+test: false
+ckpt_path: null
+optimized_metric: val/miou

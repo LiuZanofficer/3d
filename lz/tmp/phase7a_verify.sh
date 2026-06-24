@@ -1,0 +1,1 @@
+/root/autodl-tmp/conda-envs/llz/bin/python -c "import torch,spconv,torch_scatter,timm,addict; print('torch',torch.__version__,'cuda',torch.version.cuda,'cuda_available',torch.cuda.is_available()); print('spconv ok'); print('torch_scatter ok'); print('timm ok'); print('addict ok')"

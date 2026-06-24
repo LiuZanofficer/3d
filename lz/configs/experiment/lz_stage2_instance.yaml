@@ -1,0 +1,11 @@
+# @package _global_
+
+trainer:
+  max_epochs: 20
+
+model:
+  loss_cfg:
+    weights:
+      seg_loss: 1.0
+      instance_loss: 0.5
+      hpza_loss: 1.0

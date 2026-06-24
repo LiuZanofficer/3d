@@ -1,0 +1,10 @@
+# @package _global_
+
+model:
+  eval_cfg:
+    use_tta: true
+    temperature: 1.2
+    use_adapter_tta: true
+    adapter_steps: 1
+    adapter_lr: 0.001
+    entropy_weight: 1.0

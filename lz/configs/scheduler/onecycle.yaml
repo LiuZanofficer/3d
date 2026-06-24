@@ -1,0 +1,6 @@
+_target_: torch.optim.lr_scheduler.OneCycleLR
+max_lr: ${optim.lr}
+total_steps: 0
+auto_total_steps: true
+pct_start: 0.1
+anneal_strategy: cos

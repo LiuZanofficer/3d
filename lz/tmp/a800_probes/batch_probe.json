@@ -1,0 +1,20 @@
+{
+  "probe_steps": 100,
+  "selection_rule": "largest stable passing batch among [4,2,1]",
+  "results": [
+    {
+      "batch_size": 4,
+      "return_code": 0,
+      "duration_sec": 614.1680102348328,
+      "steps_completed": 35,
+      "mean_step_sec": 17.547657435280936,
+      "oom_detected": false,
+      "timed_out": true,
+      "gpu_peak_memory_mb": 19999.0,
+      "passed": true,
+      "reason": "ok",
+      "log_path": "/root/lz_outputs/sc_full_capacity_check_run_a800_20260221_093359/batch_probe/batch4/train.log"
+    }
+  ],
+  "selected_batch_size": 4
+}

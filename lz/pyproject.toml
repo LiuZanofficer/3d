@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "longtail-zero3d-lz"
+version = "0.1.0"
+description = "Lightweight LongTail-Zero3D training and evaluation codebase."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { file = "LICENSE" }
+authors = [{ name = "LZ Contributors" }]
+dynamic = ["dependencies"]
+
+[project.urls]
+Repository = "https://github.com/yourusername/LongTail-Zero3D"
+Issues = "https://github.com/yourusername/LongTail-Zero3D/issues"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.dynamic]
+dependencies = { file = ["requirements.txt"] }
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src", "src.*"]

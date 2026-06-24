@@ -1,0 +1,21 @@
+ckpt: /root/lz_outputs/phaseB_4090_tuned_v2/checkpoints/last.ckpt
+
+[eval_run_1_before_fix]
+timestamp: 2026-02-09 16:06:39
+eval_experiment: +experiment=lz_eval_tta_strong
+override: model.eval_cfg.use_adapter_tta=false
+output_dir: /root/lz_outputs/eval_phaseB_v2
+val/miou: 0.0002244
+val/tail_0: 0.00000563
+val/head_0: 0.0006236
+note: adapter TTA must be disabled before code fix, otherwise runtime grad error.
+
+[eval_run_2_after_fix]
+timestamp: 2026-02-09 16:17:47
+eval_experiment: +experiment=lz_eval_tta_strong
+override: model.eval_cfg.use_adapter_tta=true (default)
+output_dir: /root/lz_outputs/eval_phaseB_v2_strongfix
+val/miou: 0.0001027744
+val/tail_0: 0.0000060107
+val/head_0: 0.0002496133
+note: adapter TTA eval path fixed (inference_mode disabled during adapter adaptation).

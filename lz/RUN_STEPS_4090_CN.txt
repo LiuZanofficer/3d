@@ -1,0 +1,85 @@
+LZ ScanNet200 逐步执行清单（单卡 RTX 4090）
+
+0）先设置路径
+- 把下面命令里的 `DATA_ROOT` 替换成你的本地数据根目录。
+- 目录应包含：
+  DATA_ROOT/scannet
+  DATA_ROOT/matterport3d
+  DATA_ROOT/arkitscenes
+
+1）在项目根目录安装环境
+```bash
+pip install -r requirements.txt
+pip install -e .
+```
+
+2）为 ACBS 生成 ScanNet200 类频文件
+```bash
+python scripts/analyze_class_distribution.py \
+  --data_dir DATA_ROOT/scannet \
+  --split train \
+  --segment_file segment200.npy \
+  --output outputs/class_freq_scannet200.json
+```
+
+3）为 3 个数据集预计算 caption embedding（推荐）
+```bash
+python scripts/precompute_text_embeddings_all.py \
+  --data_root DATA_ROOT \
+  --split train \
+  --anno_source segment3d-gathered \
+  --device cuda \
+  --skip_missing
+```
+
+4）训练 Phase A（配比 5:3:2）
+```bash
+python -m src.train \
+  experiment=lz_scannet200_phaseA \
+  paths.data_dir=DATA_ROOT \
+  paths.output_dir=outputs/phaseA \
+  sampler.class_freq_path=outputs/class_freq_scannet200.json
+```
+
+5）选择 Phase A 的最佳 checkpoint
+- 在目录中查看：
+  outputs/phaseA/checkpoints
+- 默认优先选最优指标 checkpoint，不要默认用 `last.ckpt`。
+
+6）训练 Phase B（ScanNet 重点配比 8:1:1，尾部强化）
+```bash
+python -m src.train \
+  experiment=lz_scannet200_phaseB_tail \
+  paths.data_dir=DATA_ROOT \
+  paths.output_dir=outputs/phaseB \
+  sampler.class_freq_path=outputs/class_freq_scannet200.json \
+  ckpt_path=PATH_TO_PHASEA_BEST_CKPT
+```
+
+7）选择 Phase B 的最佳 checkpoint
+- Phase B 监控指标是 `val/tail_0`。
+- 在目录中查看：
+  outputs/phaseB/checkpoints
+
+8）使用更强的 adapter-TTA 做评估
+```bash
+python -m src.eval \
+  experiment=lz_eval_tta_strong \
+  data=sc \
+  paths.data_dir=DATA_ROOT \
+  ckpt_path=PATH_TO_PHASEB_BEST_CKPT
+```
+
+9）结果对比建议
+- 主指标：`val/miou`
+- 尾部指标：`val/tail_0`
+- 两个都要看，不要只按 `val/miou` 选模型。
+
+10）如果显存 OOM
+- 先降 batch：
+  data.batch_size=1
+- 保持 `accumulate_grad_batches=8`。
+- 仍然 OOM 时，进一步减小 crop：
+  data.train_dataset.datasets.0.transforms.4.crop_x=3.2
+  data.train_dataset.datasets.0.transforms.4.crop_y=3.2
+

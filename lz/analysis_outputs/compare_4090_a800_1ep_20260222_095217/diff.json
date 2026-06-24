@@ -1,0 +1,207 @@
+{
+  "diff": {
+    "batch_size": {
+      "4090": 2,
+      "A800": 6,
+      "changed": true,
+      "impact": "high"
+    },
+    "accumulate_grad_batches": {
+      "4090": 1,
+      "A800": 1,
+      "changed": false,
+      "impact": "high"
+    },
+    "global_batch": {
+      "4090": 2,
+      "A800": 6,
+      "changed": true,
+      "impact": "high"
+    },
+    "lr": {
+      "4090": 0.001,
+      "A800": 0.001,
+      "changed": false,
+      "impact": "high"
+    },
+    "optimizer": {
+      "4090": "torch.optim.AdamW",
+      "A800": "torch.optim.AdamW",
+      "changed": false,
+      "impact": "medium"
+    },
+    "scheduler": {
+      "4090": "torch.optim.lr_scheduler.OneCycleLR",
+      "A800": "torch.optim.lr_scheduler.OneCycleLR",
+      "changed": false,
+      "impact": "medium"
+    },
+    "loss_weights": {
+      "4090": {
+        "seg": 1.0,
+        "instance": 0.0,
+        "hpza": 0.0,
+        "lovasz": 0.0
+      },
+      "A800": {
+        "seg": 1.0,
+        "instance": 0.0,
+        "hpza": 0.0,
+        "lovasz": 0.0
+      },
+      "changed": false,
+      "impact": "high"
+    },
+    "data_name": {
+      "4090": "sc",
+      "A800": "sc_memory_check",
+      "changed": true,
+      "impact": "high"
+    },
+    "split.train": {
+      "4090": "train",
+      "A800": "train",
+      "changed": false,
+      "impact": "high"
+    },
+    "split.val": {
+      "4090": "val",
+      "A800": "train",
+      "changed": true,
+      "impact": "high"
+    },
+    "sampler": {
+      "4090": "${sampler}(acbs)",
+      "A800": null,
+      "changed": true,
+      "impact": "high"
+    },
+    "train_dataset_target": {
+      "4090": "src.data.scannet.dataset.ScanNet200DatasetGathered",
+      "A800": "src.data.scannet.dataset.ScanNet200Dataset",
+      "changed": true,
+      "impact": "high"
+    },
+    "train_transforms": {
+      "4090": [
+        "NormalizeColor",
+        "RandomRotate",
+        "RandomFlip",
+        "RandomScale",
+        "RandomSpatialCrop",
+        "RandomJitter",
+        "SceneCoordNormalize",
+        "RandomColorDrop",
+        "ToTensor"
+      ],
+      "A800": [
+        "NormalizeColor",
+        "ToTensor"
+      ],
+      "changed": true,
+      "impact": "high"
+    },
+    "backbone_target": {
+      "4090": "src.models.networks.lz_backbone.mssoe_fpn.MSSOEBackbone",
+      "A800": "src.models.networks.lz_backbone.spunet34c_adapter.SpUNet34CAdapter",
+      "changed": true,
+      "impact": "high"
+    },
+    "voxel_grid": {
+      "4090": {
+        "grid_size": null,
+        "pad": null,
+        "in_channels": null
+      },
+      "A800": {
+        "grid_size": 0.02,
+        "pad": 128,
+        "in_channels": 3
+      },
+      "changed": true,
+      "impact": "high"
+    },
+    "eval_bn_batch_stats": {
+      "4090": false,
+      "A800": true,
+      "changed": true,
+      "impact": "high"
+    },
+    "precision": {
+      "4090": "default(32)",
+      "A800": "bf16-mixed",
+      "changed": true,
+      "impact": "medium"
+    },
+    "grad_clip_val": {
+      "4090": 1.0,
+      "A800": 1.0,
+      "changed": false,
+      "impact": "medium"
+    },
+    "num_workers": {
+      "4090": 4,
+      "A800": 4,
+      "changed": false,
+      "impact": "low"
+    },
+    "pin_memory": {
+      "4090": true,
+      "A800": true,
+      "changed": false,
+      "impact": "low"
+    },
+    "persistent_workers": {
+      "4090": null,
+      "A800": true,
+      "changed": true,
+      "impact": "low"
+    },
+    "prefetch_factor": {
+      "4090": null,
+      "A800": 4,
+      "changed": true,
+      "impact": "low"
+    },
+    "log_every_n_steps": {
+      "4090": 10,
+      "A800": 10,
+      "changed": false,
+      "impact": "low"
+    },
+    "checkpoint_policy": {
+      "4090": {
+        "save_last": true,
+        "save_top_k": 3,
+        "every_n_train_steps": null
+      },
+      "A800": {
+        "save_last": true,
+        "save_top_k": 1,
+        "every_n_train_steps": 1000
+      },
+      "changed": true,
+      "impact": "low"
+    }
+  },
+  "high": [
+    "batch_size",
+    "global_batch",
+    "data_name",
+    "split.val",
+    "sampler",
+    "train_dataset_target",
+    "train_transforms",
+    "backbone_target",
+    "voxel_grid",
+    "eval_bn_batch_stats"
+  ],
+  "medium": [
+    "precision"
+  ],
+  "low": [
+    "persistent_workers",
+    "prefetch_factor",
+    "checkpoint_policy"
+  ]
+}

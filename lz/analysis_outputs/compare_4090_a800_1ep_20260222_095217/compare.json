@@ -1,0 +1,177 @@
+{
+  "runs": {
+    "4090": {
+      "run_dir": "/root/lz_outputs/phase6_final_gate_full15",
+      "train_log": "/root/lz_outputs/phase6_final_gate_full15/train.log",
+      "metrics_json": "/root/lz_outputs/phase6_final_gate_full15/metrics.json",
+      "config_yaml": "/root/lz_outputs/phase6_final_gate_full15/.hydra/config.yaml",
+      "overrides_yaml": "/root/lz_outputs/phase6_final_gate_full15/.hydra/overrides.yaml",
+      "batch_probe_json": null,
+      "batch_size": 2,
+      "accumulate_grad_batches": 1,
+      "devices": 1,
+      "global_batch": 2,
+      "lr": 0.001,
+      "optimizer": "torch.optim.AdamW",
+      "scheduler": "torch.optim.lr_scheduler.OneCycleLR",
+      "loss_weights": {
+        "seg": 1.0,
+        "instance": 0.0,
+        "hpza": 0.0,
+        "lovasz": 0.0
+      },
+      "data_name": "sc",
+      "train_split": "train",
+      "val_split": "val",
+      "sampler": "${sampler}(acbs)",
+      "train_dataset_target": "src.data.scannet.dataset.ScanNet200DatasetGathered",
+      "train_transforms": [
+        "NormalizeColor",
+        "RandomRotate",
+        "RandomFlip",
+        "RandomScale",
+        "RandomSpatialCrop",
+        "RandomJitter",
+        "SceneCoordNormalize",
+        "RandomColorDrop",
+        "ToTensor"
+      ],
+      "backbone_target": "src.models.networks.lz_backbone.mssoe_fpn.MSSOEBackbone",
+      "voxel_grid": {
+        "grid_size": null,
+        "pad": null,
+        "in_channels": null
+      },
+      "eval_bn_batch_stats": false,
+      "precision": "default(32)",
+      "num_workers": 4,
+      "pin_memory": true,
+      "persistent_workers": null,
+      "prefetch_factor": null,
+      "grad_clip_val": 1.0,
+      "log_every_n_steps": 10,
+      "checkpoint": {
+        "save_last": true,
+        "save_top_k": 3,
+        "every_n_train_steps": null
+      },
+      "speed": {
+        "step_time_median": 0.3434413194656372,
+        "epoch_time_min": 3.3859836935997008,
+        "samples_per_sec": 5.82341112336691
+      },
+      "metrics": {
+        "train/loss_epoch": 2.13093900680542,
+        "val/miou": 0.006650544703006744,
+        "val/miou_present_gt": 0.00703761400654912,
+        "val/miou_fg_mosaic": 0.0023671872913837433
+      }
+    },
+    "A800": {
+      "run_dir": "/root/lz_outputs/a800_throughput_tune_economy_refactor_20260222_085718/one_epoch_verify",
+      "train_log": "/root/lz_outputs/a800_throughput_tune_economy_refactor_20260222_085718/one_epoch_verify/train.log",
+      "metrics_json": null,
+      "config_yaml": "/root/lz_outputs/a800_throughput_tune_economy_refactor_20260222_085718/one_epoch_verify/2026-02-22/09-16-39/.hydra/config.yaml",
+      "overrides_yaml": "/root/lz_outputs/a800_throughput_tune_economy_refactor_20260222_085718/one_epoch_verify/2026-02-22/09-16-39/.hydra/overrides.yaml",
+      "batch_probe_json": null,
+      "batch_size": 6,
+      "accumulate_grad_batches": 1,
+      "devices": 1,
+      "global_batch": 6,
+      "lr": 0.001,
+      "optimizer": "torch.optim.AdamW",
+      "scheduler": "torch.optim.lr_scheduler.OneCycleLR",
+      "loss_weights": {
+        "seg": 1.0,
+        "instance": 0.0,
+        "hpza": 0.0,
+        "lovasz": 0.0
+      },
+      "data_name": "sc_memory_check",
+      "train_split": "train",
+      "val_split": "train",
+      "sampler": null,
+      "train_dataset_target": "src.data.scannet.dataset.ScanNet200Dataset",
+      "train_transforms": [
+        "NormalizeColor",
+        "ToTensor"
+      ],
+      "backbone_target": "src.models.networks.lz_backbone.spunet34c_adapter.SpUNet34CAdapter",
+      "voxel_grid": {
+        "grid_size": 0.02,
+        "pad": 128,
+        "in_channels": 3
+      },
+      "eval_bn_batch_stats": true,
+      "precision": "bf16-mixed",
+      "num_workers": 4,
+      "pin_memory": true,
+      "persistent_workers": true,
+      "prefetch_factor": 4,
+      "grad_clip_val": 1.0,
+      "log_every_n_steps": 10,
+      "checkpoint": {
+        "save_last": true,
+        "save_top_k": 1,
+        "every_n_train_steps": 1000
+      },
+      "speed": {
+        "step_time_median": 0.9262943043428309,
+        "epoch_time_min": 3.582069440682729,
+        "samples_per_sec": 6.477422965756831
+      },
+      "metrics": {
+        "train/loss_epoch": 2.9056801795959473,
+        "val/miou": null,
+        "val/miou_present_gt": null,
+        "val/miou_fg_mosaic": null
+      },
+      "notes": "A800 run configured with check_val_every_n_epoch=5 and max_epochs=1, so val metrics are absent."
+    }
+  },
+  "speed": {
+    "4090": {
+      "step_time_median": 0.3434413194656372,
+      "epoch_time_min": 3.3859836935997008,
+      "samples_per_sec": 5.82341112336691
+    },
+    "A800": {
+      "step_time_median": 0.9262943043428309,
+      "epoch_time_min": 3.582069440682729,
+      "samples_per_sec": 6.477422965756831
+    },
+    "samples_per_sec_delta": 0.654011842389921,
+    "samples_per_sec_ratio": 1.1123073450482734
+  },
+  "metrics": {
+    "train/loss_epoch": {
+      "4090": 2.13093900680542,
+      "A800": 2.9056801795959473,
+      "abs_diff": 0.7747411727905273,
+      "rel_diff": 0.3635679718266429
+    },
+    "val/miou": {
+      "4090": 0.006650544703006744,
+      "A800": null,
+      "abs_diff": null,
+      "rel_diff": null
+    },
+    "val/miou_present_gt": {
+      "4090": 0.00703761400654912,
+      "A800": null,
+      "abs_diff": null,
+      "rel_diff": null
+    },
+    "val/miou_fg_mosaic": {
+      "4090": 0.0023671872913837433,
+      "A800": null,
+      "abs_diff": null,
+      "rel_diff": null
+    }
+  },
+  "notes": [
+    "4090 run is taken from /root/lz_outputs/phase6_final_gate_full15 (first epoch sliced from full training).",
+    "A800 run is /root/lz_outputs/a800_throughput_tune_economy_refactor_20260222_085718/one_epoch_verify.",
+    "A800 1-epoch run has no val metrics because check_val_every_n_epoch=5."
+  ]
+}

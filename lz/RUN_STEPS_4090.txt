@@ -1,0 +1,108 @@
+LZ ScanNet200 Step-by-Step (Single RTX 4090)
+
+0) Set paths first
+- Replace DATA_ROOT with your local dataset root.
+- Expected folders:
+  DATA_ROOT/scannet
+  DATA_ROOT/matterport3d
+  DATA_ROOT/arkitscenes
+
+1) Install environment in project root
+```bash
+pip install -r requirements.txt
+pip install -e .
+```
+
+2) Generate ScanNet200 class frequency for ACBS
+```bash
+python scripts/analyze_class_distribution.py \
+  --data_dir DATA_ROOT/scannet \
+  --split train \
+  --segment_file segment200.npy \
+  --output outputs/class_freq_scannet200.json
+```
+
+3) Run data-contract preflight (must pass before training)
+```bash
+python scripts/preflight_data_contract.py \
+  --data_root DATA_ROOT \
+  --split train \
+  --report_json outputs/preflight_train.json
+```
+
+4) Precompute caption embeddings for all 3 datasets (recommended)
+```bash
+python scripts/precompute_text_embeddings_all.py \
+  --data_root DATA_ROOT \
+  --split train \
+  --anno_source segment3d-gathered \
+  --device cuda \
+  --skip_missing
+```
+
+5) Use CLIP + single-4090 stable batch strategy
+- Keep these defaults in both Phase A/B:
+  - `model.text_encoder_cfg.use_clip=true`
+  - `model.text_encoder_cfg.device=cuda`
+  - `data.batch_size=1`
+  - `trainer.accumulate_grad_batches=8`
+- This repo now uses single-card tuned LR in phase configs.
+
+6) Train Phase A (balanced mix 5:3:2)
+```bash
+python -m src.train \
+  experiment=lz_scannet200_phaseA \
+  paths.data_dir=DATA_ROOT \
+  paths.output_dir=outputs/phaseA \
+  sampler.class_freq_path=outputs/class_freq_scannet200.json \
+  model.text_encoder_cfg.use_clip=true \
+  model.text_encoder_cfg.device=cuda \
+  data.batch_size=1 \
+  trainer.accumulate_grad_batches=8
+```
+
+7) Pick Phase A best checkpoint
+- Check files under:
+  outputs/phaseA/checkpoints
+- Use the best metric checkpoint (not "last.ckpt" by default).
+
+8) Train Phase B (ScanNet-focused 8:1:1, tail-focused)
+```bash
+python -m src.train \
+  experiment=lz_scannet200_phaseB_tail \
+  paths.data_dir=DATA_ROOT \
+  paths.output_dir=outputs/phaseB \
+  sampler.class_freq_path=outputs/class_freq_scannet200.json \
+  ckpt_path=PATH_TO_PHASEA_BEST_CKPT \
+  model.text_encoder_cfg.use_clip=true \
+  model.text_encoder_cfg.device=cuda \
+  data.batch_size=1 \
+  trainer.accumulate_grad_batches=8
+```
+
+9) Pick Phase B best checkpoint
+- Phase B monitors val/tail_0.
+- Check files under:
+  outputs/phaseB/checkpoints
+
+10) Evaluate with stronger adapter-TTA
+```bash
+python -m src.eval \
+  experiment=lz_eval_tta_strong \
+  data=sc \
+  paths.data_dir=DATA_ROOT \
+  ckpt_path=PATH_TO_PHASEB_BEST_CKPT
+```
+
+11) What to compare
+- Main score: val/miou
+- Tail score: val/tail_0
+- Keep both. Do not select model by val/miou only.
+
+12) If OOM happens
+- Lower batch size first:
+  data.batch_size=1
+- Keep accumulate_grad_batches=8 if possible.
+- If still OOM, increase crop sparsity by reducing crop size:
+  data.train_dataset.datasets.0.transforms.4.crop_x=3.2
+  data.train_dataset.datasets.0.transforms.4.crop_y=3.2

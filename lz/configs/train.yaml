@@ -1,0 +1,19 @@
+defaults:
+  - paths: default
+  - data: sc+ar+mp_longtail
+  - model: lz
+  - model/loss: lz
+  - sampler: acbs
+  - callbacks: default
+  - trainer: default
+  - logger: tensorboard
+  - optim: adamw
+  - scheduler: onecycle
+  - experiment: null
+  - hydra: default
+
+seed: 42
+train: true
+test: false
+ckpt_path: null
+optimized_metric: val/miou

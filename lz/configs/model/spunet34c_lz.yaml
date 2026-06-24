@@ -1,0 +1,52 @@
+_target_: src.models.lightning_modules.lz_module.LZLitModule
+
+net:
+  _target_: src.models.networks.lz_model.LZModel
+  backbone:
+    _target_: src.models.networks.lz_backbone.spunet34c_adapter.SpUNet34CAdapter
+    in_channels: 3
+    out_dim: 128
+    grid_size: 0.02
+    pad: 128
+    base_channels: 32
+    channels: [32, 64, 128, 256, 256, 128, 96, 96]
+    layers: [2, 3, 4, 6, 2, 2, 2, 2]
+    norm_type: bn
+    hash_method: fnv
+    pooling_method: mean
+  decoder:
+    _target_: src.models.networks.lz_decoder.sed_decoder.SEDDecoder
+    in_dim: 128
+    num_classes: ${data.num_classes}
+    instance_dim: 32
+    top_k: null
+  text_dim: ${model.text_encoder_cfg.embed_dim}
+  use_tta_adapter: true
+  adapter_dropout: 0.0
+
+optimizer: ${optim}
+scheduler: ${scheduler}
+scheduler_interval: step
+
+loss_cfg: ${model.loss}
+
+eval_cfg:
+  use_tta: false
+  rotations: [0, 90, 180, 270]
+  flips: [false, true]
+  temperature: 1.0
+  use_adapter_tta: true
+  adapter_steps: 1
+  adapter_lr: 0.001
+  adapter_weight_decay: 0.0
+  entropy_weight: 1.0
+
+text_encoder_cfg:
+  use_clip: true
+  model_id: hf-hub:UCSC-VLAA/ViT-L-16-HTxt-Recap-CLIP
+  pretrained: null
+  embed_dim: 768
+  device: cpu
+
+best_metric: val/miou
+zero_shot: false

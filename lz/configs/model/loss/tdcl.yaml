@@ -1,0 +1,59 @@
+ignore_label: -100
+weights:
+  seg_loss: 1.0
+  instance_loss: 0.5
+  hpza_loss: 1.0
+
+# Empty seg_loss block — kept so existing override paths still work; the
+# TDCL block below takes precedence and disables SegLoss in LZLitModule.
+seg_loss:
+  ce_weight: 1.0
+  lovasz_weight: 0.0
+  label_smoothing: 0.0
+  use_class_weight: false
+  class_weight_mode: inv_sqrt
+  class_weight_clip_min: 0.2
+  class_weight_clip_max: 5.0
+  class_freq_path: /root/lz_outputs/class_freq_scannet200.json
+
+# TDCL — Tail-Decoupled Contrastive Loss.
+tdcl:
+  num_classes: 200
+  tail_class_indices:
+    [69, 75, 84, 86, 87, 93, 94, 96, 102, 107,
+     111, 112, 114, 116, 119, 121, 122, 123, 124, 126,
+     127, 131, 132, 133, 136, 137, 138, 139, 140, 141,
+     143, 144, 147, 148, 149, 150, 152, 153, 155, 156,
+     157, 158, 159, 160, 161, 162, 164, 165, 166, 167,
+     170, 179, 181, 183, 184, 185, 187, 188, 189, 190,
+     192, 193, 194, 195, 196, 198]
+  # GBS = group-balanced softmax (weighted CE).
+  gbs_weight: 1.0
+  ce_weight: 1.0
+  label_smoothing: 0.02
+  class_freq_path: /root/lz_outputs/class_freq_scannet200.json
+  class_weight_clip_min: 0.2
+  class_weight_clip_max: 5.0
+  # TFR = tail-focused region (Lovász on tail subset).
+  tfr_weight: 0.5
+  # PS = prototype separation (margin supervised contrastive).
+  ps_weight: 0.2
+  ps_margin: 0.3
+  ps_top_k: 5
+  ps_temperature: 0.1
+  # Auxiliary BCE supervision on TDP gating alpha — fixes alpha-collapse
+  # deadlock observed in initial E4 runs (alpha mean ~0.003 after 27 epoch
+  # because tail branch never gets gradient when alpha~=0). 0.05 weight is
+  # a soft hint; tail logits still need to be useful for alpha to reach 1.
+  alpha_sup_weight: 0.15
+
+hpza_loss:
+  temperature: 0.07
+  weight_caption: 1.0
+  weight_class: 1.0
+
+instance_loss:
+  delta_var: 0.5
+  delta_dist: 1.5
+
+pmtl: null

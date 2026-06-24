@@ -1,0 +1,82 @@
+﻿from pathlib import Path
+import difflib
+
+path = Path('/root/lz/src/models/lightning_modules/lz_module.py')
+out = Path('/root/lz_outputs/diag_rootcause_20260211_221332/debug_patch.diff')
+cur = path.read_text(encoding='utf-8')
+
+old1 = '''        inst_sup_mask = batch.get("instance_supervision_mask")
+        if inst_sup_mask is not None:
+            self.log(
+                "train/inst_sup_ratio",
+                inst_sup_mask.float().mean(),
+                on_step=True,
+                on_epoch=True,
+            )
+
+        seg_loss = self.seg_loss(seg_logits, batch.get("segment"))
+'''
+
+new1 = '''        inst_sup_mask = batch.get("instance_supervision_mask")
+        if inst_sup_mask is not None:
+            self.log(
+                "train/inst_sup_ratio",
+                inst_sup_mask.float().mean(),
+                on_step=True,
+                on_epoch=True,
+            )
+
+        if batch_idx % 20 == 0 and "segment" in batch:
+            labels_dbg = batch["segment"]
+            ignore_label = getattr(self.seg_loss, "ignore_label", -100)
+            valid_dbg = labels_dbg != ignore_label
+            gt_min = float(labels_dbg[valid_dbg].min().item()) if valid_dbg.any() else -1.0
+            gt_max = float(labels_dbg[valid_dbg].max().item()) if valid_dbg.any() else -1.0
+            ignore_ratio = float((~valid_dbg).float().mean().item())
+            preds_dbg = torch.argmax(seg_logits.detach(), dim=1)
+            pred_vals, pred_counts = torch.unique(preds_dbg, return_counts=True)
+            pred_unique_count = float(pred_vals.numel())
+            pred_top1_ratio = float(pred_counts.max().float().item() / max(int(preds_dbg.numel()), 1))
+            self.log("debug/train_gt_min", gt_min, on_step=True, on_epoch=False)
+            self.log("debug/train_gt_max", gt_max, on_step=True, on_epoch=False)
+            self.log("debug/train_ignore_ratio", ignore_ratio, on_step=True, on_epoch=False)
+            self.log("debug/train_pred_unique_count", pred_unique_count, on_step=True, on_epoch=False)
+            self.log("debug/train_pred_top1_ratio", pred_top1_ratio, on_step=True, on_epoch=False)
+
+        seg_loss = self.seg_loss(seg_logits, batch.get("segment"))
+'''
+
+old2 = '''        preds = torch.argmax(seg_logits, dim=1)
+        labels = batch["segment"]
+        self._export_pred_labels(preds, labels, batch, dataloader_idx)
+'''
+
+new2 = '''        preds = torch.argmax(seg_logits, dim=1)
+        labels = batch["segment"]
+        if batch_idx % 20 == 0:
+            ignore_label = self.val_ignore_label.get(dataloader_idx, -100)
+            valid_dbg = labels != ignore_label
+            gt_min = float(labels[valid_dbg].min().item()) if valid_dbg.any() else -1.0
+            gt_max = float(labels[valid_dbg].max().item()) if valid_dbg.any() else -1.0
+            ignore_ratio = float((~valid_dbg).float().mean().item())
+            pred_vals, pred_counts = torch.unique(preds, return_counts=True)
+            pred_unique_count = float(pred_vals.numel())
+            pred_top1_ratio = float(pred_counts.max().float().item() / max(int(preds.numel()), 1))
+            self.log(f"debug/val_gt_min_{dataloader_idx}", gt_min, on_step=True, on_epoch=False)
+            self.log(f"debug/val_gt_max_{dataloader_idx}", gt_max, on_step=True, on_epoch=False)
+            self.log(f"debug/val_ignore_ratio_{dataloader_idx}", ignore_ratio, on_step=True, on_epoch=False)
+            self.log(f"debug/val_pred_unique_count_{dataloader_idx}", pred_unique_count, on_step=True, on_epoch=False)
+            self.log(f"debug/val_pred_top1_ratio_{dataloader_idx}", pred_top1_ratio, on_step=True, on_epoch=False)
+        self._export_pred_labels(preds, labels, batch, dataloader_idx)
+'''
+
+orig = cur.replace(new1, old1, 1).replace(new2, old2, 1)
+
+diff = ''.join(difflib.unified_diff(
+    orig.splitlines(True),
+    cur.splitlines(True),
+    fromfile='a/src/models/lightning_modules/lz_module.py',
+    tofile='b/src/models/lightning_modules/lz_module.py',
+))
+out.write_text(diff, encoding='utf-8')
+print('wrote', out, 'lines', len(diff.splitlines()))
