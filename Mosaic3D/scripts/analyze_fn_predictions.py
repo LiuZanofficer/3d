@@ -48,10 +48,42 @@ def name_of(class_names: np.ndarray, idx: int) -> str:
     return f"<ignore/invalid:{idx}>"
 
 
-def predicted_class_mask(dump, idx: int, use_mask: bool) -> np.ndarray:
+def resolve_pred_points(dump, pred_mode: str):
+    """Return (pred_point_classes, mode_used).
+
+    semantic: use `pred_semantic` (argmax over foreground classes only) so the
+              TP/FN/FP match the f-mIoU scoring path. Falls back to argmax with a
+              warning if the dump predates the extended format.
+    argmax:   use `pred_point_classes` (raw full-vocabulary argmax).
+    """
+    if pred_mode == "semantic":
+        if "pred_semantic" in dump:
+            return dump["pred_semantic"], "semantic"
+        print("[warn] dump has no 'pred_semantic' (old dump); falling back to --pred argmax.")
+        return dump["pred_point_classes"], "argmax(fallback)"
+    return dump["pred_point_classes"], "argmax"
+
+
+def valid_point_mask(dump, pred_mode: str) -> np.ndarray:
+    """Points that count toward semantic scoring: drop ignore_label and (semantic
+    mode) background-class GT, matching the foreground f-mIoU convention.
+    argmax mode keeps the legacy behavior (all points valid)."""
+    gt_segment = dump["gt_segment"]
+    valid = np.ones(gt_segment.shape, dtype=bool)
+    if pred_mode != "semantic":
+        return valid
+    ignore_label = int(dump["ignore_label"]) if "ignore_label" in dump else -100
+    valid &= gt_segment != ignore_label
+    if "bg_class_idx" in dump:
+        bg = np.asarray(dump["bg_class_idx"]).reshape(-1)
+        if bg.size:
+            valid &= ~np.isin(gt_segment, bg)
+    return valid
+
+
+def predicted_class_mask(dump, idx: int, use_mask: bool, pred_points: np.ndarray) -> np.ndarray:
     """Boolean per-point mask of points predicted as class `idx`."""
-    pred_point_classes = dump["pred_point_classes"]
-    pred_point_mask = pred_point_classes == idx
+    pred_point_mask = pred_points == idx
 
     if not use_mask:
         return pred_point_mask
@@ -94,14 +126,15 @@ def list_classes(dump):
             print(f"{idx}\t{name}\t{gt_points}\t{pred_points}")
 
 
-def analyze(dump, class_name: str, use_mask: bool, topk: int):
+def analyze(dump, class_name: str, use_mask: bool, topk: int, pred_mode: str):
     class_names = dump["class_names"]
     gt_segment = dump["gt_segment"]
-    pred_point_classes = dump["pred_point_classes"]
+    pred_points, mode_used = resolve_pred_points(dump, pred_mode)
+    valid = valid_point_mask(dump, pred_mode)
 
     idx = class_index(class_names, class_name)
-    gt_mask = gt_segment == idx
-    pred_mask = predicted_class_mask(dump, idx, use_mask)
+    gt_mask = (gt_segment == idx) & valid
+    pred_mask = predicted_class_mask(dump, idx, use_mask, pred_points) & valid
 
     tp = np.logical_and(gt_mask, pred_mask)
     fn = np.logical_and(gt_mask, ~pred_mask)
@@ -115,7 +148,8 @@ def analyze(dump, class_name: str, use_mask: bool, topk: int):
     union = n_tp + n_fn + n_fp
     iou = n_tp / union if union else 0.0
 
-    src = "per-point argmax + instance masks" if use_mask else "per-point argmax"
+    base = "per-point argmax + instance masks" if use_mask else "per-point"
+    src = f"{base} [{mode_used}]"
     print("=" * 64)
     print(f"Scene : {dump['scene_name']}")
     print(f"Class : {class_name}  (idx={idx})")
@@ -130,7 +164,7 @@ def analyze(dump, class_name: str, use_mask: bool, topk: int):
     print("-" * 64)
 
     print(f"[FN] missed '{class_name}' points were predicted as:")
-    rows, total = distribution(pred_point_classes[fn], class_names, topk)
+    rows, total = distribution(pred_points[fn], class_names, topk)
     if total == 0:
         print("   (none)")
     else:
@@ -161,6 +195,13 @@ def main():
         action="store_true",
         help="Combine per-point argmax with predicted instance masks (default: per-point only).",
     )
+    parser.add_argument(
+        "--pred",
+        choices=["semantic", "argmax"],
+        default="semantic",
+        help="Prediction source. semantic=foreground-only argmax aligned with f-mIoU "
+        "(default); argmax=raw full-vocabulary argmax (legacy, counts ignore/bg).",
+    )
     args = parser.parse_args()
 
     dump = load_dump(args.pred_file)
@@ -169,7 +210,7 @@ def main():
         return
     if not args.class_name:
         raise ValueError("Provide --class-name, or use --list-classes.")
-    analyze(dump, args.class_name, args.use_mask, args.topk)
+    analyze(dump, args.class_name, args.use_mask, args.topk, args.pred)
 
 
 if __name__ == "__main__":

@@ -71,22 +71,43 @@ def distinct_colors(n: int) -> np.ndarray:
     return colors
 
 
-def present_classes(dump):
+def resolve_pred_points(dump, pred_mode: str):
+    """Return (pred_point_classes, mode_used). semantic uses `pred_semantic`
+    (foreground-only argmax, aligned with f-mIoU); argmax uses raw argmax.
+    Falls back to argmax with a warning when the dump predates the new format."""
+    if pred_mode == "semantic":
+        if "pred_semantic" in dump:
+            return dump["pred_semantic"], "semantic"
+        print("[warn] dump has no 'pred_semantic' (old dump); falling back to --pred argmax.")
+        return dump["pred_point_classes"], "argmax(fallback)"
+    return dump["pred_point_classes"], "argmax"
+
+
+def bg_ignore_set(dump, pred_mode: str):
+    """In semantic mode, background-class GT is treated as ignore (excluded from
+    scoring), matching the foreground f-mIoU. Returns a 1-D int array or None."""
+    if pred_mode == "semantic" and "bg_class_idx" in dump:
+        bg = np.asarray(dump["bg_class_idx"]).reshape(-1)
+        if bg.size:
+            return bg
+    return None
+
+
+def present_classes(dump, pred_points):
     """Class names that appear in GT or per-point predictions, sorted by GT count desc."""
     class_names = dump["class_names"]
     gt_segment = dump["gt_segment"]
-    pred_point_classes = dump["pred_point_classes"]
     rows = []
     for idx, name in enumerate(class_names):
         gt_n = int(np.count_nonzero(gt_segment == idx))
-        pred_n = int(np.count_nonzero(pred_point_classes == idx))
+        pred_n = int(np.count_nonzero(pred_points == idx))
         if gt_n or pred_n:
             rows.append((str(name), gt_n))
     rows.sort(key=lambda r: r[1], reverse=True)
     return [name for name, _ in rows]
 
 
-def compute_overlay(dump, base_colors_dim, coords, class_name, exclude_ignore: bool):
+def compute_overlay(dump, base_colors_dim, coords, class_name, exclude_ignore, pred_points, bg_idx):
     """Return (overlay uint8 [N,3], info dict) for the chosen class.
 
     FP points are colored by their TRUE GT class, using a palette assigned only
@@ -97,13 +118,14 @@ def compute_overlay(dump, base_colors_dim, coords, class_name, exclude_ignore: b
     """
     class_names = dump["class_names"]
     gt_segment = dump["gt_segment"]
-    pred_point_classes = dump["pred_point_classes"]
     num_classes = len(class_names)
 
     idx = class_index(class_names, class_name)
     gt_mask = gt_segment == idx
-    pred_mask = pred_point_classes == idx
+    pred_mask = pred_points == idx
     ignore_mask = (gt_segment < 0) | (gt_segment >= num_classes)
+    if bg_idx is not None:
+        ignore_mask = ignore_mask | np.isin(gt_segment, bg_idx)
 
     tp = np.logical_and(gt_mask, pred_mask)
     fn = np.logical_and(gt_mask, ~pred_mask)
@@ -170,7 +192,7 @@ def compute_overlay(dump, base_colors_dim, coords, class_name, exclude_ignore: b
 def make_markdown(class_name, info):
     ig_note = "excluded" if info["exclude_ignore"] else "shown gray"
     lines = [
-        f"### Query: `{class_name}`",
+        f"### Query: `{class_name}`  _(pred: {info.get('pred_mode', 'argmax')})_",
         "",
         f"- TP (correct, yellow): **{info['n_tp']}**",
         f"- FN (missed, green): **{info['n_fn']}**",
@@ -198,6 +220,13 @@ def main():
     parser.add_argument("--pred-file", type=Path, required=True, help="Path to <scene>.npz dump.")
     parser.add_argument("--point-size", type=float, default=0.02)
     parser.add_argument("--default-class", type=str, default=None, help="Initial query class.")
+    parser.add_argument(
+        "--pred",
+        choices=["semantic", "argmax"],
+        default="semantic",
+        help="Prediction source. semantic=foreground-only argmax aligned with f-mIoU "
+        "(default, treats bg GT as ignore); argmax=raw full-vocabulary argmax (legacy).",
+    )
     args = parser.parse_args()
 
     import viser
@@ -207,7 +236,10 @@ def main():
     raw_colors = np.load(args.scene_dir / "color.npy").astype(np.float32)
     base_colors_dim = (raw_colors * BG_DIM).astype(np.uint8)
 
-    options = present_classes(dump)
+    pred_points, mode_used = resolve_pred_points(dump, args.pred)
+    bg_idx = bg_ignore_set(dump, args.pred)
+
+    options = present_classes(dump, pred_points)
     if not options:
         raise RuntimeError("No classes present in this scene dump.")
     default_class = args.default_class if args.default_class in options else options[0]
@@ -239,8 +271,10 @@ def main():
 
     def render(class_name):
         overlay, info = compute_overlay(
-            dump, base_colors_dim, coords, class_name, exclude_ignore=ignore_cb.value
+            dump, base_colors_dim, coords, class_name,
+            exclude_ignore=ignore_cb.value, pred_points=pred_points, bg_idx=bg_idx,
         )
+        info["pred_mode"] = mode_used
         server.scene.add_point_cloud(
             name=cloud_name,
             points=coords,
@@ -297,6 +331,7 @@ def main():
         render(dropdown.value)
 
     render(default_class)
+    print(f"Prediction source: {mode_used} (use --pred semantic|argmax to switch).")
     print("Colors: yellow=TP, green=FN(missed), FP=colored by true class (see panel & console).")
     print("Click a class under 'Jump to FP class' to fly the camera to those points.")
     print("Open the printed viser URL in a browser. Ctrl+C to quit.")

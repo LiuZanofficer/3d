@@ -1,0 +1,198 @@
+class,is_fg,iou,caption_freq
+chair,1,0.4915,183302
+table,1,0.5898,149332
+door,1,0.5281,59325
+couch,1,0.7610,23666
+cabinet,1,0.1603,24561
+shelf,1,0.2499,52711
+desk,1,0.4305,49100
+office chair,1,0.2438,6491
+bed,1,0.7266,40219
+pillow,1,0.0957,15817
+sink,1,0.5597,27636
+picture,1,0.3013,6925
+window,1,0.4969,35418
+toilet,1,0.8418,21857
+bookshelf,1,0.4577,10619
+monitor,1,0.7745,17087
+curtain,1,0.6211,10663
+book,1,0.0001,38677
+armchair,1,0.3910,296
+coffee table,1,0.4212,3975
+box,1,0.2116,15192
+refrigerator,1,0.4949,5788
+lamp,1,0.5923,15035
+kitchen cabinet,1,0.6797,1290
+towel,1,0.4390,11444
+clothes,1,0.1265,1890
+tv,1,0.7613,8016
+nightstand,1,0.6124,3991
+counter,1,0.2041,33544
+dresser,1,0.3288,13476
+stool,1,0.1587,5866
+cushion,1,0.0000,5451
+plant,1,0.7884,6101
+bathtub,1,0.7551,4480
+end table,1,0.0503,3928
+dining table,1,0.0438,3026
+keyboard,1,0.2105,8735
+bag,1,0.0812,15899
+backpack,1,0.3858,4343
+toilet paper,1,0.2602,6869
+printer,1,0.1838,3191
+tv stand,1,0.3761,1123
+whiteboard,1,0.3465,948
+blanket,1,0.0556,7659
+shower curtain,1,0.6049,4009
+trash can,1,0.1429,7902
+closet,1,0.0587,1657
+stairs,1,0.4930,1229
+microwave,1,0.2830,3285
+stove,1,0.2592,4881
+shoe,1,0.2157,1345
+computer tower,1,0.1777,693
+bottle,1,0.0032,27384
+bin,1,0.0001,1115
+ottoman,1,0.1019,1042
+bench,1,0.1658,6129
+board,1,0.0388,7726
+washing machine,1,0.6643,549
+mirror,1,0.3527,7681
+copier,1,0.0428,3
+basket,1,0.0005,2687
+sofa chair,1,0.0141,718
+file cabinet,1,0.2228,1211
+fan,1,0.1240,2093
+laptop,1,0.1807,7463
+shower,1,0.0592,3238
+paper,1,0.0520,19071
+person,1,0.1098,1526
+paper towel dispenser,1,0.3163,196
+oven,1,0.0568,4802
+blinds,1,0.1024,4930
+rack,1,0.0006,4712
+plate,1,0.0000,1824
+blackboard,1,0.2314,63
+piano,1,0.2288,523
+suitcase,1,0.1858,3616
+rail,1,0.0043,632
+radiator,1,0.0355,509
+recycling bin,1,0.1622,25
+container,1,0.0000,3348
+wardrobe,1,0.1682,232
+soap dispenser,1,0.0615,340
+telephone,1,0.0553,1375
+bucket,1,0.0475,1312
+clock,1,0.1662,1132
+stand,1,0.0000,8545
+light,1,0.0050,19183
+laundry basket,1,0.0409,194
+pipe,1,0.0000,1114
+clothes dryer,1,0.0594,4
+guitar,1,0.0000,543
+toilet paper holder,1,0.0531,783
+seat,1,0.0108,10545
+speaker,1,0.0001,1676
+column,1,0.1655,128
+bicycle,1,0.0000,577
+ladder,1,0.2214,286
+bathroom stall,1,0.4996,251
+shower wall,1,0.4957,258
+cup,1,0.0346,7203
+jacket,1,0.0337,1701
+storage bin,1,0.0137,55
+coffee maker,1,0.3059,1456
+dishwasher,1,0.1579,815
+paper towel roll,1,0.0871,9
+machine,1,0.0855,1029
+mat,1,0.2764,3836
+windowsill,1,0.0872,389
+bar,1,0.0000,3368
+toaster,1,0.0000,995
+bulletin board,1,0.1259,251
+ironing board,1,0.0000,62
+fireplace,1,0.5192,550
+soap dish,1,0.0442,181
+kitchen counter,1,0.4753,1476
+doorframe,1,0.0464,105
+toilet paper dispenser,1,0.2295,388
+mini fridge,1,0.0032,97
+fire extinguisher,1,0.0048,28
+ball,1,0.2422,1599
+hat,1,0.0000,279
+shower curtain rod,1,0.0599,34
+water cooler,1,0.0023,54
+paper cutter,1,0.0189,1
+tray,1,0.0000,1188
+shower door,1,0.0358,1069
+pillar,1,0.1612,211
+ledge,1,0.0000,235
+toaster oven,1,0.1146,654
+mouse,1,0.0000,6883
+toilet seat cover dispenser,1,0.0038,0
+furniture,1,0.0000,2175
+cart,1,0.1307,796
+storage container,1,0.0000,53
+scale,1,0.0000,120
+tissue box,1,0.0290,150
+light switch,1,0.0000,473
+crate,1,0.0000,924
+power outlet,1,0.0000,150
+decoration,1,0.0308,347
+sign,1,0.0000,2126
+projector,1,0.0000,94
+closet door,1,0.0973,991
+vacuum cleaner,1,0.0789,79
+candle,1,0.0000,990
+plunger,1,0.0000,102
+stuffed animal,1,0.0000,647
+headphones,1,0.0000,288
+dish rack,1,0.0115,31
+broom,1,0.0000,294
+guitar case,1,0.0000,163
+range hood,1,0.2828,44
+dustpan,1,0.0000,3
+hair dryer,1,0.0000,489
+water bottle,1,0.0000,1399
+handicap bar,1,0.0007,0
+purse,1,0.0000,1077
+vent,1,0.0000,2182
+shower floor,1,0.0532,227
+water pitcher,1,0.0000,51
+mailbox,1,0.0000,2
+bowl,1,0.0000,4380
+paper bag,1,0.0333,342
+alarm clock,1,0.0000,974
+music stand,1,0.0000,0
+projector screen,1,0.0952,166
+divider,1,0.0000,426
+laundry detergent,1,0.0827,2
+bathroom counter,1,0.0719,778
+object,1,0.0000,2549
+bathroom vanity,1,0.1216,70
+closet wall,1,0.0127,7
+laundry hamper,1,0.0224,20
+bathroom stall door,1,0.1192,25
+ceiling light,1,0.2622,187
+trash bin,1,0.0581,1893
+dumbbell,1,0.0000,0
+stair rail,1,0.1955,7
+tube,1,0.0000,638
+bathroom cabinet,1,0.2159,168
+cd case,1,0.0000,10
+closet rod,1,0.0394,0
+coffee kettle,1,0.0236,5
+structure,1,0.0000,33
+shower head,1,0.1207,261
+keyboard piano,1,0.0167,4
+case of water bottles,1,0.0277,0
+coat rack,1,0.0087,35
+storage organizer,1,0.0000,0
+folded chair,1,0.0222,91
+fire alarm,1,0.0000,8
+power strip,1,0.0000,152
+calendar,1,0.0000,204
+poster,1,0.0217,2319
+potted plant,1,0.0000,1249
+luggage,1,0.0000,712
+mattress,1,0.0000,2934
