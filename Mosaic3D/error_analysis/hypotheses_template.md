@@ -118,3 +118,33 @@
 - 失效机制 = **mask/instance 级的同辈外观混淆**：受害类的一部分实例被整体（且自信地）判给 top-1 同辈，非边界点、非散点、非文本决策、非长尾覆盖。
 - 与 Mosaic3D(堆数据)/几何修漂移/长尾重加权/文本锚点**全部正交**。可做切口：mask 级特征聚合 + 同辈判别（hard-instance mining / 实例级置信校准 / mask→text 的同辈对比损失）。Mosaic3D 本就是 mask-based，落点自然。
 - 待验证（下一步）：扩 dump 存"受害类逐实例视觉特征"，看翻转实例 vs 正确实例在特征空间是否可分（决定切口是"特征不可分"还是"决策阈值"）。
+
+---
+
+# Task 0/1/2：实例可分性与 caption 粒度（2026-06-27）
+
+## Task 0 真 200 类标签空间 oracle 天花板（analyze_oracle_real_labelspace.py）
+- 预登记：`oracle_fgmiou≤0.18` → 上限低；`≥0.21` → 有冲 20+ 物理空间；中间 → 可继续但降预期。
+- 自检：baseline fg-mIoU=**0.1548**，OK。
+- 实测：top25 oracle=**0.1906**(+0.0358) → MODEST；top50 oracle=**0.2118**(+0.0570) → ROOM_FOR_20_PLUS；all valid pairs oracle=**0.3257**(+0.1709)。
+- 结论：只修 top25 空间不够大；扩到 top50 才刚越过 0.21。说明该问题**值得继续**，但真实方法不能按 all-oracle 或“暴涨到30”预期设计。
+
+## Task 1 实例视觉特征可分性（language_module.py + analyze_instance_separability.py）
+- 改动：eval dump 新增 `eval_instance_features/scannet200/<scene>.npz`，每个 GT 前景实例保存 `pooled_feat=L2norm(mean(L2norm(clip_feat)))`、真实类、预测直方图、多数预测等；不存逐点特征。
+- 重跑：`logs/eval/runs/2026-06-27_06-58-17`，scannet200 mIoU=**0.154751956**，instance feature dumps=312。
+- 预登记：AUC≥0.80 → 可分（决策/readout/聚合/校准问题）；AUC≤0.60 → 不可分（表示问题）；中间不确定。
+- 实测：翻转 vs 正确实例 mean AUC=**0.984**，median=0.986；随机标签 AUC=0.528；真 C vs 真 J sibling AUC=0.943。
+- 结论：**SEPARABLE**。翻转实例和正确实例在视觉特征空间高度可分，根因不再是“表示完全不可分”，更偏实例级 readout / 聚合 / 置信校准 / reranking 问题。
+
+## Task 2 训练 caption 粒度（analyze_caption_granularity.py）
+- 前置：当前 `data=sc+ar+sc++` ScanNet 配置未显式写 `anno_sources`，按 `dataset_base.py` 默认使用 `["gsam2", "seem"]`；本次统计这两个 source。
+- 自检：baseline fg-mIoU=**0.1548**，OK；ScanNet train scenes=1201，caption regions=1,312,860；point_indices/segment 对齐 smoke check 通过。
+- 预登记：CONFIRM 需 >50% top pairs 满足 `P(J|C)>0` 且 J 是非 C 第一名，并且 mean Spearman≥0.4；REFUTE 需 median `P(C|C)≥0.5` 且 mean Spearman<0.1；否则 INCONCLUSIVE。
+- 实测：pair-confirm fraction=**0.240**(6/25)，mean Spearman=**0.270**，median `P(C|C)=0.238`。
+- 结论：**INCONCLUSIVE**。训练 caption 有一定 sibling 偏细信号，但不足以解释多数 eval 翻转；也不能说 caption 完全正常。
+
+## 2x2 裁决
+- Task 1：特征可分（AUC 0.984）。
+- Task 2：caption 偏细不确定（pair-confirm 0.24、rho 0.27）。
+- 当前落点：**优先按“决策/readout/实例级校准”推进**，同时保留 caption 粒度作为次要混杂因素，而不是主因。
+- 最便宜的下一步方法方向：在 annotation-free 设定内做 mask/instance 级 reranking 或 calibration，利用实例 pooled feature 与文本候选的 margin/entropy/同辈 hard negatives，不使用 ScanNet200 GT 训练。

@@ -1,0 +1,5 @@
+================================================================
+pairs=25  mean leak_in_flipped=0.697  near0/1=0.80 middle=0.09
+PRE-REGISTERED VERDICT: CONFIRM (instance-level wholesale flip)
+outputs -> error_analysis/reports/subpop_instance.md
+================================================================

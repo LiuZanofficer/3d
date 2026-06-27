@@ -1,0 +1,5 @@
+================================================================
+pairs=23  mean per-pair diff(FN->J - TP)=+0.0066  frac_pos=0.61
+PRE-REGISTERED VERDICT: REFUTE (not a boundary effect)
+outputs -> error_analysis/reports/subpop_boundary.md
+================================================================
