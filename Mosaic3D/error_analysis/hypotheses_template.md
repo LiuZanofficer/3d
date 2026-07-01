@@ -148,3 +148,25 @@
 - Task 2：caption 偏细不确定（pair-confirm 0.24、rho 0.27）。
 - 当前落点：**优先按“决策/readout/实例级校准”推进**，同时保留 caption 粒度作为次要混杂因素，而不是主因。
 - 最便宜的下一步方法方向：在 annotation-free 设定内做 mask/instance 级 reranking 或 calibration，利用实例 pooled feature 与文本候选的 margin/entropy/同辈 hard negatives，不使用 ScanNet200 GT 训练。
+
+---
+
+# Readout 修复阶段（2026-06-27）
+
+## Step 0：文本读出方向 vs 视觉判别方向
+- 预登记：若多数高成本 pair 的 `|cos(d_vis,d_txt)|<0.5` 且均值不比随机方向高 `>=0.05`，则确认“文本读出方向不等于视觉判别方向”。
+- 自检：baseline fg-mIoU=**0.1548**，OK。
+- 实测：mean `|cos|`=**0.034**，median=0.029，`frac<0.5`=1.000；随机方向 mean=0.028。
+- 结论：**CONFIRM**。文本锚点差向量几乎不沿实例视觉可分方向，readout mismatch 机理成立。
+
+## Method A：eval-only readout 三对照
+- baseline：fg-mIoU=**0.15475**，mAP=**0.11486**。
+- `mask_text_vote`（类无关 mask 内文本投票并实例一致写回）：fg-mIoU=**0.17573**（**+0.02098**），mAP=**0.11236**（**-0.00250**）。
+- `caption_proto_300b`（300-batch caption 弱监督视觉原型，簇内重排）：fg-mIoU=**0.14868**（**-0.00607**），mAP=**0.09886**（**-0.01599**）。
+- 结论：实例一致 readout 本身有效，带来 +2.10 mIoU 点；当前 caption prototype 读出不成立，不能作为提升报告。
+
+## Method B：同辈 hard-negative caption loss
+- 已实现 `HardNegativeCaptionLoss` 与配置 `configs/model/loss/caption_siglip_hardneg.yaml`，只使用 caption 文本、类名/别名、文本嵌入簇，不使用 ScanNet200 GT 标签训练。
+- 已新增 `init_ckpt_path`，避免把 raw state_dict ckpt 当 Lightning resume checkpoint。
+- 单卡 2-step smoke 通过，`hard_negative_caption_loss≈0.003`。
+- 8 卡 smoke 已排队等待共享 GPU 空闲；B / B+A 真实指标尚未产出，最终报告必须等训练与评测完成后补齐。

@@ -8,6 +8,23 @@ from lightning import Callback, LightningDataModule, LightningModule, Trainer
 from lightning.pytorch.loggers import Logger
 from omegaconf import DictConfig
 
+# PyTorch>=2.6 changed torch.load default to weights_only=True, which breaks
+# resuming Lightning checkpoints that pickle config objects (functools.partial,
+# omegaconf, ...). All checkpoints here are locally produced and trusted, so
+# default weights_only=False to keep `trainer.fit(ckpt_path=...)` resume working.
+_torch_load_orig = torch.load
+
+
+def _torch_load_compat(*args, **kwargs):
+    # Lightning's _load passes weights_only=None explicitly, so setdefault is not
+    # enough; force False whenever it is unset or None.
+    if kwargs.get("weights_only", None) is None:
+        kwargs["weights_only"] = False
+    return _torch_load_orig(*args, **kwargs)
+
+
+torch.load = _torch_load_compat
+
 rootutils.setup_root(__file__, indicator=".project-root", pythonpath=True)
 # ------------------------------------------------------------------------------------ #
 # the setup_root above is equivalent to:
@@ -61,6 +78,9 @@ def train(cfg: DictConfig) -> Tuple[Dict[str, Any], Dict[str, Any]]:
     log.info(f"Instantiating model <{cfg.model._target_}>")
     model: LightningModule = hydra.utils.instantiate(cfg.model)
     model.data_cfg = cfg.data
+    if cfg.get("init_ckpt_path"):
+        log.info(f"Will initialize model weights from state_dict <{cfg.init_ckpt_path}>")
+        model.init_ckpt_path = cfg.init_ckpt_path
 
     log.info("Instantiating callbacks...")
     callbacks: List[Callback] = instantiate_callbacks(cfg.get("callbacks"))
@@ -102,7 +122,8 @@ def train(cfg: DictConfig) -> Tuple[Dict[str, Any], Dict[str, Any]]:
             ckpt_path = None
 
         # Create a new trainer and model with a single GPU
-        torch.distributed.destroy_process_group()
+        if torch.distributed.is_initialized():
+            torch.distributed.destroy_process_group()
         if trainer.is_global_zero:
             # Empty CUDA cache before testing
             torch.cuda.empty_cache()

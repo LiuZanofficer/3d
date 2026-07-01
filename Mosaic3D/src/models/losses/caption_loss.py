@@ -10,7 +10,10 @@ from torch.nn import functional as F
 from torch_scatter import scatter, segment_csr
 
 import src.utils.dist_utils as dist_utils
+import src.utils.caption_utils as caption_utils
+from src.data.metadata.scannet import CLASS_LABELS_200
 from src.models.losses.loss_base import LossBase
+from src.utils.class_term_utils import build_term_matcher, build_text_clusters, class_to_cluster, match_class_terms
 from src.utils.caption_utils import get_caption_batch, get_unique_caption_batch
 
 
@@ -320,6 +323,100 @@ class CaptionCLIPLoss(CaptionLossBase):
         ) / 2
 
         return total_loss
+
+
+class HardNegativeCaptionLoss(CaptionLossBase):
+    """Sibling hard-negative loss driven only by caption text and class names."""
+
+    def __init__(
+        self,
+        normalize: bool = True,
+        margin: float = 0.05,
+        cluster_threshold: float = 0.88,
+        use_prompt: bool = True,
+        reduction: Literal["mean", "weighted_sum"] = "weighted_sum",
+        **kwargs,
+    ):
+        super().__init__(**kwargs)
+        self.normalize = normalize
+        self.margin = margin
+        self.cluster_threshold = cluster_threshold
+        self.use_prompt = use_prompt
+        self.reduction = reduction
+        self.class_names = [str(c) for c in CLASS_LABELS_200]
+        self.pattern, self.term_to_class = build_term_matcher(self.class_names)
+        self._class_text_cache = {}
+        self._cluster_cache = None
+
+    def _class_text_features(self, clip_encoder, device):
+        cache_key = str(device)
+        if cache_key in self._class_text_cache:
+            return self._class_text_cache[cache_key]
+        texts = [f"a {name} in a scene" if self.use_prompt else name for name in self.class_names]
+        with torch.no_grad():
+            emb = caption_utils.forward_text_encoder(texts, clip_encoder, normalize=True, device=device)
+        self._class_text_cache[cache_key] = emb
+        return emb
+
+    def _clusters(self, class_text_features):
+        if self._cluster_cache is not None:
+            return self._cluster_cache
+        fg_idx = np.array([i for i, c in enumerate(self.class_names) if c not in {"wall", "floor", "ceiling"}])
+        clusters = build_text_clusters(
+            class_text_features.detach().cpu().numpy(), fg_idx, self.cluster_threshold
+        )
+        self._cluster_cache = class_to_cluster(clusters)
+        return self._cluster_cache
+
+    def loss(
+        self,
+        point_features: Float[Tensor, "M 512"],  # noqa: F722
+        point_indices: Int[Tensor, "L"],  # noqa: F821
+        caption_offsets: Int[Tensor, "B + 1"],  # noqa: F821
+        num_points_per_caption: Int[Tensor, "B"],  # noqa: F821
+        clip_encoder: nn.Module,
+        captions: Optional[List[List[str]]] = None,
+        embeddings: Optional[List[List[Float[Tensor, "D"]]]] = None,  # noqa: F722,F821
+        **kwargs,
+    ) -> Tensor:
+        if captions is None:
+            return point_features.sum() * 0.0
+        device = point_features.device
+        class_text = self._class_text_features(clip_encoder, device)
+        c2cluster = self._clusters(class_text)
+
+        if self.normalize:
+            point_features = nn.functional.normalize(point_features, dim=-1)
+        segment_features = segment_csr(
+            point_features[point_indices],
+            caption_offsets.to(device),
+            reduce="mean",
+        )
+        segment_features = nn.functional.normalize(segment_features, dim=-1)
+
+        flat_captions = [caption for sublist in captions for caption in sublist]
+        losses = []
+        weights = []
+        for i, caption in enumerate(flat_captions):
+            hits = match_class_terms(caption, self.pattern, self.term_to_class)
+            if not hits:
+                continue
+            for c in hits:
+                cluster = [j for j in c2cluster.get(int(c), [int(c)]) if j != int(c) and j not in hits]
+                if not cluster:
+                    continue
+                pos = segment_features[i] @ class_text[int(c)]
+                neg_idx = torch.tensor(cluster, dtype=torch.long, device=device)
+                neg = torch.max(segment_features[i] @ class_text[neg_idx].T)
+                losses.append(torch.relu(self.margin + neg - pos))
+                weights.append(num_points_per_caption[i].to(device=device, dtype=point_features.dtype))
+        if not losses:
+            return point_features.sum() * 0.0
+        loss = torch.stack(losses)
+        weight = torch.stack(weights)
+        if self.reduction == "weighted_sum":
+            return (loss * weight).sum() / torch.clamp(weight.sum(), min=1.0)
+        return loss.mean()
 
 
 class CaptionSigLIPLoss(CaptionCLIPLoss):

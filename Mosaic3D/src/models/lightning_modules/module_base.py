@@ -141,15 +141,23 @@ class LitModuleBase(LightningModule, metaclass=abc.ABCMeta):
         else:
             optimizer = self.hparams.optimizer(params=self.parameters())
         if self.hparams.scheduler is not None:
+            # estimated_stepping_batches is per-rank and therefore depends on the
+            # number of GPUs (world_size). For elastic training where the card
+            # count can change across restarts, multiply back by world_size to get
+            # a world-size-invariant step budget, plus a safety margin, so the
+            # restored global_step can never exceed the scheduler's total_steps
+            # (which would otherwise crash OneCycleLR/PolynomialLR after a resize).
+            ws = max(int(getattr(self.trainer, "world_size", 1) or 1), 1)
+            stable_total_steps = int(self.trainer.estimated_stepping_batches * ws) + 1000
             if self.hparams.scheduler.func.__name__ == "OneCycleLR":
                 scheduler = self.hparams.scheduler(
                     optimizer=optimizer,
-                    total_steps=self.trainer.estimated_stepping_batches,
+                    total_steps=stable_total_steps,
                 )
             elif self.hparams.scheduler.func.__name__ == "PolynomialLR":
                 scheduler = self.hparams.scheduler(
                     optimizer=optimizer,
-                    total_iters=self.trainer.estimated_stepping_batches,
+                    total_iters=stable_total_steps,
                 )
             else:
                 scheduler = self.hparams.scheduler(optimizer=optimizer)
