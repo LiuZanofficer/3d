@@ -1,0 +1,43 @@
+{
+ "margin": 0.02,
+ "gate_on": [
+  1,
+  2,
+  9,
+  12,
+  20,
+  28,
+  48
+ ],
+ "gate_on_names": [
+  "shelf|bookshelf",
+  "pillow|cushion",
+  "stairs|stair rail",
+  "bottle|water bottle|case of water bottles",
+  "plate|cup|tray|bowl",
+  "column|pillar",
+  "light switch|power outlet|power strip"
+ ],
+ "text": {
+  "sib": 0.7916,
+  "miou_incl": 0.2489
+ },
+ "all_on_cap": {
+  "sib": 0.7771,
+  "sib_pts": 0.7906,
+  "miou_incl": 0.2372
+ },
+ "af_gate_cap": {
+  "sib": 0.8308,
+  "sib_pts": 0.8356,
+  "miou_incl": 0.2464
+ },
+ "af_gate_gt": {
+  "sib": 0.7998,
+  "sib_pts": 0.8276,
+  "miou_incl": 0.2463
+ },
+ "oracle_gate": {
+  "sib": 0.8508
+ }
+}

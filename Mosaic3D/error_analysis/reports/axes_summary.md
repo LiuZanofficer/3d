@@ -108,3 +108,13 @@ consistency axis, and whether the gain concentrates on the sibling pairs identif
 - 高价值簇（printer/copier +0.27、stairs +0.28、bottle +0.34）**caption 词命名被 VLM 上位词毁掉**（printer 词 acc 0.243）。
 - 按预注册 gate：A 失败但 oracle 成功 → 可做 B；但推荐先做 **C1 训练-free 按簇门控原型**（无训练、上界 +0.06），
   或 C2 词蒸馏（须用视觉伪标签规避上位词）。均为离线上界；部署差距(0.79→0.38)才是 fg-mIoU 主杠杆。
+
+
+### C1 训练-free 按簇门控原型（强制三数）— 见 zeroshot_proto.md §C1
+annotation-free 门控（train caption 词伪标签 2-fold，不碰 GT）选中 7/17 簇。
+- 离线上界（oracle 标签+门控，GT-instance）：簇内改名 fg-mIoU **0.2647** vs 文本 0.2489 = **全线理论顶 +0.0158**；sibNaming 0.8508。
+- 离线可部署（af-gate cap）：sibNaming **0.8308**（+0.039），但簇内 fg-mIoU 0.2464（−0.0025）。
+- **在线可部署**（mask_text_vote）：fg-mIoU **0.17341** vs baseline+MTV 0.17573 = **−0.0023**；mAP −0.002。
+- 判定：C1 在线不落地；命名增益集中在低 IoU 稀有实例，renaming 引 FP，fg-mIoU 不升反降。
+- 对 C2：词蒸馏 fg-mIoU 绝对上限=+0.0158，可部署侵蚀已使 oracle 版离线≈持平 → C2 落地≈0，性价比极低。
+  主杠杆是部署差距（0.79→0.38：mask/实例成形+逐点读出），非锚点/命名 → 倾向 D reframe。

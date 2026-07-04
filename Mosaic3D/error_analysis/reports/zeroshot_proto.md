@@ -110,3 +110,45 @@ proto_gt − text 的按簇差（正=视觉原型赢）：
 离线 sibNaming 用 val GT-instance 池化特征，是上界诊断；在线可部署（mask_text_vote）
 sibNaming≈0.379。本轮结论回答的是"视觉原型信号是否 train→val 迁移"（是），
 以及"nearest-centroid 相对文本读出的头顶"（盲目≈0，选择性≈+0.06 上界）。
+
+
+---
+
+# C1：训练-free 按簇门控视觉原型（hybrid）+ 强制三数
+
+## C1.1 annotation-free 门控（不碰 GT）
+在 train caption 区域上，用 **caption 词伪标签** 做 2-fold：foldA 建原型、foldB 用伪标签评 proto-vs-text，
+按簇取 Δ=proto−text，Δ≥margin(0.02) 则该簇门控 ON。选中 7/17 簇：
+bottle(Δ+0.47)、stairs(+0.24)、column(+0.175)、shelf(+0.086)、pillow/cushion(+0.045)、plate/cup/bowl(+0.038)、light switch/outlet(+0.028)。
+非门控簇与非近义类 **保持 CLIP 文本读出**（open-vocab 不动）。可部署原型只用 caption 词质心（红线：不用 GT）。
+
+## C1.2 强制三个数
+| 层级 | 指标 | 值 | vs 参照 |
+|---|---|---|---|
+| **离线上界**(GT-instance, oracle 标签+oracle 门控) | 簇内改名 fg-mIoU | **0.2647** | vs 文本簇内 0.2489 = **+0.0158**（全线理论顶） |
+| 离线上界 | sibNaming(oracle-gate) | 0.8508 | vs 文本 0.7916 = +0.0592 |
+| 离线可部署(GT-instance, af-gate cap) | sibNaming | **0.8308** | vs 文本 0.7916 = **+0.0392** |
+| 离线可部署 | 簇内 fg-mIoU | 0.2464 | vs 文本 0.2489 = **−0.0025** |
+| **在线可部署**(mask_text_vote 管线) | val_scannet200 **fg-mIoU** | **0.17341** | vs baseline+MTV 0.17573 = **−0.00232** |
+| 在线可部署 | val_scannet200 mAP | 0.11033 | vs 0.11236 = −0.00203 |
+
+**落差**：离线 sibNaming +0.039（且门控吃到 oracle 头顶的 66%），但
+- 离线 fg-mIoU 已≈持平（−0.0025），
+- 在线 fg-mIoU 反降 −0.0023。
+即"命名准确率增益"在 fg-mIoU（IoU/点加权）层面几乎不存在，落到 mask 级更被侵蚀为负。
+
+## C1.3 判定
+- C1 **在线不落地**（fg-mIoU −0.0023）。annotation-free 门控本身有效（sibNaming +0.039，吃到 oracle 66%），
+  但 sibNaming 增益集中在**低 IoU 的稀有实例**（bottle/stairs/column），renaming 又给目标类引入 FP，净 fg-mIoU 不升反降。
+- **关键天花板**：即使 oracle 标签+oracle 门控+GT-instance 池化，簇内改名的 fg-mIoU 顶也只有 **+0.0158**；
+  可部署（词噪声+不完美门控+mask 池化）把它全部吃光甚至转负。
+- 对 C2 的含义：C2（轻量词蒸馏）的 fg-mIoU **绝对上限就是 +0.0158**，而观测到的可部署侵蚀已使 oracle 标签版
+  离线也仅≈持平 → C2 预期可部署 fg-mIoU 落地 ≈ 0，训练性价比极低。
+- 与既往一致：Task0 oracle top50 仅 0.2118；部署差距（GT-instance sibNaming 0.79 vs 在线 0.379）才是主杠杆，
+  属 mask/实例成形 + 逐点读出一致性，非锚点/原型/命名。
+
+## C1.4 复现
+- 门控+离线：scripts/c1_gate_offline.py → error_analysis/reports/task2/c1_gate.json，产物 error_analysis/prototypes/gated_proto.npz
+- 在线：MOSAIC3D_READOUT_MODE=gated_proto MOSAIC3D_PROTO_PATH=.../gated_proto.npz
+  python src/eval.py experiment=train_spunet_multidata_ppt data=sc+ar+sc++ +ckpt_strict=false ckpt_path=qz/sc+ar+sc++.ckpt trainer.devices=1
+- baseline 复算：MOSAIC3D_READOUT_MODE=mask_text_vote 同命令 → fg-mIoU 0.17573（与历史一致）。

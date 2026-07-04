@@ -354,13 +354,19 @@ class DenseLanguageLitModule(LitModuleBase):
         proto_count = torch.from_numpy(data["count"]).long().to(self.device)
         proto = torch.nn.functional.normalize(proto, dim=-1)
 
-        emb = self.clip_alignment_eval[postfix].emb_target.detach().float()
-        emb_np = emb.cpu().numpy()
-        threshold = float(os.environ.get("MOSAIC3D_CLUSTER_THRESHOLD", "0.88"))
-        clusters = build_text_clusters(
-            emb_np, np.array(class_info["fg_class_idx"], dtype=np.int64), threshold
-        )
-        c2cluster = class_to_cluster(clusters)
+        if self._readout_mode() == "gated_proto" and "gate_c2cluster" in data.files:
+            import json as _json
+            gmap = _json.loads(str(data["gate_c2cluster"]))
+            c2cluster = {int(k): [int(x) for x in v] for k, v in gmap.items()}
+            threshold = -1.0
+        else:
+            emb = self.clip_alignment_eval[postfix].emb_target.detach().float()
+            emb_np = emb.cpu().numpy()
+            threshold = float(os.environ.get("MOSAIC3D_CLUSTER_THRESHOLD", "0.88"))
+            clusters = build_text_clusters(
+                emb_np, np.array(class_info["fg_class_idx"], dtype=np.int64), threshold
+            )
+            c2cluster = class_to_cluster(clusters)
         cache = dict(proto=proto, proto_count=proto_count, c2cluster=c2cluster, threshold=threshold)
         self._caption_proto_cache[postfix] = cache
         return cache
@@ -389,7 +395,7 @@ class DenseLanguageLitModule(LitModuleBase):
         mask_probs = torch.stack(mask_probs, dim=0)
         pred_scores, pred_classes = torch.max(mask_probs, dim=1)
 
-        if mode == "caption_proto":
+        if mode in ("caption_proto", "gated_proto"):
             readout = self._get_caption_proto_readout(postfix, class_info)
             proto = readout["proto"]
             proto_count = readout["proto_count"]
