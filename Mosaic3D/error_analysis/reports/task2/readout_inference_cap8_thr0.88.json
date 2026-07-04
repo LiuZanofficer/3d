@@ -1,0 +1,44 @@
+{
+  "threshold": 0.88,
+  "max_cluster_size": 8,
+  "n_effective_multi_clusters": 4,
+  "n_instances": 7769,
+  "n_sibling_instances": 124,
+  "baseline_point_fgmiou": 0.1547519610707895,
+  "baseline_point_fgmiou_selfcheck": "OK",
+  "instance_accuracy": {
+    "baseline_inst": {
+      "acc_all": 0.45205303127815677,
+      "acc_sibling": 0.3548387096774194,
+      "n_changed_vs_base": 0
+    },
+    "anchor_decorrelate": {
+      "acc_all": 0.45140944780538034,
+      "acc_sibling": 0.31451612903225806,
+      "n_changed_vs_base": 20
+    },
+    "unsup_kmeans_textname": {
+      "acc_all": 0.4523104646672673,
+      "acc_sibling": 0.3709677419354839,
+      "n_changed_vs_base": 5
+    },
+    "unsup_kmeans_oracle": {
+      "acc_all": 0.4528253314454885,
+      "acc_sibling": 0.3548387096774194,
+      "n_changed_vs_base": 13
+    },
+    "oracle_incluster": {
+      "acc_all": 0.4526966147509332,
+      "acc_sibling": 0.3951612903225806,
+      "n_changed_vs_base": 5
+    }
+  },
+  "instance_renaming_fgmiou": {
+    "baseline_inst": 0.19988699435698873,
+    "anchor_decorrelate": 0.19672160861259144,
+    "unsup_kmeans_textname": 0.20035222088510177,
+    "unsup_kmeans_oracle": 0.1990537824760464,
+    "oracle_incluster": 0.20840268499660605
+  },
+  "proto_used": false
+}

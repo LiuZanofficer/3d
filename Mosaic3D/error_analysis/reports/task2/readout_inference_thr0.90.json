@@ -1,0 +1,42 @@
+{
+  "threshold": 0.9,
+  "n_instances": 7769,
+  "n_sibling_instances": 7065,
+  "baseline_point_fgmiou": 0.1547519610707895,
+  "baseline_point_fgmiou_selfcheck": "OK",
+  "instance_accuracy": {
+    "baseline_inst": {
+      "acc_all": 0.45205303127815677,
+      "acc_sibling": 0.47119603680113237,
+      "n_changed_vs_base": 0
+    },
+    "anchor_decorrelate": {
+      "acc_all": 0.07182391556184838,
+      "acc_sibling": 0.05307855626326964,
+      "n_changed_vs_base": 5846
+    },
+    "unsup_kmeans_textname": {
+      "acc_all": 0.4278542927017634,
+      "acc_sibling": 0.4445859872611465,
+      "n_changed_vs_base": 1977
+    },
+    "unsup_kmeans_oracle": {
+      "acc_all": 0.620414467756468,
+      "acc_sibling": 0.6413305024769993,
+      "n_changed_vs_base": 3735
+    },
+    "oracle_incluster": {
+      "acc_all": 0.7316256918522333,
+      "acc_sibling": 0.7786270346779901,
+      "n_changed_vs_base": 2172
+    }
+  },
+  "instance_renaming_fgmiou": {
+    "baseline_inst": 0.19988699435698873,
+    "anchor_decorrelate": 0.05772590303749967,
+    "unsup_kmeans_textname": 0.15201664925367547,
+    "unsup_kmeans_oracle": 0.17347288562181182,
+    "oracle_incluster": 0.4452585830981433
+  },
+  "proto_used": false
+}

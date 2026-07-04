@@ -1,0 +1,50 @@
+{
+  "threshold": 0.9,
+  "max_cluster_size": 8,
+  "n_effective_multi_clusters": 17,
+  "n_instances": 7769,
+  "n_sibling_instances": 1099,
+  "baseline_point_fgmiou": 0.1547519610707895,
+  "baseline_point_fgmiou_selfcheck": "OK",
+  "instance_accuracy": {
+    "baseline_inst": {
+      "acc_all": 0.45205303127815677,
+      "acc_sibling": 0.3794358507734304,
+      "n_changed_vs_base": 0
+    },
+    "anchor_decorrelate": {
+      "acc_all": 0.44587462993950316,
+      "acc_sibling": 0.33575978161965425,
+      "n_changed_vs_base": 159
+    },
+    "caption_proto": {
+      "acc_all": 0.45140944780538034,
+      "acc_sibling": 0.37488626023657873,
+      "n_changed_vs_base": 365
+    },
+    "unsup_kmeans_textname": {
+      "acc_all": 0.45166688119449094,
+      "acc_sibling": 0.37670609645131936,
+      "n_changed_vs_base": 260
+    },
+    "unsup_kmeans_oracle": {
+      "acc_all": 0.5117775775518084,
+      "acc_sibling": 0.3348498635122839,
+      "n_changed_vs_base": 1056
+    },
+    "oracle_incluster": {
+      "acc_all": 0.46479598403912986,
+      "acc_sibling": 0.4695177434030937,
+      "n_changed_vs_base": 99
+    }
+  },
+  "instance_renaming_fgmiou": {
+    "baseline_inst": 0.19988699435698873,
+    "anchor_decorrelate": 0.1889117323030992,
+    "caption_proto": 0.19437287005393772,
+    "unsup_kmeans_textname": 0.1886202809043222,
+    "unsup_kmeans_oracle": 0.19499732821200666,
+    "oracle_incluster": 0.23106559323521964
+  },
+  "proto_used": true
+}
