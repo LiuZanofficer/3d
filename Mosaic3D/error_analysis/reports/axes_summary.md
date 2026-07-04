@@ -90,3 +90,21 @@ consistency axis, and whether the gain concentrates on the sibling pairs identif
 - 结论：可部署地利用 caption 词信号，**必须**要么（a）自写轻量前向脚本在 train 的 **caption 点组**上池化 clip_feat 建原型（annotation-free），
   要么（b）走 TASK C 轻量训练（frozen backbone + 词监督头）。二者都超出「纯推理零成本」范围，需单独排期。
 - 建议优先 (a)：最接近零训练、且直接检验 caption 词→视觉原型能否迁移到 val；(a) 有效再上 (b) 放大。
+
+---
+
+## 零训练视觉原型（TASK C 第一步，先验证迁移）— 见 zeroshot_proto.md
+全 train 集按 **caption 点组**池化基线模型 clip_feat 建视觉原型（红线：非 gt_instance/segment200 建可部署原型），
+只在 tight 近义簇内做簇内消歧；val 上离线 GT-instance 协议评分（同 name 锚点 0.7916）。
+
+| 命名法 | sibNaming | miou_incl | 判定 |
+|---|---|---|---|
+| text 名锚点(基线) | 0.7916 | 0.2489 | — |
+| proto_caption(可部署) | 0.7771 | 0.2372 | < 文本 → **A 失败** |
+| proto_gt(oracle) | 0.8053 | 0.2544 | > 文本 → **oracle 成功** |
+| 按簇择优(选择性上界) | **0.8508** | — | +0.0592，价值在选择性 |
+
+- 结论：视觉特征 **train→val 迁移成立**；盲目全局原型头顶≈0，**按簇选择性**才有 +0.06 上界。
+- 高价值簇（printer/copier +0.27、stairs +0.28、bottle +0.34）**caption 词命名被 VLM 上位词毁掉**（printer 词 acc 0.243）。
+- 按预注册 gate：A 失败但 oracle 成功 → 可做 B；但推荐先做 **C1 训练-free 按簇门控原型**（无训练、上界 +0.06），
+  或 C2 词蒸馏（须用视觉伪标签规避上位词）。均为离线上界；部署差距(0.79→0.38)才是 fg-mIoU 主杠杆。

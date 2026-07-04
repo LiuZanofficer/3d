@@ -1,0 +1,31 @@
+{
+ "train_dump_files": 1201,
+ "min_np": 25,
+ "tight_classes": 44,
+ "caption_proto_classes": 43,
+ "gt_proto_classes": 43,
+ "val_in_tight": 1099,
+ "ref_name_text": {
+  "sib_acc": 0.7916,
+  "sib_acc_pts": 0.8041,
+  "miou_incluster": 0.2489
+ },
+ "proto_caption": {
+  "sib_acc": 0.7753,
+  "sib_acc_pts": 0.7872,
+  "among_named": 0.7753,
+  "named_frac": 1.0,
+  "miou_incluster": 0.2367,
+  "proto_class_cov": 0.9909
+ },
+ "proto_gt_oracle": {
+  "sib_acc": 0.8035,
+  "sib_acc_pts": 0.8348,
+  "among_named": 0.8035,
+  "named_frac": 1.0,
+  "miou_incluster": 0.2544,
+  "proto_class_cov": 0.9927
+ },
+ "baseline_text_full_miou": 0.2009,
+ "note": "offline uses VAL GT-instance pooled feats (oracle upper bound). deployed online sibNaming ref=0.379."
+}
