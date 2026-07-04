@@ -80,3 +80,13 @@ consistency axis, and whether the gain concentrates on the sibling pairs identif
 - 推荐：把「caption 类名众数词」当**离散命名目标**，frozen backbone 训一个轻量分类/命名头（annotation-free 词监督），
   或先做**零训练可部署验证**：用 caption 词把 train 实例分组→求各类**视觉原型**→val 用视觉特征最近原型命名（部署侧不需 caption）。
 - 判据仍按四条：B' 或 B'+MTV fg-mIoU>0.17573、cos(d_vis,d_txt)↑、增益落同辈簇、mAP 维持、且不打坏 baseline 读出(<0.155)。
+
+## TASK C 可行性说明（本次已探明，未跑训练）
+- 试图做「零训练可部署原型」验证（caption 词→train 实例视觉原型→val 最近原型命名），但：
+  - 实例特征 dump 路径 `_update_instance_segmentation_metrics` **依赖 `masks_binary`（Segment3D masks）**；
+    `scannet200_masks` **只有 312 个 val 场景，无 train masks** → 无法在 train 上走 dump 拿到 GT-实例池化视觉特征。
+  - `MOSAIC3D_FORCE_EVAL=1`（已加，env 门控 `is_train`）可让 train split 走 eval 行为（加载 GT segment/instance、跳过 caption），
+    但仍受制于上面的 masks 依赖；只能 dump 到 `eval_visual_means`（按 **GT 类**池化=oracle，非 annotation-free 命名可用）。
+- 结论：可部署地利用 caption 词信号，**必须**要么（a）自写轻量前向脚本在 train 的 **caption 点组**上池化 clip_feat 建原型（annotation-free），
+  要么（b）走 TASK C 轻量训练（frozen backbone + 词监督头）。二者都超出「纯推理零成本」范围，需单独排期。
+- 建议优先 (a)：最接近零训练、且直接检验 caption 词→视觉原型能否迁移到 val；(a) 有效再上 (b) 放大。
