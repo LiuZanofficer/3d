@@ -26,6 +26,7 @@ from src.models.utils.evaluator import InstanceSegmentationEvaluator
 from src.models.utils.structure import Point
 from src.utils import RankedLogger
 from src.utils.class_term_utils import build_text_clusters, class_to_cluster
+from src.utils.readout_decorrelate import whiten_pick
 
 log = RankedLogger(__file__, rank_zero_only=True)
 
@@ -309,7 +310,18 @@ class DenseLanguageLitModule(LitModuleBase):
             eval_module = self.clip_alignment_eval[postfix]
             class_names = class_info["class_names"]
 
-            if eval_module.emb_target is None:
+            anchor_npz = os.environ.get("MOSAIC3D_ANCHOR_NPZ", None)
+            _injected = False
+            if anchor_npz is not None:
+                _a = np.load(anchor_npz, allow_pickle=True)
+                _emb = torch.from_numpy(np.asarray(_a["emb_target"], dtype=np.float32))
+                if _emb.shape[0] == len(class_names):
+                    _emb = torch.nn.functional.normalize(_emb, dim=-1).to(self.device)
+                    eval_module.set_target_embedding(_emb)
+                    _injected = True
+            if _injected:
+                pass
+            elif eval_module.emb_target is None:
                 if self.hparams.use_prompt:
                     class_names = [
                         f"a {c} in a scene" if "other" not in c else "other" for c in class_names
@@ -396,6 +408,27 @@ class DenseLanguageLitModule(LitModuleBase):
                 valid_t = torch.tensor(valid, dtype=torch.long, device=proto.device)
                 sim = inst_feat @ proto[valid_t].T
                 new_classes.append(valid_t[sim.argmax()])
+            pred_classes = torch.stack(new_classes).to(pred_logits.device)
+        elif mode == "anchor_decorrelate":
+            emb = self.clip_alignment_eval[postfix].emb_target.detach().float().cpu().numpy()
+            thr = float(os.environ.get("MOSAIC3D_CLUSTER_THRESHOLD", "0.90"))
+            max_size = int(os.environ.get("MOSAIC3D_MAX_CLUSTER_SIZE", "8"))
+            clusters = build_text_clusters(
+                emb, np.array(class_info["fg_class_idx"], dtype=np.int64), thr
+            )
+            c2cluster = class_to_cluster(clusters)
+            emb_n = emb / np.maximum(np.linalg.norm(emb, axis=1, keepdims=True), 1e-12)
+            feat = torch.nn.functional.normalize(clip_feat.detach().float(), dim=-1)
+            new_classes = []
+            for cls, mask in zip(pred_classes, masks):
+                c0 = int(cls.item())
+                members = c2cluster.get(c0, [c0])
+                if not (2 <= len(members) <= max_size):
+                    new_classes.append(cls)
+                    continue
+                inst_feat = torch.nn.functional.normalize(feat[mask].mean(dim=0), dim=0)
+                j = whiten_pick(inst_feat.cpu().numpy(), emb_n[members])
+                new_classes.append(torch.tensor(members[j], device=pred_logits.device))
             pred_classes = torch.stack(new_classes).to(pred_logits.device)
         elif mode != "mask_text_vote":
             return base_pred, None, None

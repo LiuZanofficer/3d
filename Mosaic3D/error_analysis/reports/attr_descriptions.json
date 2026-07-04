@@ -1,0 +1,1402 @@
+{
+ "wall": [
+  "a flat vertical interior wall surface",
+  "a large painted vertical partition of a room",
+  "a plain vertical building surface spanning floor to ceiling",
+  "a smooth vertical planar surface bounding a room",
+  "a broad flat vertical wall"
+ ],
+ "chair": [
+  "a single seat with four fixed legs and an upright backrest and no wheels",
+  "a simple dining or side chair with rigid legs and no armrests",
+  "a small seat for one person with a straight back and fixed legs",
+  "a chair with four legs standing on the floor without casters",
+  "a plain chair, not padded like a sofa and not on wheels"
+ ],
+ "floor": [
+  "a flat horizontal ground surface of a room",
+  "the large horizontal walking surface underfoot",
+  "a wide horizontal floor of tiles wood or carpet",
+  "the bottom horizontal planar surface of a room",
+  "a horizontal ground plane people walk on"
+ ],
+ "table": [
+  "a flat horizontal tabletop supported by legs",
+  "a general table with a large flat top and legs",
+  "a flat-topped furniture surface at waist height",
+  "a rectangular or round tabletop on legs",
+  "a table with an open flat surface for objects"
+ ],
+ "door": [
+  "a hinged rectangular door panel in a doorway",
+  "a tall flat swinging door slab with a handle",
+  "a vertical rectangular movable door leaf",
+  "an interior door panel set in a frame",
+  "a solid rectangular door that opens and closes"
+ ],
+ "couch": [
+  "a long upholstered sofa with seat cushions and a back for several people",
+  "a wide padded multi-seat sofa with armrests",
+  "a long soft settee seating two or more people",
+  "a fully upholstered long couch against a wall",
+  "a big cushioned sofa, wider than a single armchair"
+ ],
+ "cabinet": [
+  "a boxy storage cabinet with doors",
+  "a freestanding cupboard with hinged doors and shelves inside",
+  "a rectangular cabinet enclosure with doors or drawers",
+  "a storage unit with closed doors, not a kitchen counter",
+  "a general cabinet box with doors"
+ ],
+ "shelf": [
+  "an open horizontal shelf board without doors",
+  "an open shelving unit with exposed horizontal boards",
+  "a wall-mounted or freestanding open shelf",
+  "flat open storage boards with no doors",
+  "an open rack of horizontal shelves"
+ ],
+ "desk": [
+  "a work desk with a flat top for a computer, often with drawers on one side",
+  "a writing or office desk with a large flat working surface",
+  "a desk table used for working with a keyboard and monitor",
+  "a flat-topped desk with a drawer pedestal",
+  "an office desk at seated working height"
+ ],
+ "office chair": [
+  "a swivel office chair on a five-wheel caster base with a padded mesh back and armrests",
+  "a rolling desk chair with a gas-lift adjustable seat and wheels",
+  "a wheeled ergonomic chair that spins, with armrests",
+  "an office task chair on casters with a contoured backrest",
+  "a swivel chair with a star-shaped wheeled base, unlike a fixed-leg chair"
+ ],
+ "bed": [
+  "a large rectangular bed with a mattress and pillows",
+  "a sleeping bed with a flat mattress on a frame",
+  "a low wide bed platform topped by bedding",
+  "a bed with a headboard and a mattress",
+  "a rectangular mattress bed for sleeping"
+ ],
+ "pillow": [
+  "a soft rectangular bed pillow for the head",
+  "a plush sleeping pillow lying on a bed",
+  "a soft cushiony pillow used under the head in bed",
+  "a rectangular soft pillow on bedding",
+  "a bed pillow, larger and flatter than a small couch cushion"
+ ],
+ "sink": [
+  "a basin sink with a faucet and a drain",
+  "a concave washbasin with a tap",
+  "a bathroom or kitchen sink bowl with a faucet",
+  "a recessed sink basin for water",
+  "a washbasin with a spout and drain hole"
+ ],
+ "picture": [
+  "a framed picture or photo hanging flat on a wall",
+  "a rectangular framed artwork on the wall",
+  "a wall-mounted picture frame",
+  "a flat framed image displayed on a wall",
+  "a hanging picture, thinner and flatter than a whiteboard"
+ ],
+ "window": [
+  "a glass window opening in a wall",
+  "a transparent window pane set in the wall",
+  "a rectangular window letting in light",
+  "a glazed window with a frame in the wall",
+  "a see-through window on a wall"
+ ],
+ "toilet": [
+  "a white ceramic toilet bowl with a lid and tank",
+  "a porcelain toilet with a seat and flush tank",
+  "a bathroom toilet fixture with a bowl and cistern",
+  "a seated flush toilet in white ceramic",
+  "a toilet bowl and tank mounted on the floor"
+ ],
+ "bookshelf": [
+  "a tall bookshelf filled with rows of books on multiple shelves",
+  "a large bookcase with vertical stacks of books",
+  "a floor-standing shelf unit holding many books",
+  "a bookcase whose shelves are packed with books",
+  "a tall multi-shelf bookcase full of books, unlike a single open shelf"
+ ],
+ "monitor": [
+  "a computer monitor screen on a small desk stand",
+  "a flat computer display on a desktop stand with a thin bezel",
+  "a desktop screen used with a computer, smaller than a tv",
+  "a monitor on a stand facing a desk chair",
+  "a computer display screen, sitting on a desk not mounted like a tv"
+ ],
+ "curtain": [
+  "a fabric window curtain draped in vertical folds",
+  "hanging cloth drapes covering a window",
+  "soft pleated curtain fabric on a rod",
+  "a window curtain of draping cloth",
+  "a fabric drape over a window, not a plastic shower curtain"
+ ],
+ "book": [
+  "a single book with a cover and pages",
+  "a closed or open book resting on a surface",
+  "a bound book with a spine and pages",
+  "a small rectangular book",
+  "an individual book, not a whole shelf of books"
+ ],
+ "armchair": [
+  "a single upholstered chair for one person with two padded armrests",
+  "a cushioned lounge chair with soft arms and a back",
+  "a padded one-seat armchair with armrests",
+  "a soft single seat with arm supports, smaller than a couch",
+  "an upholstered easy chair for one, with arms unlike a plain chair"
+ ],
+ "coffee table": [
+  "a low flat table set in front of a couch at knee height",
+  "a small low living-room table lower than a dining table",
+  "a low coffee table close to the floor near seating",
+  "a short-legged table in a lounge area",
+  "a low table for a living room, lower than a dining or end table"
+ ],
+ "box": [
+  "a closed cardboard or plastic box",
+  "a rectangular packing box or carton",
+  "a small to medium boxy container with a lid",
+  "a cuboid box for storage",
+  "a plain box, not an open basket or bin"
+ ],
+ "refrigerator": [
+  "a large tall kitchen refrigerator with a full-height door",
+  "a big standing fridge appliance for food",
+  "a tall two-door refrigerator in a kitchen",
+  "a full-size refrigerator, taller than a small mini fridge",
+  "a large cold-storage fridge cabinet"
+ ],
+ "lamp": [
+  "a table or floor lamp with a shade and a bulb",
+  "a standing lamp with a base and lampshade",
+  "a light fixture on a stand with a shade",
+  "a portable lamp with a shade, not a flush ceiling light",
+  "a desk or floor lamp emitting light through a shade"
+ ],
+ "kitchen cabinet": [
+  "a kitchen cabinet mounted in a row along a kitchen wall above or below the counter",
+  "built-in kitchen cupboards flanking the countertop",
+  "kitchen storage cabinets integrated with the counter and appliances",
+  "a run of kitchen cabinet doors in a kitchen",
+  "kitchen cabinetry attached along the kitchen wall, unlike a lone cabinet"
+ ],
+ "towel": [
+  "a hanging cloth towel, often on a rail near a sink",
+  "a rectangular bath or hand towel of terry cloth",
+  "a folded or draped towel for drying",
+  "a small to medium cloth towel, thinner than a bed blanket",
+  "a hand towel hanging in a bathroom"
+ ],
+ "clothes": [
+  "a pile or hanging of garments and clothing",
+  "folded or draped clothes and apparel",
+  "a heap of clothing items",
+  "garments such as shirts and pants",
+  "loose clothes, not a single jacket"
+ ],
+ "tv": [
+  "a large flat-screen television, wall-mounted or on a stand, bigger than a monitor",
+  "a wide flat television display for a room",
+  "a big flat TV screen viewed from a distance",
+  "a large television, wider than a desktop monitor",
+  "a flat-panel TV mounted high on a wall or on a tv stand"
+ ],
+ "nightstand": [
+  "a small bedside table next to a bed, often with a drawer",
+  "a low bedside cabinet beside the head of a bed",
+  "a small nightstand table by the bed",
+  "a compact bedside table with a lamp on top",
+  "a bedside stand, smaller than a dresser and beside a bed"
+ ],
+ "counter": [
+  "a long flat countertop work surface at waist height",
+  "a kitchen or bathroom counter slab on cabinets",
+  "a flat horizontal counter surface for preparing things",
+  "a countertop running along cabinets",
+  "a worktop counter, flatter and longer than a table"
+ ],
+ "dresser": [
+  "a chest of drawers, a wide low cabinet with several stacked drawers",
+  "a bedroom dresser with multiple horizontal drawers",
+  "a low wide drawer chest for clothes",
+  "a dresser with rows of drawers, unlike an open shelf",
+  "a multi-drawer chest of drawers"
+ ],
+ "stool": [
+  "a small backless seat with legs for one person",
+  "a short stool with no backrest",
+  "a compact seat without arms or a back",
+  "a bar or step stool with legs and no back",
+  "a stool, a seat with no backrest unlike a chair"
+ ],
+ "cushion": [
+  "a small soft square throw cushion on a couch or chair",
+  "a decorative padded cushion for seating",
+  "a soft square couch cushion",
+  "a small plush cushion on a sofa, smaller than a bed pillow",
+  "a seat cushion, squarer and smaller than a bed pillow"
+ ],
+ "plant": [
+  "a green leafy indoor plant with foliage",
+  "a houseplant with visible green leaves",
+  "an indoor plant, its leaves and stems",
+  "a decorative green plant",
+  "a leafy plant, focusing on the foliage rather than the pot"
+ ],
+ "ceiling": [
+  "the flat overhead ceiling surface of a room",
+  "the horizontal surface overhead above the room",
+  "a broad overhead ceiling plane",
+  "the top interior surface of a room overhead",
+  "a flat ceiling above, opposite the floor"
+ ],
+ "bathtub": [
+  "a large built-in bathtub for bathing",
+  "a long deep tub for taking baths",
+  "a rectangular bathtub basin",
+  "a bathroom tub big enough to sit in",
+  "a bathtub, much larger and deeper than a sink"
+ ],
+ "end table": [
+  "a small side table placed at the end of a couch",
+  "a compact side table beside seating at armrest height",
+  "a little end table next to a sofa",
+  "a small accent side table",
+  "a small side table taller than a coffee table, beside a couch"
+ ],
+ "dining table": [
+  "a large dining table surrounded by chairs at eating height",
+  "a big rectangular table for meals with several chairs",
+  "a tall dining table for eating",
+  "a dining-height table with chairs around it",
+  "a large meal table, taller and bigger than a coffee table"
+ ],
+ "keyboard": [
+  "a computer keyboard, a flat rectangular panel of typing keys",
+  "a thin keyboard with rows of letter keys for a computer",
+  "a computer typing keyboard on a desk",
+  "a flat input keyboard with many small keys",
+  "a computer keyboard, not a musical piano keyboard"
+ ],
+ "bag": [
+  "a soft carrying bag or sack",
+  "a generic handbag or shopping bag",
+  "a soft-sided bag with handles",
+  "a cloth or plastic bag",
+  "a bag, not a rigid suitcase"
+ ],
+ "backpack": [
+  "a backpack with two shoulder straps worn on the back",
+  "a rucksack with straps and zip compartments",
+  "a school or hiking backpack with straps",
+  "a bag carried on the back with shoulder straps",
+  "a backpack with straps, unlike a handbag or suitcase"
+ ],
+ "toilet paper": [
+  "a roll of white toilet paper",
+  "a soft roll of toilet tissue",
+  "a toilet paper roll near the toilet",
+  "rolled white bathroom tissue",
+  "a toilet paper roll, not a wall dispenser"
+ ],
+ "printer": [
+  "a boxy desktop printer with a paper output tray",
+  "an office printer that prints pages",
+  "a printing machine with a paper tray on top",
+  "a desktop inkjet or laser printer",
+  "a printer, usually smaller than a big standing copier"
+ ],
+ "tv stand": [
+  "a low media cabinet or stand that a television sits on",
+  "a low console under a tv holding media devices",
+  "a tv stand supporting a television at low height",
+  "a low entertainment stand beneath a tv",
+  "a stand for a tv, a low cabinet not the screen itself"
+ ],
+ "whiteboard": [
+  "a large white dry-erase board mounted on a wall for writing",
+  "a glossy white writing board with markers",
+  "a wall whiteboard for markers",
+  "a smooth white marker board",
+  "a white writing board, unlike a dark blackboard"
+ ],
+ "blanket": [
+  "a large soft blanket spread over a bed",
+  "a big cloth blanket or throw covering bedding",
+  "a wide fabric blanket draped on a bed",
+  "a bed cover blanket, larger than a small towel",
+  "a large soft throw blanket"
+ ],
+ "shower curtain": [
+  "a waterproof plastic shower curtain hanging around a shower or tub",
+  "a plastic curtain enclosing a shower",
+  "a water-resistant shower drape on rings",
+  "a shower curtain of plastic sheeting",
+  "a shower curtain, plastic and near the tub, unlike a fabric window curtain"
+ ],
+ "trash can": [
+  "a tall trash can or garbage bin with an open or lidded top",
+  "a waste bin for rubbish",
+  "a garbage can for trash",
+  "a rubbish bin, often cylindrical",
+  "a trash can for general waste"
+ ],
+ "closet": [
+  "a built-in closet storage space for hanging clothes",
+  "a walk-in or reach-in clothes closet",
+  "an enclosed closet compartment for garments",
+  "a wardrobe closet built into the wall",
+  "a closet, a room-like clothes storage recess"
+ ],
+ "stairs": [
+  "a flight of stairs with multiple stepped treads",
+  "a staircase of ascending steps",
+  "a series of stair steps going up",
+  "stepped stairs leading between levels",
+  "a staircase, the stepped treads rather than the side railing"
+ ],
+ "microwave": [
+  "a small countertop microwave oven with a front door and control panel",
+  "a compact microwave box with a glass door",
+  "a microwave appliance sitting on a counter",
+  "a small boxy microwave oven",
+  "a microwave, smaller than a full oven and sitting on a counter"
+ ],
+ "stove": [
+  "a kitchen stove with burners on top for cooking",
+  "a cooktop stove with heating burners",
+  "a range stove with burner grates",
+  "a cooking stove with a flat top and burners",
+  "a stovetop with burners, unlike an enclosed microwave"
+ ],
+ "shoe": [
+  "a single shoe or pair of shoes on the floor",
+  "footwear such as a sneaker or shoe",
+  "a shoe sitting on the ground",
+  "a pair of shoes",
+  "a shoe, small footwear on the floor"
+ ],
+ "computer tower": [
+  "a vertical desktop computer tower case with ports",
+  "a rectangular PC tower box standing on the floor",
+  "a computer case tower beside a desk",
+  "an upright computer chassis with vents and cables",
+  "a computer tower, a tall boxy PC case unlike a monitor"
+ ],
+ "bottle": [
+  "a tall narrow-necked bottle",
+  "a slender bottle with a cap",
+  "a single upright bottle",
+  "a narrow bottle container",
+  "a bottle, tall and narrow unlike a cup or bowl"
+ ],
+ "bin": [
+  "a small open bin or tub for holding items",
+  "a plastic bin container",
+  "an open-top bin",
+  "a small storage or waste bin",
+  "a bin, a small open container"
+ ],
+ "ottoman": [
+  "a low padded footstool ottoman with no back or arms",
+  "a soft upholstered ottoman used as a footrest",
+  "a cushioned low ottoman block",
+  "a padded ottoman stool for the feet",
+  "an ottoman, a low soft footstool unlike a chair with a back"
+ ],
+ "bench": [
+  "a long backless bench seat for several people",
+  "a long flat bench, wider than a single stool",
+  "a hard long seat bench",
+  "a bench seating multiple people in a row",
+  "a long bench, longer than a chair and usually without a back"
+ ],
+ "board": [
+  "a flat rectangular board panel",
+  "a plain flat board of wood or plastic",
+  "a generic flat board surface",
+  "a rectangular flat panel board",
+  "a flat board, without printed text or images"
+ ],
+ "washing machine": [
+  "a front-loading washing machine with a round door",
+  "a boxy laundry washer appliance with a circular door window",
+  "a washing machine for clothes with a drum",
+  "a white laundry washer box",
+  "a washing machine with a round front door, a laundry appliance"
+ ],
+ "mirror": [
+  "a flat reflective mirror on a wall",
+  "a glass mirror reflecting the room",
+  "a wall mirror with a reflective surface",
+  "a shiny reflective mirror panel",
+  "a mirror, reflective unlike a framed picture"
+ ],
+ "copier": [
+  "a large freestanding office copier or multifunction machine",
+  "a big photocopier machine on the floor",
+  "a tall copier with paper trays and a scanner lid",
+  "an office copy machine, larger than a desktop printer",
+  "a bulky standing copier machine"
+ ],
+ "basket": [
+  "an open woven basket with a rim",
+  "a wicker or plastic basket for holding items",
+  "a round or oval open basket",
+  "a handled woven basket",
+  "a basket, an open woven container unlike a closed box"
+ ],
+ "sofa chair": [
+  "a single wide upholstered sofa-style chair for one person",
+  "a plush one-seat sofa chair with soft arms",
+  "a cushioned lounge sofa chair",
+  "an overstuffed single sofa seat",
+  "a sofa chair, a soft single seat like a small couch for one"
+ ],
+ "file cabinet": [
+  "a metal filing cabinet with stacked drawers for documents",
+  "an office file cabinet of deep drawers",
+  "a tall metal cabinet with filing drawers",
+  "a filing cabinet for folders and papers",
+  "a file cabinet, metal drawers for documents unlike a kitchen cabinet"
+ ],
+ "fan": [
+  "an electric fan with rotating blades in a round guard",
+  "a circular bladed cooling fan",
+  "a standing or desk fan with a caged blade",
+  "a fan with spinning blades",
+  "an electric fan, a bladed circular cooling device"
+ ],
+ "laptop": [
+  "a laptop computer with a hinged screen and keyboard",
+  "a portable folding laptop",
+  "an open laptop showing screen and keys",
+  "a clamshell laptop computer",
+  "a laptop, a portable computer that folds shut unlike a desktop monitor"
+ ],
+ "shower": [
+  "a shower stall enclosure for bathing under running water",
+  "a walk-in shower area with tiled walls",
+  "a shower cubicle space",
+  "a standing shower enclosure",
+  "a shower area, the whole washing enclosure"
+ ],
+ "paper": [
+  "a flat sheet of paper",
+  "loose sheets or a piece of paper",
+  "a thin paper document sheet",
+  "a page of paper on a surface",
+  "a sheet of paper, thin and flat"
+ ],
+ "person": [
+  "a standing or sitting human person",
+  "a human figure with head torso and limbs",
+  "a person in the room",
+  "a human being standing or walking",
+  "a person, a human body shape"
+ ],
+ "paper towel dispenser": [
+  "a wall-mounted paper towel dispenser box",
+  "a dispenser on the wall giving paper towels",
+  "a boxy paper towel dispenser near a sink",
+  "a wall unit dispensing paper towels",
+  "a paper towel dispenser mounted on a wall"
+ ],
+ "oven": [
+  "a built-in oven with a front door and racks for baking",
+  "a large enclosed baking oven under a cooktop",
+  "a wall or range oven with a glass door",
+  "a baking oven box, larger than a microwave",
+  "an oven, an enclosed baking appliance with a door"
+ ],
+ "blinds": [
+  "window blinds with horizontal slats that tilt",
+  "slatted venetian blinds over a window",
+  "adjustable horizontal-slat window blinds",
+  "louvered window blinds",
+  "blinds, horizontal slats over a window unlike a fabric curtain"
+ ],
+ "rack": [
+  "an open metal or wire rack for hanging or holding things",
+  "a framework rack with bars or hooks",
+  "an open storage rack",
+  "a rack of bars for organizing items",
+  "a rack, an open framework for holding items"
+ ],
+ "plate": [
+  "a flat round dinner plate",
+  "a shallow flat round dish for food",
+  "a circular flat plate",
+  "a flat plate for serving food",
+  "a plate, flat and shallow unlike a deep bowl or a tall cup"
+ ],
+ "blackboard": [
+  "a dark chalkboard for writing with chalk",
+  "a large black or green chalk writing board",
+  "a dark matte blackboard on a wall",
+  "a chalkboard with a dark surface",
+  "a blackboard, dark for chalk unlike a white whiteboard"
+ ],
+ "piano": [
+  "an upright piano with a keyboard and a tall wooden body",
+  "a large piano instrument with black and white keys",
+  "a wooden piano with a full keyboard",
+  "an acoustic piano cabinet",
+  "a piano, a large musical instrument with a wide keyboard and body"
+ ],
+ "suitcase": [
+  "a rigid rectangular rolling suitcase for travel",
+  "a hard-shell luggage suitcase with a handle",
+  "a travel suitcase, boxy with wheels",
+  "a packed suitcase for trips",
+  "a suitcase, a rigid travel case unlike a soft backpack"
+ ],
+ "rail": [
+  "a long horizontal railing bar",
+  "a handrail or guardrail rail",
+  "a slender horizontal rail",
+  "a rail bar for support",
+  "a rail, a long thin bar rather than a full staircase"
+ ],
+ "radiator": [
+  "a ribbed metal heating radiator along a wall",
+  "a finned radiator panel for heating",
+  "a wall radiator with vertical ridges",
+  "a heating radiator unit",
+  "a radiator, a ribbed metal heater near the floor or wall"
+ ],
+ "recycling bin": [
+  "a recycling bin, often blue, for recyclables",
+  "a bin marked for recycling",
+  "a colored recycling container",
+  "a recycling waste bin",
+  "a recycling bin, a bin for recyclables"
+ ],
+ "container": [
+  "a generic storage container with a lid",
+  "a plastic tub container",
+  "a closed container box",
+  "a lidded storage container",
+  "a container, a general closed holder"
+ ],
+ "wardrobe": [
+  "a tall freestanding wardrobe cabinet for hanging clothes",
+  "a large clothes wardrobe with full-height doors",
+  "a standing wardrobe closet cabinet",
+  "a tall clothing wardrobe",
+  "a wardrobe, a tall clothes cabinet with doors"
+ ],
+ "soap dispenser": [
+  "a small soap dispenser with a pump nozzle",
+  "a pump-top liquid soap dispenser by a sink",
+  "a soap pump bottle dispenser",
+  "a small dispenser for hand soap",
+  "a soap dispenser, a small pump unit near a sink"
+ ],
+ "telephone": [
+  "a telephone handset with buttons",
+  "a desk phone with a receiver and keypad",
+  "a corded or cordless telephone",
+  "a phone device with a handset",
+  "a telephone, a phone with a handset and keypad"
+ ],
+ "bucket": [
+  "a cylindrical bucket with a curved handle",
+  "a round pail bucket",
+  "an open bucket for water",
+  "a plastic or metal bucket",
+  "a bucket, a round pail with a handle"
+ ],
+ "clock": [
+  "a round wall clock with hands and numbers",
+  "a circular clock face on a wall",
+  "a wall clock showing time",
+  "a hanging round clock",
+  "a clock, a round wall timepiece unlike a small alarm clock on a table"
+ ],
+ "stand": [
+  "a small support stand or pedestal",
+  "a slender stand holding something up",
+  "a generic stand base",
+  "an upright holding stand",
+  "a stand, a simple support structure"
+ ],
+ "light": [
+  "a light fixture emitting illumination",
+  "a bright light source on a wall or ceiling",
+  "a lighting fixture glowing",
+  "an illuminated light",
+  "a light, a general lighting fixture"
+ ],
+ "laundry basket": [
+  "a laundry basket or hamper holding clothes",
+  "a woven or plastic basket for laundry",
+  "a tall laundry basket of clothes",
+  "a basket used to carry laundry",
+  "a laundry basket, an open basket for clothes"
+ ],
+ "pipe": [
+  "a long cylindrical pipe or tube running along a surface",
+  "a plumbing pipe of metal or plastic",
+  "a straight round pipe",
+  "a pipe conduit along a wall",
+  "a pipe, a long round tube, thicker and rigid"
+ ],
+ "clothes dryer": [
+  "a front-loading clothes dryer with a round door, a laundry appliance",
+  "a boxy laundry dryer next to a washer",
+  "a tumble dryer machine for clothes",
+  "a white dryer appliance with a circular door",
+  "a clothes dryer, a laundry appliance paired with a washing machine"
+ ],
+ "guitar": [
+  "an acoustic or electric guitar with a body and long fretted neck",
+  "a stringed guitar instrument leaning upright",
+  "a guitar with six strings and a neck",
+  "a musical guitar",
+  "a guitar, a stringed instrument with a body and long neck"
+ ],
+ "toilet paper holder": [
+  "a small wall-mounted toilet paper holder bar or spindle",
+  "a bracket on the wall holding a toilet roll",
+  "a toilet roll holder fixture",
+  "a small holder for toilet paper on the wall",
+  "a toilet paper holder, a small wall bracket not the roll itself"
+ ],
+ "seat": [
+  "a general seat or sitting surface",
+  "a place to sit, a seat",
+  "a bare seat surface",
+  "a seat for sitting",
+  "a seat, a generic sitting surface"
+ ],
+ "speaker": [
+  "a boxy audio speaker with a mesh or cone front",
+  "a loudspeaker cabinet for sound",
+  "an audio speaker box",
+  "a speaker enclosure with a driver",
+  "a speaker, an audio box with a mesh front"
+ ],
+ "column": [
+  "a tall vertical structural column or pillar from floor to ceiling",
+  "a round or square supporting column",
+  "a vertical load-bearing column",
+  "a tall building column",
+  "a column, a tall vertical structural support"
+ ],
+ "bicycle": [
+  "a bicycle with two wheels, a frame, pedals and handlebars",
+  "a bike with two round wheels",
+  "a pedal bicycle",
+  "a two-wheeled bicycle",
+  "a bicycle, a two-wheeled pedal vehicle"
+ ],
+ "ladder": [
+  "a ladder with two rails and horizontal rungs for climbing",
+  "a step ladder with rungs",
+  "a leaning ladder of rungs",
+  "a climbing ladder",
+  "a ladder, rungs between two rails, unlike a full staircase"
+ ],
+ "bathroom stall": [
+  "a toilet stall enclosure with partition walls in a public restroom",
+  "a partitioned bathroom stall cubicle around a toilet",
+  "restroom stall dividers forming a compartment",
+  "a bathroom stall, the walled compartment around a public toilet",
+  "a toilet cubicle enclosure, the panels not the door alone"
+ ],
+ "shower wall": [
+  "a tiled vertical wall enclosing a shower",
+  "the flat tiled wall surface inside a shower",
+  "a shower's vertical tiled wall panel",
+  "the wall of a shower enclosure",
+  "a shower wall, the vertical tiled surface, not the floor or head"
+ ],
+ "cup": [
+  "a small cylindrical cup or mug for drinking",
+  "a drinking cup with an open top",
+  "a mug or cup, taller than a flat plate",
+  "a small cup for beverages",
+  "a cup, a small deep drinking vessel unlike a flat plate or wide bowl"
+ ],
+ "jacket": [
+  "a single jacket or coat, a garment for the upper body",
+  "a hanging or draped jacket",
+  "an outerwear jacket with sleeves",
+  "a coat jacket",
+  "a jacket, one garment unlike a whole pile of clothes"
+ ],
+ "storage bin": [
+  "a plastic storage bin with a lid for organizing items",
+  "a lidded storage tub bin",
+  "a stackable storage bin container",
+  "a bin for storing belongings",
+  "a storage bin, a lidded plastic tub for storage"
+ ],
+ "coffee maker": [
+  "a drip coffee maker machine with a carafe and buttons",
+  "an electric coffee brewing machine on a counter",
+  "a coffee maker appliance with a pot",
+  "a countertop coffee brewer",
+  "a coffee maker, an electric brewing machine unlike a simple kettle or pitcher"
+ ],
+ "dishwasher": [
+  "a built-in dishwasher appliance with a front door under the counter",
+  "a boxy under-counter dishwasher for dishes",
+  "a kitchen dishwasher machine",
+  "a dishwasher door integrated in cabinetry",
+  "a dishwasher, an under-counter kitchen appliance with a door"
+ ],
+ "paper towel roll": [
+  "a roll of paper towels on a stand or counter",
+  "a cylindrical paper towel roll",
+  "a kitchen paper towel roll",
+  "a roll of absorbent paper towels",
+  "a paper towel roll, the roll itself not a wall dispenser"
+ ],
+ "machine": [
+  "a generic mechanical machine or appliance",
+  "a boxy machine device",
+  "an industrial or office machine",
+  "a machine unit with controls",
+  "a machine, a general mechanical apparatus"
+ ],
+ "mat": [
+  "a flat floor mat lying on the ground",
+  "a thin rectangular mat or rug on the floor",
+  "a doormat or bath mat",
+  "a flat mat underfoot",
+  "a mat, a thin flat floor covering"
+ ],
+ "windowsill": [
+  "the horizontal ledge at the bottom of a window",
+  "a window sill shelf beneath a window",
+  "the narrow ledge under a window",
+  "a windowsill ledge",
+  "a windowsill, the shelf-like ledge below a window"
+ ],
+ "bar": [
+  "a long horizontal bar rod or counter bar",
+  "a straight bar rail or handle",
+  "a bar-shaped element",
+  "a horizontal bar",
+  "a bar, a long straight rod or rail"
+ ],
+ "toaster": [
+  "a small kitchen toaster with slots for bread",
+  "a compact bread toaster on a counter",
+  "a two-slot pop-up toaster",
+  "a small toaster appliance",
+  "a toaster, a small slotted appliance, smaller than a toaster oven"
+ ],
+ "bulletin board": [
+  "a cork bulletin board with pinned notes and papers",
+  "a pinboard covered with notices",
+  "a bulletin board of cork for posting papers",
+  "a notice board with tacked papers",
+  "a bulletin board, a cork notice board unlike a smooth whiteboard"
+ ],
+ "ironing board": [
+  "a narrow long padded ironing board on folding legs",
+  "a slim ironing board surface for pressing clothes",
+  "a folding ironing board",
+  "a long narrow ironing table",
+  "an ironing board, a narrow padded board on thin folding legs"
+ ],
+ "fireplace": [
+  "a fireplace hearth recessed in a wall",
+  "a built-in fireplace opening for fire",
+  "a mantel fireplace in the wall",
+  "a hearth fireplace",
+  "a fireplace, a wall recess for fire with a hearth"
+ ],
+ "soap dish": [
+  "a small shallow soap dish holding a bar of soap",
+  "a little tray dish for soap by a sink",
+  "a small soap holder dish",
+  "a shallow soap dish",
+  "a soap dish, a small shallow holder unlike a tall pump dispenser"
+ ],
+ "kitchen counter": [
+  "a kitchen countertop worktop along the kitchen cabinets",
+  "a kitchen counter surface for food prep",
+  "the flat kitchen counter slab",
+  "a kitchen work counter",
+  "a kitchen counter, the worktop along kitchen cabinets"
+ ],
+ "doorframe": [
+  "the frame and molding surrounding a doorway",
+  "a door frame border around a door opening",
+  "the rectangular casing around a door",
+  "a doorframe trim around the doorway",
+  "a doorframe, the frame around a door not the swinging panel"
+ ],
+ "toilet paper dispenser": [
+  "a wall-mounted toilet paper dispenser holding rolls",
+  "a boxy dispenser on the wall for toilet paper",
+  "a toilet tissue dispenser fixture",
+  "a wall unit dispensing toilet paper",
+  "a toilet paper dispenser, a wall box, not the loose roll"
+ ],
+ "mini fridge": [
+  "a small compact mini refrigerator, low and boxy under a counter",
+  "a tiny fridge box shorter than a full refrigerator",
+  "a mini fridge, small enough to sit on the floor under a desk",
+  "a compact small refrigerator",
+  "a mini fridge, much smaller and shorter than a full refrigerator"
+ ],
+ "fire extinguisher": [
+  "a red cylindrical fire extinguisher with a nozzle and handle",
+  "a red fire extinguisher canister on a wall",
+  "a portable red extinguisher bottle",
+  "a fire extinguisher cylinder",
+  "a fire extinguisher, a red pressurized cylinder, not a wall alarm box"
+ ],
+ "ball": [
+  "a round spherical ball",
+  "a spherical play ball",
+  "a round ball on the floor",
+  "a ball, a sphere",
+  "a ball, a round spherical object"
+ ],
+ "hat": [
+  "a hat or cap for the head",
+  "a brimmed or knit hat",
+  "a single hat",
+  "headwear such as a cap",
+  "a hat, small headwear"
+ ],
+ "shower curtain rod": [
+  "a long thin horizontal rod that holds a shower curtain",
+  "a metal rod spanning the shower for the curtain",
+  "a slender shower curtain rail",
+  "a curtain rod above a tub",
+  "a shower curtain rod, the thin bar, not the curtain fabric"
+ ],
+ "water cooler": [
+  "a standing water cooler dispenser with a large inverted bottle on top",
+  "a water dispenser with a jug and taps",
+  "a floor water cooler unit",
+  "a water cooler with a big bottle",
+  "a water cooler, a standing dispenser with a big bottle on top"
+ ],
+ "paper cutter": [
+  "a flat paper cutter with a hinged cutting arm blade",
+  "a guillotine paper trimmer on a board",
+  "a paper cutting board with a lever blade",
+  "a desktop paper cutter",
+  "a paper cutter, a board with a hinged blade arm"
+ ],
+ "tray": [
+  "a flat shallow serving tray with a raised rim",
+  "a rectangular tray for carrying items",
+  "a shallow flat tray",
+  "a serving tray with low edges",
+  "a tray, a flat shallow carrier, larger and flatter than a plate or bowl"
+ ],
+ "shower door": [
+  "a glass shower door hinged or sliding at a shower entrance",
+  "a clear shower enclosure door",
+  "a glass door of a shower stall",
+  "a shower's swinging or sliding glass door",
+  "a shower door, the glass door panel of a shower, not the wall"
+ ],
+ "pillar": [
+  "a tall vertical pillar or column supporting the structure",
+  "a round or square standing pillar",
+  "a vertical support pillar",
+  "a load-bearing pillar",
+  "a pillar, a tall vertical post like a column"
+ ],
+ "ledge": [
+  "a narrow horizontal ledge or shelf-like protrusion on a wall",
+  "a small wall ledge",
+  "a protruding horizontal ledge",
+  "a narrow ledge surface",
+  "a ledge, a narrow horizontal shelf-like protrusion"
+ ],
+ "toaster oven": [
+  "a small countertop toaster oven with a front door and rack",
+  "a boxy toaster oven larger than a pop-up toaster",
+  "a mini oven toaster on a counter",
+  "a toaster oven appliance with a door",
+  "a toaster oven, a small oven with a door, bigger than a slot toaster"
+ ],
+ "mouse": [
+  "a small computer mouse pointing device on a desk",
+  "a handheld computer mouse beside a keyboard",
+  "a little computer mouse",
+  "a desktop mouse peripheral",
+  "a computer mouse, a small palm-sized pointing device"
+ ],
+ "toilet seat cover dispenser": [
+  "a wall box dispensing paper toilet seat covers in a restroom",
+  "a thin wall-mounted seat cover dispenser above a toilet",
+  "a paper seat cover dispenser box",
+  "a restroom seat cover dispenser",
+  "a toilet seat cover dispenser, a thin wall box above the toilet"
+ ],
+ "furniture": [
+  "a generic piece of household furniture",
+  "an unspecified furniture item",
+  "a furniture object",
+  "general furniture",
+  "a piece of furniture, a general furnishing"
+ ],
+ "cart": [
+  "a wheeled cart or trolley with shelves",
+  "a rolling utility cart on casters",
+  "a push cart with wheels",
+  "a trolley cart",
+  "a cart, a wheeled trolley with a frame"
+ ],
+ "storage container": [
+  "a large storage container bin with a lid",
+  "a bulk storage tub container",
+  "a big lidded storage box",
+  "a storage container for belongings",
+  "a storage container, a large lidded holder"
+ ],
+ "scale": [
+  "a small flat weighing scale on the floor",
+  "a bathroom scale for weight",
+  "a flat platform scale",
+  "a weighing scale",
+  "a scale, a small flat weighing platform on the floor"
+ ],
+ "tissue box": [
+  "a rectangular tissue box with tissues poking from the top",
+  "a facial tissue box",
+  "a small boxy tissue dispenser",
+  "a box of tissues",
+  "a tissue box, a small rectangular box of tissues"
+ ],
+ "light switch": [
+  "a small wall light switch plate with a toggle",
+  "a wall-mounted switch for lights",
+  "a rectangular light switch on the wall",
+  "a toggle light switch plate",
+  "a light switch, a small wall plate with a toggle, not a power outlet with holes"
+ ],
+ "crate": [
+  "an open slatted crate box for storage",
+  "a wooden or plastic crate with slatted sides",
+  "a stackable crate container",
+  "an open crate box",
+  "a crate, a rigid slatted open box"
+ ],
+ "power outlet": [
+  "a wall power outlet socket with plug holes",
+  "an electrical outlet faceplate with sockets",
+  "a wall socket for plugs",
+  "a power receptacle on the wall",
+  "a power outlet, a wall socket with holes, not a toggle light switch"
+ ],
+ "decoration": [
+  "a decorative ornament or decoration item",
+  "a small decorative object",
+  "an ornamental decoration",
+  "a decorative accent piece",
+  "a decoration, an ornamental item"
+ ],
+ "sign": [
+  "a printed sign board with text or symbols",
+  "a flat sign displaying letters or a symbol",
+  "a wall or standing sign",
+  "a labeled sign",
+  "a sign, a flat board bearing printed text or a symbol"
+ ],
+ "projector": [
+  "a ceiling or table projector that beams images, with a lens",
+  "a boxy video projector with a lens",
+  "a projector device casting a picture",
+  "a data projector unit",
+  "a projector, a small box with a lens, not the screen it projects onto"
+ ],
+ "closet door": [
+  "a closet door panel closing a clothes closet, sometimes sliding or louvered",
+  "a door of a closet",
+  "a sliding or hinged closet door",
+  "the door front of a closet",
+  "a closet door, the door panel of a closet"
+ ],
+ "vacuum cleaner": [
+  "an upright vacuum cleaner with a handle and body",
+  "a vacuum machine for cleaning floors",
+  "a canister or upright vacuum cleaner",
+  "a floor vacuum appliance",
+  "a vacuum cleaner, a floor-cleaning machine with a handle"
+ ],
+ "candle": [
+  "a small wax candle, often cylindrical, sometimes with a flame",
+  "a wax candle stick or pillar",
+  "a small candle",
+  "a candle of wax",
+  "a candle, a small wax cylinder"
+ ],
+ "plunger": [
+  "a toilet plunger with a rubber cup on a stick handle",
+  "a rubber suction plunger for toilets",
+  "a plunger with a handle and rubber bell",
+  "a bathroom plunger",
+  "a plunger, a rubber cup on a stick"
+ ],
+ "stuffed animal": [
+  "a soft plush stuffed animal toy",
+  "a cuddly stuffed toy figure",
+  "a plush toy animal",
+  "a soft stuffed doll animal",
+  "a stuffed animal, a soft plush toy"
+ ],
+ "headphones": [
+  "a pair of headphones with two earcups and a headband",
+  "over-ear headphones with a band",
+  "audio headphones",
+  "a headset of two earcups",
+  "headphones, two earcups joined by a headband"
+ ],
+ "dish rack": [
+  "a wire dish rack for drying dishes by a sink",
+  "a draining dish rack holding plates upright",
+  "a dish drying rack",
+  "a rack for dishes near a sink",
+  "a dish rack, a wire rack holding dishes to dry"
+ ],
+ "broom": [
+  "a broom with a long handle and bristle head for sweeping",
+  "a sweeping broom with straw or bristles",
+  "a long-handled broom",
+  "a floor broom",
+  "a broom, a long handle with a bristle head"
+ ],
+ "guitar case": [
+  "a guitar-shaped case for carrying a guitar",
+  "a hard or soft case shaped like a guitar",
+  "a guitar case with the outline of a guitar",
+  "a case for a guitar",
+  "a guitar case, a case shaped like a guitar, unlike the guitar itself"
+ ],
+ "range hood": [
+  "a range hood extractor mounted above a stove",
+  "a kitchen exhaust hood over the cooktop",
+  "a vent hood above a range",
+  "an overhead range hood",
+  "a range hood, an exhaust hood above the stove"
+ ],
+ "dustpan": [
+  "a flat dustpan with a short handle for scooping dirt",
+  "a small dustpan tray",
+  "a hand dustpan",
+  "a dustpan for sweeping up",
+  "a dustpan, a flat scoop pan, often paired with a broom"
+ ],
+ "hair dryer": [
+  "a handheld hair dryer with a nozzle and handle",
+  "a blow dryer for hair",
+  "a handheld blow dryer",
+  "a hair dryer gun",
+  "a hair dryer, a handheld blower with a nozzle"
+ ],
+ "water bottle": [
+  "a single reusable water bottle with a cap",
+  "a portable drinking water bottle",
+  "a slim water bottle for one person",
+  "a personal water bottle",
+  "a water bottle, one bottle, not a whole pack of bottles"
+ ],
+ "handicap bar": [
+  "a grab bar handrail mounted on a bathroom wall for support",
+  "a metal grab bar near a toilet or shower",
+  "an accessibility support bar on the wall",
+  "a wall grab bar",
+  "a handicap bar, a wall-mounted grab rail for support"
+ ],
+ "purse": [
+  "a small handbag purse with a strap",
+  "a woman's purse or handbag",
+  "a compact purse bag",
+  "a handbag purse",
+  "a purse, a small handbag, unlike a large backpack or suitcase"
+ ],
+ "vent": [
+  "an air vent grille on a wall or ceiling",
+  "a rectangular ventilation grille",
+  "an HVAC vent cover with slats",
+  "a wall or ceiling vent",
+  "a vent, a slatted air grille"
+ ],
+ "shower floor": [
+  "the tiled floor surface at the base of a shower",
+  "the flat drainage floor of a shower",
+  "a shower's tiled floor pan",
+  "the bottom floor of a shower",
+  "a shower floor, the base surface, not the wall or head"
+ ],
+ "water pitcher": [
+  "a water pitcher jug with a handle and spout",
+  "a pouring pitcher for water",
+  "a jug pitcher with a spout",
+  "a water jug pitcher",
+  "a water pitcher, a pouring jug, unlike an electric coffee maker"
+ ],
+ "mailbox": [
+  "a mailbox box for receiving letters",
+  "a wall or post mailbox with a slot",
+  "a letter mailbox",
+  "a mail receptacle box",
+  "a mailbox, a box for mail with a slot or door"
+ ],
+ "bowl": [
+  "a round deep bowl for food, curved and concave",
+  "a deep rounded bowl dish",
+  "a concave bowl for cereal or soup",
+  "a rounded food bowl",
+  "a bowl, deep and round, unlike a flat plate or a shallow tray"
+ ],
+ "paper bag": [
+  "a brown paper bag with folded top",
+  "a disposable paper shopping bag",
+  "a crumpled paper bag",
+  "a paper grocery bag",
+  "a paper bag, a soft paper sack, unlike a rigid box"
+ ],
+ "alarm clock": [
+  "a small alarm clock on a nightstand with a display",
+  "a compact bedside alarm clock",
+  "a little digital or analog alarm clock",
+  "a small tabletop alarm clock",
+  "an alarm clock, a small clock on a table, unlike a big wall clock"
+ ],
+ "music stand": [
+  "a thin music stand with a slanted rack to hold sheet music on a tripod",
+  "a slender adjustable music stand",
+  "a stand holding sheet music",
+  "a music score stand on legs",
+  "a music stand, a thin tripod stand with a sloped ledge for sheets"
+ ],
+ "projector screen": [
+  "a large flat white projector screen for displaying projected images",
+  "a wide pull-down projection screen on a wall",
+  "a big white screen for a projector",
+  "a flat projection screen surface",
+  "a projector screen, a large flat white screen, not the projector box"
+ ],
+ "divider": [
+  "a freestanding room divider partition panel",
+  "a standing screen divider separating space",
+  "a partition divider panel",
+  "a movable room divider",
+  "a divider, a standing partition panel"
+ ],
+ "laundry detergent": [
+  "a laundry detergent bottle or jug",
+  "a detergent container for laundry",
+  "a plastic detergent jug",
+  "a bottle of laundry soap",
+  "laundry detergent, a jug or box of washing soap"
+ ],
+ "bathroom counter": [
+  "a bathroom countertop with a sink basin set into it",
+  "a vanity counter surface in a bathroom",
+  "the flat counter around a bathroom sink",
+  "a bathroom counter slab",
+  "a bathroom counter, the worktop around a bathroom sink"
+ ],
+ "object": [
+  "a generic unidentified object",
+  "an unspecified small object",
+  "a nondescript object",
+  "a general object",
+  "an object, a generic item"
+ ],
+ "bathroom vanity": [
+  "a bathroom vanity cabinet under the sink with a countertop",
+  "a sink vanity unit with storage below",
+  "a vanity cabinet in a bathroom",
+  "a bathroom sink vanity",
+  "a bathroom vanity, the cabinet-and-counter unit under a bathroom sink"
+ ],
+ "closet wall": [
+  "the interior wall surface inside a closet",
+  "a wall panel inside a closet",
+  "the vertical wall of a closet interior",
+  "a closet's inner wall",
+  "a closet wall, the wall surface inside a closet"
+ ],
+ "laundry hamper": [
+  "a tall laundry hamper basket for dirty clothes",
+  "a lidded or open hamper for laundry",
+  "a clothes hamper bin",
+  "a hamper holding laundry",
+  "a laundry hamper, a tall basket for dirty clothes"
+ ],
+ "bathroom stall door": [
+  "the swinging door panel of a bathroom toilet stall",
+  "a stall door of a restroom cubicle",
+  "the door leaf of a bathroom stall",
+  "a partition door of a toilet stall",
+  "a bathroom stall door, the door of a toilet stall, not the side panels"
+ ],
+ "ceiling light": [
+  "a light fixture mounted flush on the ceiling",
+  "an overhead ceiling lamp or panel light",
+  "a ceiling-mounted luminaire",
+  "a flush ceiling light",
+  "a ceiling light, an overhead fixture on the ceiling, not a standing lamp"
+ ],
+ "trash bin": [
+  "a trash bin container for waste",
+  "a rubbish bin for garbage",
+  "a waste basket bin",
+  "a garbage trash bin",
+  "a trash bin, a container for waste"
+ ],
+ "dumbbell": [
+  "a dumbbell weight with two ends and a short handle bar",
+  "a hand weight dumbbell",
+  "a gym dumbbell",
+  "a compact dumbbell",
+  "a dumbbell, a short bar with weights on both ends"
+ ],
+ "stair rail": [
+  "a handrail running alongside a staircase",
+  "a banister rail beside stairs",
+  "a stair handrail bar",
+  "a railing along the stairs",
+  "a stair rail, the handrail beside stairs, not the steps themselves"
+ ],
+ "tube": [
+  "a thin flexible or rigid tube",
+  "a slender hollow tube",
+  "a narrow tube conduit",
+  "a small tube",
+  "a tube, a thin hollow cylinder, thinner than a rigid pipe"
+ ],
+ "bathroom cabinet": [
+  "a small bathroom cabinet, often a mirrored medicine cabinet on the wall",
+  "a wall bathroom storage cabinet",
+  "a medicine cabinet in a bathroom",
+  "a bathroom wall cabinet",
+  "a bathroom cabinet, a small wall cabinet often with a mirror"
+ ],
+ "cd case": [
+  "a thin flat cd or dvd case",
+  "a slim plastic disc case",
+  "a jewel case for a cd",
+  "a flat cd case",
+  "a cd case, a thin flat plastic disc holder"
+ ],
+ "closet rod": [
+  "a horizontal closet rod for hanging clothes hangers",
+  "a hanging rail rod inside a closet",
+  "a slender closet clothes rod",
+  "a rod in a closet for hangers",
+  "a closet rod, a thin horizontal hanging bar inside a closet"
+ ],
+ "coffee kettle": [
+  "a kettle for boiling water with a spout and handle",
+  "a stovetop or electric kettle",
+  "a water boiling kettle",
+  "a kettle pot with a spout",
+  "a coffee kettle, a spouted boiling kettle, unlike a drip coffee maker machine"
+ ],
+ "structure": [
+  "a generic built structure element",
+  "an unspecified structural element",
+  "a structural form",
+  "a generic structure",
+  "a structure, a general built element"
+ ],
+ "shower head": [
+  "a shower head nozzle mounted high on the shower wall spraying water",
+  "a round or handheld shower head fixture",
+  "a water-spraying shower head",
+  "a shower head sprayer",
+  "a shower head, the spray nozzle high on the wall, not the floor or wall"
+ ],
+ "keyboard piano": [
+  "an electronic keyboard piano with black and white music keys on a stand",
+  "a digital music keyboard instrument",
+  "a portable piano keyboard with musical keys",
+  "an electric keyboard piano",
+  "a keyboard piano, a musical keyboard, unlike a small typing computer keyboard"
+ ],
+ "case of water bottles": [
+  "a shrink-wrapped multipack case holding many water bottles",
+  "a full case pack of bottled water",
+  "a bulk pack of multiple water bottles",
+  "a flat of many water bottles together",
+  "a case of water bottles, a whole pack of many bottles, not a single bottle"
+ ],
+ "coat rack": [
+  "a standing or wall coat rack with hooks for coats",
+  "a rack with hooks holding coats",
+  "a hanging coat rack",
+  "a coat hook rack",
+  "a coat rack, a hooked rack for hanging coats"
+ ],
+ "storage organizer": [
+  "a multi-compartment storage organizer shelf or unit",
+  "an organizer with many cubbies or bins",
+  "a storage organizer rack with compartments",
+  "a compartmented organizer",
+  "a storage organizer, a compartmented shelf or bin unit"
+ ],
+ "folded chair": [
+  "a flat folding chair, collapsed and folded up",
+  "a folded-up foldable chair leaning flat",
+  "a collapsed folding chair",
+  "a folded chair stored flat",
+  "a folded chair, a folding chair collapsed flat, unlike an upright chair"
+ ],
+ "fire alarm": [
+  "a small round fire alarm or smoke detector on the ceiling or wall",
+  "a ceiling smoke alarm disc",
+  "a fire alarm sensor unit",
+  "a wall or ceiling fire alarm box",
+  "a fire alarm, a small ceiling detector, not a red extinguisher cylinder"
+ ],
+ "power strip": [
+  "a power strip with a row of multiple sockets and a cord",
+  "an extension power strip bar of outlets",
+  "a multi-outlet power strip",
+  "a strip of power sockets with a cable",
+  "a power strip, a bar of many sockets with a cord, unlike a single wall outlet"
+ ],
+ "calendar": [
+  "a wall calendar with a grid of dates",
+  "a hanging calendar page with days",
+  "a monthly calendar on the wall",
+  "a date calendar chart",
+  "a calendar, a flat grid of dates on the wall"
+ ],
+ "poster": [
+  "a printed paper poster taped flat on a wall, often with an image",
+  "a large printed poster picture on the wall",
+  "a thin paper poster print",
+  "a wall poster of an image or text",
+  "a poster, a thin printed paper on the wall, unlike a framed picture or a sign board"
+ ],
+ "potted plant": [
+  "a plant growing in a visible pot or planter",
+  "a houseplant with a pot at its base",
+  "a green plant in a flowerpot",
+  "a potted houseplant with a container",
+  "a potted plant, a plant together with its pot, emphasizing the visible pot"
+ ],
+ "luggage": [
+  "luggage bags and suitcases for travel",
+  "travel luggage pieces",
+  "a set of travel bags and cases",
+  "packed luggage",
+  "luggage, travel bags and suitcases"
+ ],
+ "mattress": [
+  "a bare rectangular mattress without a frame",
+  "a thick soft mattress slab",
+  "a flat mattress lying down",
+  "a bare bed mattress",
+  "a mattress, the thick soft sleeping pad, often without a bed frame"
+ ]
+}

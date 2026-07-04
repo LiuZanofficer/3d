@@ -1,0 +1,110 @@
+{
+ "n_instances": 7769,
+ "tight_clusters": 17,
+ "tight_members": 44,
+ "n_in_tight": 1099,
+ "variants": {
+  "name(baseline)": {
+   "acc_inst": 0.4521,
+   "acc_pts": 0.5906,
+   "sib_acc": 0.7916,
+   "sib_acc_pts": 0.8041,
+   "miou_rename_full": 0.2009,
+   "miou_rename_incluster": 0.2489
+  },
+  "attr_mean": {
+   "acc_inst": 0.3707,
+   "acc_pts": 0.4685,
+   "sib_acc": 0.6888,
+   "sib_acc_pts": 0.7298,
+   "miou_rename_full": 0.1915,
+   "miou_rename_incluster": 0.228
+  },
+  "attr_single": {
+   "acc_inst": 0.3343,
+   "acc_pts": 0.4402,
+   "sib_acc": 0.7234,
+   "sib_acc_pts": 0.7558,
+   "miou_rename_full": 0.1767,
+   "miou_rename_incluster": 0.2154
+  },
+  "attr_maxsim": {
+   "acc_inst": 0.3506,
+   "acc_pts": 0.4542,
+   "sib_acc": 0.7025,
+   "sib_acc_pts": 0.7305,
+   "miou_rename_full": 0.1808,
+   "miou_rename_incluster": 0.2162
+  },
+  "fuse0.3(name*w+attr)": {
+   "acc_inst": 0.4042,
+   "acc_pts": 0.5093,
+   "sib_acc": 0.7161,
+   "sib_acc_pts": 0.7511,
+   "miou_rename_full": 0.2067,
+   "miou_rename_incluster": 0.2502
+  },
+  "fuse0.5(name*w+attr)": {
+   "acc_inst": 0.4244,
+   "acc_pts": 0.5387,
+   "sib_acc": 0.7352,
+   "sib_acc_pts": 0.7853,
+   "miou_rename_full": 0.2101,
+   "miou_rename_incluster": 0.258
+  },
+  "fuse0.7(name*w+attr)": {
+   "acc_inst": 0.4423,
+   "acc_pts": 0.5725,
+   "sib_acc": 0.7598,
+   "sib_acc_pts": 0.7995,
+   "miou_rename_full": 0.2114,
+   "miou_rename_incluster": 0.2634
+  }
+ },
+ "sibling_cos": {
+  "name": 0.9194,
+  "attr_mean": 0.9101,
+  "per_cluster_name": {
+   "1": 0.9523,
+   "2": 0.9711,
+   "3": 0.8987,
+   "4": 0.9374,
+   "5": 0.9059,
+   "6": 0.9576,
+   "7": 0.9561,
+   "9": 0.9392,
+   "12": 0.9058,
+   "14": 0.9061,
+   "17": 0.9251,
+   "20": 0.8894,
+   "25": 0.9352,
+   "28": 0.9754,
+   "31": 0.9671,
+   "32": 0.9206,
+   "48": 0.9063
+  },
+  "per_cluster_attr": {
+   "1": 0.8807,
+   "2": 0.9375,
+   "3": 0.9092,
+   "4": 0.9239,
+   "5": 0.8896,
+   "6": 0.9614,
+   "7": 0.9454,
+   "9": 0.9174,
+   "12": 0.8935,
+   "14": 0.8836,
+   "17": 0.9145,
+   "20": 0.9052,
+   "25": 0.9004,
+   "28": 0.9789,
+   "31": 0.9487,
+   "32": 0.9068,
+   "48": 0.8909
+  }
+ },
+ "dvis_dtxt": {
+  "name": 0.1108,
+  "attr_mean": 0.1136
+ }
+}

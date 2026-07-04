@@ -76,7 +76,7 @@ def evaluate(cfg: DictConfig) -> Tuple[Dict[str, Any], Dict[str, Any]]:
         model.configure_model()
         trainer.test(model=model, datamodule=datamodule)
     else:
-        ckpt = torch.load(cfg.ckpt_path, map_location="cpu")
+        ckpt = torch.load(cfg.ckpt_path, map_location="cpu", weights_only=False)
         ckpt_strict = cfg.get("ckpt_strict", True)
         if "pytorch-lightning_version" not in ckpt or not ckpt_strict:
             model.configure_model()

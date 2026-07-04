@@ -1,0 +1,381 @@
+{
+ "n_instances": 4083,
+ "n_named": 3688,
+ "acc_all": 0.7311,
+ "acc_named": 0.8094,
+ "named_frac": 0.9033,
+ "sources": [
+  "gsam2",
+  "seem"
+ ],
+ "per_cluster": {
+  "curtain/curtain|shower curtain|shower curtain rod": {
+   "correct": 390,
+   "named": 412,
+   "total": 429,
+   "acc": 0.9091
+  },
+  "clock/clock|alarm clock": {
+   "correct": 42,
+   "named": 43,
+   "total": 48,
+   "acc": 0.875
+  },
+  "pillow/pillow|cushion": {
+   "correct": 666,
+   "named": 677,
+   "total": 697,
+   "acc": 0.9555
+  },
+  "refrigerator/refrigerator|mini fridge": {
+   "correct": 119,
+   "named": 159,
+   "total": 184,
+   "acc": 0.6467
+  },
+  "shelf/shelf|bookshelf": {
+   "correct": 464,
+   "named": 737,
+   "total": 775,
+   "acc": 0.5987
+  },
+  "shower/shower|shower wall|shower door|shower floor|shower head": {
+   "correct": 32,
+   "named": 166,
+   "total": 183,
+   "acc": 0.1749
+  },
+  "towel/towel|blanket": {
+   "correct": 434,
+   "named": 455,
+   "total": 503,
+   "acc": 0.8628
+  },
+  "column/column|pillar": {
+   "correct": 7,
+   "named": 17,
+   "total": 34,
+   "acc": 0.2059
+  },
+  "bottle/bottle|water bottle|case of water bottles": {
+   "correct": 175,
+   "named": 192,
+   "total": 206,
+   "acc": 0.8495
+  },
+  "plant/plant|potted plant": {
+   "correct": 234,
+   "named": 273,
+   "total": 293,
+   "acc": 0.7986
+  },
+  "coffee maker/coffee maker|water pitcher|coffee kettle": {
+   "correct": 49,
+   "named": 70,
+   "total": 89,
+   "acc": 0.5506
+  },
+  "board/board|sign|poster": {
+   "correct": 65,
+   "named": 79,
+   "total": 113,
+   "acc": 0.5752
+  },
+  "printer/printer|copier": {
+   "correct": 80,
+   "named": 131,
+   "total": 138,
+   "acc": 0.5797
+  },
+  "light switch/light switch|power outlet|power strip": {
+   "correct": 19,
+   "named": 20,
+   "total": 46,
+   "acc": 0.413
+  },
+  "bathroom stall/bathroom stall|bathroom stall door": {
+   "correct": 26,
+   "named": 42,
+   "total": 98,
+   "acc": 0.2653
+  },
+  "stairs/stairs|stair rail": {
+   "correct": 41,
+   "named": 64,
+   "total": 71,
+   "acc": 0.5775
+  },
+  "plate/plate|cup|tray|bowl": {
+   "correct": 142,
+   "named": 151,
+   "total": 176,
+   "acc": 0.8068
+  }
+ },
+ "per_class": {
+  "shelf": {
+   "correct": 436,
+   "named": 454,
+   "total": 478,
+   "acc": 0.9121
+  },
+  "pillow": {
+   "correct": 662,
+   "named": 665,
+   "total": 685,
+   "acc": 0.9664
+  },
+  "bookshelf": {
+   "correct": 28,
+   "named": 283,
+   "total": 297,
+   "acc": 0.0943
+  },
+  "curtain": {
+   "correct": 281,
+   "named": 288,
+   "total": 290,
+   "acc": 0.969
+  },
+  "refrigerator": {
+   "correct": 119,
+   "named": 119,
+   "total": 119,
+   "acc": 1.0
+  },
+  "towel": {
+   "correct": 386,
+   "named": 403,
+   "total": 448,
+   "acc": 0.8616
+  },
+  "cushion": {
+   "correct": 4,
+   "named": 12,
+   "total": 12,
+   "acc": 0.3333
+  },
+  "plant": {
+   "correct": 234,
+   "named": 262,
+   "total": 282,
+   "acc": 0.8298
+  },
+  "printer": {
+   "correct": 80,
+   "named": 80,
+   "total": 83,
+   "acc": 0.9639
+  },
+  "blanket": {
+   "correct": 48,
+   "named": 52,
+   "total": 55,
+   "acc": 0.8727
+  },
+  "shower curtain": {
+   "correct": 105,
+   "named": 111,
+   "total": 113,
+   "acc": 0.9292
+  },
+  "stairs": {
+   "correct": 41,
+   "named": 41,
+   "total": 43,
+   "acc": 0.9535
+  },
+  "bottle": {
+   "correct": 174,
+   "named": 180,
+   "total": 191,
+   "acc": 0.911
+  },
+  "board": {
+   "correct": 42,
+   "named": 52,
+   "total": 79,
+   "acc": 0.5316
+  },
+  "copier": {
+   "correct": 0,
+   "named": 51,
+   "total": 55,
+   "acc": 0.0
+  },
+  "shower": {
+   "correct": 9,
+   "named": 38,
+   "total": 40,
+   "acc": 0.225
+  },
+  "plate": {
+   "correct": 13,
+   "named": 16,
+   "total": 17,
+   "acc": 0.7647
+  },
+  "clock": {
+   "correct": 31,
+   "named": 32,
+   "total": 33,
+   "acc": 0.9394
+  },
+  "column": {
+   "correct": 1,
+   "named": 10,
+   "total": 20,
+   "acc": 0.05
+  },
+  "bathroom stall": {
+   "correct": 23,
+   "named": 26,
+   "total": 53,
+   "acc": 0.434
+  },
+  "shower wall": {
+   "correct": 9,
+   "named": 99,
+   "total": 104,
+   "acc": 0.0865
+  },
+  "cup": {
+   "correct": 105,
+   "named": 108,
+   "total": 122,
+   "acc": 0.8607
+  },
+  "coffee maker": {
+   "correct": 48,
+   "named": 48,
+   "total": 55,
+   "acc": 0.8727
+  },
+  "mini fridge": {
+   "correct": 0,
+   "named": 40,
+   "total": 65,
+   "acc": 0.0
+  },
+  "shower curtain rod": {
+   "correct": 4,
+   "named": 13,
+   "total": 26,
+   "acc": 0.1538
+  },
+  "tray": {
+   "correct": 8,
+   "named": 10,
+   "total": 20,
+   "acc": 0.4
+  },
+  "shower door": {
+   "correct": 11,
+   "named": 14,
+   "total": 16,
+   "acc": 0.6875
+  },
+  "pillar": {
+   "correct": 6,
+   "named": 7,
+   "total": 14,
+   "acc": 0.4286
+  },
+  "light switch": {
+   "correct": 18,
+   "named": 18,
+   "total": 35,
+   "acc": 0.5143
+  },
+  "power outlet": {
+   "correct": 0,
+   "named": 1,
+   "total": 4,
+   "acc": 0.0
+  },
+  "sign": {
+   "correct": 19,
+   "named": 22,
+   "total": 28,
+   "acc": 0.6786
+  },
+  "water bottle": {
+   "correct": 1,
+   "named": 7,
+   "total": 10,
+   "acc": 0.1
+  },
+  "shower floor": {
+   "correct": 3,
+   "named": 12,
+   "total": 16,
+   "acc": 0.1875
+  },
+  "water pitcher": {
+   "correct": 1,
+   "named": 11,
+   "total": 20,
+   "acc": 0.05
+  },
+  "bowl": {
+   "correct": 16,
+   "named": 17,
+   "total": 17,
+   "acc": 0.9412
+  },
+  "alarm clock": {
+   "correct": 11,
+   "named": 11,
+   "total": 15,
+   "acc": 0.7333
+  },
+  "bathroom stall door": {
+   "correct": 3,
+   "named": 16,
+   "total": 45,
+   "acc": 0.0667
+  },
+  "stair rail": {
+   "correct": 0,
+   "named": 23,
+   "total": 28,
+   "acc": 0.0
+  },
+  "coffee kettle": {
+   "correct": 0,
+   "named": 11,
+   "total": 14,
+   "acc": 0.0
+  },
+  "shower head": {
+   "correct": 0,
+   "named": 3,
+   "total": 7,
+   "acc": 0.0
+  },
+  "case of water bottles": {
+   "correct": 0,
+   "named": 5,
+   "total": 5,
+   "acc": 0.0
+  },
+  "power strip": {
+   "correct": 1,
+   "named": 1,
+   "total": 7,
+   "acc": 0.1429
+  },
+  "poster": {
+   "correct": 4,
+   "named": 5,
+   "total": 6,
+   "acc": 0.6667
+  },
+  "potted plant": {
+   "correct": 0,
+   "named": 11,
+   "total": 11,
+   "acc": 0.0
+  }
+ }
+}

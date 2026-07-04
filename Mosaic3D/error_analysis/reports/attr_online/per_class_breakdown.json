@@ -1,0 +1,1639 @@
+{
+ "miou": {
+  "baseline": 0.15475,
+  "name_mtv": 0.17573,
+  "fuse07_mtv": 0.18231
+ },
+ "sibling_members": [
+  "shelf",
+  "pillow",
+  "bookshelf",
+  "curtain",
+  "refrigerator",
+  "towel",
+  "cushion",
+  "plant",
+  "printer",
+  "blanket",
+  "shower curtain",
+  "stairs",
+  "bottle",
+  "board",
+  "copier",
+  "shower",
+  "plate",
+  "clock",
+  "column",
+  "bathroom stall",
+  "shower wall",
+  "cup",
+  "coffee maker",
+  "mini fridge",
+  "shower curtain rod",
+  "tray",
+  "shower door",
+  "pillar",
+  "light switch",
+  "power outlet",
+  "sign",
+  "water bottle",
+  "shower floor",
+  "water pitcher",
+  "bowl",
+  "alarm clock",
+  "bathroom stall door",
+  "stair rail",
+  "coffee kettle",
+  "shower head",
+  "case of water bottles",
+  "power strip",
+  "poster",
+  "potted plant"
+ ],
+ "decomp_vs_name_mtv": {
+  "sibling": 0.0033,
+  "nonsibling": 0.0075
+ },
+ "decomp_vs_baseline": {
+  "sibling": 0.0214,
+  "nonsibling": 0.0293
+ },
+ "per_class": [
+  {
+   "cls": "chair",
+   "idx": 1,
+   "sib": false,
+   "iou_base": 0.4915,
+   "iou_name_mtv": 0.5333,
+   "iou_fuse_mtv": 0.4807
+  },
+  {
+   "cls": "table",
+   "idx": 3,
+   "sib": false,
+   "iou_base": 0.5898,
+   "iou_name_mtv": 0.6611,
+   "iou_fuse_mtv": 0.5003
+  },
+  {
+   "cls": "door",
+   "idx": 4,
+   "sib": false,
+   "iou_base": 0.5281,
+   "iou_name_mtv": 0.5522,
+   "iou_fuse_mtv": 0.5212
+  },
+  {
+   "cls": "couch",
+   "idx": 5,
+   "sib": false,
+   "iou_base": 0.761,
+   "iou_name_mtv": 0.7909,
+   "iou_fuse_mtv": 0.8087
+  },
+  {
+   "cls": "cabinet",
+   "idx": 6,
+   "sib": false,
+   "iou_base": 0.1603,
+   "iou_name_mtv": 0.1764,
+   "iou_fuse_mtv": 0.1606
+  },
+  {
+   "cls": "shelf",
+   "idx": 7,
+   "sib": true,
+   "iou_base": 0.2499,
+   "iou_name_mtv": 0.2578,
+   "iou_fuse_mtv": 0.2589
+  },
+  {
+   "cls": "desk",
+   "idx": 8,
+   "sib": false,
+   "iou_base": 0.4305,
+   "iou_name_mtv": 0.5323,
+   "iou_fuse_mtv": 0.5168
+  },
+  {
+   "cls": "office chair",
+   "idx": 9,
+   "sib": false,
+   "iou_base": 0.2438,
+   "iou_name_mtv": 0.2456,
+   "iou_fuse_mtv": 0.226
+  },
+  {
+   "cls": "bed",
+   "idx": 10,
+   "sib": false,
+   "iou_base": 0.7266,
+   "iou_name_mtv": 0.779,
+   "iou_fuse_mtv": 0.7743
+  },
+  {
+   "cls": "pillow",
+   "idx": 11,
+   "sib": true,
+   "iou_base": 0.0957,
+   "iou_name_mtv": 0.0701,
+   "iou_fuse_mtv": 0.1284
+  },
+  {
+   "cls": "sink",
+   "idx": 12,
+   "sib": false,
+   "iou_base": 0.5597,
+   "iou_name_mtv": 0.6444,
+   "iou_fuse_mtv": 0.6951
+  },
+  {
+   "cls": "picture",
+   "idx": 13,
+   "sib": false,
+   "iou_base": 0.3013,
+   "iou_name_mtv": 0.3135,
+   "iou_fuse_mtv": 0.3063
+  },
+  {
+   "cls": "window",
+   "idx": 14,
+   "sib": false,
+   "iou_base": 0.4969,
+   "iou_name_mtv": 0.5894,
+   "iou_fuse_mtv": 0.5319
+  },
+  {
+   "cls": "toilet",
+   "idx": 15,
+   "sib": false,
+   "iou_base": 0.8418,
+   "iou_name_mtv": 0.903,
+   "iou_fuse_mtv": 0.9131
+  },
+  {
+   "cls": "bookshelf",
+   "idx": 16,
+   "sib": true,
+   "iou_base": 0.4577,
+   "iou_name_mtv": 0.4734,
+   "iou_fuse_mtv": 0.446
+  },
+  {
+   "cls": "monitor",
+   "idx": 17,
+   "sib": false,
+   "iou_base": 0.7745,
+   "iou_name_mtv": 0.8409,
+   "iou_fuse_mtv": 0.8348
+  },
+  {
+   "cls": "curtain",
+   "idx": 18,
+   "sib": true,
+   "iou_base": 0.6211,
+   "iou_name_mtv": 0.7038,
+   "iou_fuse_mtv": 0.7286
+  },
+  {
+   "cls": "book",
+   "idx": 19,
+   "sib": false,
+   "iou_base": 0.0001,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "armchair",
+   "idx": 20,
+   "sib": false,
+   "iou_base": 0.391,
+   "iou_name_mtv": 0.4246,
+   "iou_fuse_mtv": 0.3865
+  },
+  {
+   "cls": "coffee table",
+   "idx": 21,
+   "sib": false,
+   "iou_base": 0.4212,
+   "iou_name_mtv": 0.4277,
+   "iou_fuse_mtv": 0.4474
+  },
+  {
+   "cls": "box",
+   "idx": 22,
+   "sib": false,
+   "iou_base": 0.2116,
+   "iou_name_mtv": 0.2268,
+   "iou_fuse_mtv": 0.2391
+  },
+  {
+   "cls": "refrigerator",
+   "idx": 23,
+   "sib": true,
+   "iou_base": 0.4949,
+   "iou_name_mtv": 0.543,
+   "iou_fuse_mtv": 0.5544
+  },
+  {
+   "cls": "lamp",
+   "idx": 24,
+   "sib": false,
+   "iou_base": 0.5923,
+   "iou_name_mtv": 0.6633,
+   "iou_fuse_mtv": 0.6527
+  },
+  {
+   "cls": "kitchen cabinet",
+   "idx": 25,
+   "sib": false,
+   "iou_base": 0.6797,
+   "iou_name_mtv": 0.7222,
+   "iou_fuse_mtv": 0.7151
+  },
+  {
+   "cls": "towel",
+   "idx": 26,
+   "sib": true,
+   "iou_base": 0.439,
+   "iou_name_mtv": 0.4737,
+   "iou_fuse_mtv": 0.4769
+  },
+  {
+   "cls": "clothes",
+   "idx": 27,
+   "sib": false,
+   "iou_base": 0.1265,
+   "iou_name_mtv": 0.1122,
+   "iou_fuse_mtv": 0.0949
+  },
+  {
+   "cls": "tv",
+   "idx": 28,
+   "sib": false,
+   "iou_base": 0.7613,
+   "iou_name_mtv": 0.8004,
+   "iou_fuse_mtv": 0.7797
+  },
+  {
+   "cls": "nightstand",
+   "idx": 29,
+   "sib": false,
+   "iou_base": 0.6124,
+   "iou_name_mtv": 0.7329,
+   "iou_fuse_mtv": 0.7066
+  },
+  {
+   "cls": "counter",
+   "idx": 30,
+   "sib": false,
+   "iou_base": 0.2041,
+   "iou_name_mtv": 0.2459,
+   "iou_fuse_mtv": 0.2649
+  },
+  {
+   "cls": "dresser",
+   "idx": 31,
+   "sib": false,
+   "iou_base": 0.3288,
+   "iou_name_mtv": 0.3964,
+   "iou_fuse_mtv": 0.3896
+  },
+  {
+   "cls": "stool",
+   "idx": 32,
+   "sib": false,
+   "iou_base": 0.1587,
+   "iou_name_mtv": 0.1956,
+   "iou_fuse_mtv": 0.1917
+  },
+  {
+   "cls": "cushion",
+   "idx": 33,
+   "sib": true,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "plant",
+   "idx": 34,
+   "sib": true,
+   "iou_base": 0.7884,
+   "iou_name_mtv": 0.8153,
+   "iou_fuse_mtv": 0.8144
+  },
+  {
+   "cls": "bathtub",
+   "idx": 36,
+   "sib": false,
+   "iou_base": 0.7551,
+   "iou_name_mtv": 0.8916,
+   "iou_fuse_mtv": 0.8918
+  },
+  {
+   "cls": "end table",
+   "idx": 37,
+   "sib": false,
+   "iou_base": 0.0503,
+   "iou_name_mtv": 0.0587,
+   "iou_fuse_mtv": 0.0593
+  },
+  {
+   "cls": "dining table",
+   "idx": 38,
+   "sib": false,
+   "iou_base": 0.0438,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0874
+  },
+  {
+   "cls": "keyboard",
+   "idx": 39,
+   "sib": false,
+   "iou_base": 0.2105,
+   "iou_name_mtv": 0.363,
+   "iou_fuse_mtv": 0.3395
+  },
+  {
+   "cls": "bag",
+   "idx": 40,
+   "sib": false,
+   "iou_base": 0.0812,
+   "iou_name_mtv": 0.0814,
+   "iou_fuse_mtv": 0.0749
+  },
+  {
+   "cls": "backpack",
+   "idx": 41,
+   "sib": false,
+   "iou_base": 0.3858,
+   "iou_name_mtv": 0.4162,
+   "iou_fuse_mtv": 0.4639
+  },
+  {
+   "cls": "toilet paper",
+   "idx": 42,
+   "sib": false,
+   "iou_base": 0.2602,
+   "iou_name_mtv": 0.2602,
+   "iou_fuse_mtv": 0.2694
+  },
+  {
+   "cls": "printer",
+   "idx": 43,
+   "sib": true,
+   "iou_base": 0.1838,
+   "iou_name_mtv": 0.1861,
+   "iou_fuse_mtv": 0.2473
+  },
+  {
+   "cls": "tv stand",
+   "idx": 44,
+   "sib": false,
+   "iou_base": 0.3761,
+   "iou_name_mtv": 0.5319,
+   "iou_fuse_mtv": 0.5762
+  },
+  {
+   "cls": "whiteboard",
+   "idx": 45,
+   "sib": false,
+   "iou_base": 0.3465,
+   "iou_name_mtv": 0.4043,
+   "iou_fuse_mtv": 0.6453
+  },
+  {
+   "cls": "blanket",
+   "idx": 46,
+   "sib": true,
+   "iou_base": 0.0556,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0084
+  },
+  {
+   "cls": "shower curtain",
+   "idx": 47,
+   "sib": true,
+   "iou_base": 0.6049,
+   "iou_name_mtv": 0.603,
+   "iou_fuse_mtv": 0.5928
+  },
+  {
+   "cls": "trash can",
+   "idx": 48,
+   "sib": false,
+   "iou_base": 0.1429,
+   "iou_name_mtv": 0.1104,
+   "iou_fuse_mtv": 0.1033
+  },
+  {
+   "cls": "closet",
+   "idx": 49,
+   "sib": false,
+   "iou_base": 0.0587,
+   "iou_name_mtv": 0.0211,
+   "iou_fuse_mtv": 0.0222
+  },
+  {
+   "cls": "stairs",
+   "idx": 50,
+   "sib": true,
+   "iou_base": 0.493,
+   "iou_name_mtv": 0.5799,
+   "iou_fuse_mtv": 0.5748
+  },
+  {
+   "cls": "microwave",
+   "idx": 51,
+   "sib": false,
+   "iou_base": 0.283,
+   "iou_name_mtv": 0.3745,
+   "iou_fuse_mtv": 0.3141
+  },
+  {
+   "cls": "stove",
+   "idx": 52,
+   "sib": false,
+   "iou_base": 0.2592,
+   "iou_name_mtv": 0.3585,
+   "iou_fuse_mtv": 0.5156
+  },
+  {
+   "cls": "shoe",
+   "idx": 53,
+   "sib": false,
+   "iou_base": 0.2157,
+   "iou_name_mtv": 0.2323,
+   "iou_fuse_mtv": 0.2625
+  },
+  {
+   "cls": "computer tower",
+   "idx": 54,
+   "sib": false,
+   "iou_base": 0.1777,
+   "iou_name_mtv": 0.2364,
+   "iou_fuse_mtv": 0.2698
+  },
+  {
+   "cls": "bottle",
+   "idx": 55,
+   "sib": true,
+   "iou_base": 0.0032,
+   "iou_name_mtv": 0.0009,
+   "iou_fuse_mtv": 0.0068
+  },
+  {
+   "cls": "bin",
+   "idx": 56,
+   "sib": false,
+   "iou_base": 0.0001,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "ottoman",
+   "idx": 57,
+   "sib": false,
+   "iou_base": 0.1019,
+   "iou_name_mtv": 0.0767,
+   "iou_fuse_mtv": 0.1604
+  },
+  {
+   "cls": "bench",
+   "idx": 58,
+   "sib": false,
+   "iou_base": 0.1658,
+   "iou_name_mtv": 0.1946,
+   "iou_fuse_mtv": 0.2066
+  },
+  {
+   "cls": "board",
+   "idx": 59,
+   "sib": true,
+   "iou_base": 0.0388,
+   "iou_name_mtv": 0.0647,
+   "iou_fuse_mtv": 0.049
+  },
+  {
+   "cls": "washing machine",
+   "idx": 60,
+   "sib": false,
+   "iou_base": 0.6643,
+   "iou_name_mtv": 0.8,
+   "iou_fuse_mtv": 0.264
+  },
+  {
+   "cls": "mirror",
+   "idx": 61,
+   "sib": false,
+   "iou_base": 0.3527,
+   "iou_name_mtv": 0.385,
+   "iou_fuse_mtv": 0.3646
+  },
+  {
+   "cls": "copier",
+   "idx": 62,
+   "sib": true,
+   "iou_base": 0.0428,
+   "iou_name_mtv": 0.0406,
+   "iou_fuse_mtv": 0.4432
+  },
+  {
+   "cls": "basket",
+   "idx": 63,
+   "sib": false,
+   "iou_base": 0.0005,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0004
+  },
+  {
+   "cls": "sofa chair",
+   "idx": 64,
+   "sib": false,
+   "iou_base": 0.0141,
+   "iou_name_mtv": 0.017,
+   "iou_fuse_mtv": 0.0622
+  },
+  {
+   "cls": "file cabinet",
+   "idx": 65,
+   "sib": false,
+   "iou_base": 0.2228,
+   "iou_name_mtv": 0.2666,
+   "iou_fuse_mtv": 0.2562
+  },
+  {
+   "cls": "fan",
+   "idx": 66,
+   "sib": false,
+   "iou_base": 0.124,
+   "iou_name_mtv": 0.1091,
+   "iou_fuse_mtv": 0.1456
+  },
+  {
+   "cls": "laptop",
+   "idx": 67,
+   "sib": false,
+   "iou_base": 0.1807,
+   "iou_name_mtv": 0.2496,
+   "iou_fuse_mtv": 0.2336
+  },
+  {
+   "cls": "shower",
+   "idx": 68,
+   "sib": true,
+   "iou_base": 0.0592,
+   "iou_name_mtv": 0.0823,
+   "iou_fuse_mtv": 0.0576
+  },
+  {
+   "cls": "paper",
+   "idx": 69,
+   "sib": false,
+   "iou_base": 0.052,
+   "iou_name_mtv": 0.0893,
+   "iou_fuse_mtv": 0.105
+  },
+  {
+   "cls": "person",
+   "idx": 70,
+   "sib": false,
+   "iou_base": 0.1098,
+   "iou_name_mtv": 0.1713,
+   "iou_fuse_mtv": 0.1935
+  },
+  {
+   "cls": "paper towel dispenser",
+   "idx": 71,
+   "sib": false,
+   "iou_base": 0.3163,
+   "iou_name_mtv": 0.3236,
+   "iou_fuse_mtv": 0.3266
+  },
+  {
+   "cls": "oven",
+   "idx": 72,
+   "sib": false,
+   "iou_base": 0.0568,
+   "iou_name_mtv": 0.0482,
+   "iou_fuse_mtv": 0.0314
+  },
+  {
+   "cls": "blinds",
+   "idx": 73,
+   "sib": false,
+   "iou_base": 0.1024,
+   "iou_name_mtv": 0.151,
+   "iou_fuse_mtv": 0.1154
+  },
+  {
+   "cls": "rack",
+   "idx": 74,
+   "sib": false,
+   "iou_base": 0.0006,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "plate",
+   "idx": 75,
+   "sib": true,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "blackboard",
+   "idx": 76,
+   "sib": false,
+   "iou_base": 0.2314,
+   "iou_name_mtv": 0.1725,
+   "iou_fuse_mtv": 0.4629
+  },
+  {
+   "cls": "piano",
+   "idx": 77,
+   "sib": false,
+   "iou_base": 0.2288,
+   "iou_name_mtv": 0.3809,
+   "iou_fuse_mtv": 0.3372
+  },
+  {
+   "cls": "suitcase",
+   "idx": 78,
+   "sib": false,
+   "iou_base": 0.1858,
+   "iou_name_mtv": 0.1725,
+   "iou_fuse_mtv": 0.2446
+  },
+  {
+   "cls": "rail",
+   "idx": 79,
+   "sib": false,
+   "iou_base": 0.0043,
+   "iou_name_mtv": 0.0001,
+   "iou_fuse_mtv": 0.0001
+  },
+  {
+   "cls": "radiator",
+   "idx": 80,
+   "sib": false,
+   "iou_base": 0.0355,
+   "iou_name_mtv": 0.0232,
+   "iou_fuse_mtv": 0.1728
+  },
+  {
+   "cls": "recycling bin",
+   "idx": 81,
+   "sib": false,
+   "iou_base": 0.1622,
+   "iou_name_mtv": 0.1869,
+   "iou_fuse_mtv": 0.1669
+  },
+  {
+   "cls": "container",
+   "idx": 82,
+   "sib": false,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "wardrobe",
+   "idx": 83,
+   "sib": false,
+   "iou_base": 0.1681,
+   "iou_name_mtv": 0.2277,
+   "iou_fuse_mtv": 0.3782
+  },
+  {
+   "cls": "soap dispenser",
+   "idx": 84,
+   "sib": false,
+   "iou_base": 0.0615,
+   "iou_name_mtv": 0.0852,
+   "iou_fuse_mtv": 0.0248
+  },
+  {
+   "cls": "telephone",
+   "idx": 85,
+   "sib": false,
+   "iou_base": 0.0553,
+   "iou_name_mtv": 0.0629,
+   "iou_fuse_mtv": 0.1069
+  },
+  {
+   "cls": "bucket",
+   "idx": 86,
+   "sib": false,
+   "iou_base": 0.0475,
+   "iou_name_mtv": 0.0669,
+   "iou_fuse_mtv": 0.0717
+  },
+  {
+   "cls": "clock",
+   "idx": 87,
+   "sib": true,
+   "iou_base": 0.1662,
+   "iou_name_mtv": 0.1604,
+   "iou_fuse_mtv": 0.1635
+  },
+  {
+   "cls": "stand",
+   "idx": 88,
+   "sib": false,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "light",
+   "idx": 89,
+   "sib": false,
+   "iou_base": 0.005,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0209
+  },
+  {
+   "cls": "laundry basket",
+   "idx": 90,
+   "sib": false,
+   "iou_base": 0.0409,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0691
+  },
+  {
+   "cls": "pipe",
+   "idx": 91,
+   "sib": false,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0004
+  },
+  {
+   "cls": "clothes dryer",
+   "idx": 92,
+   "sib": false,
+   "iou_base": 0.0594,
+   "iou_name_mtv": 0.0519,
+   "iou_fuse_mtv": 0.0638
+  },
+  {
+   "cls": "guitar",
+   "idx": 93,
+   "sib": false,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "toilet paper holder",
+   "idx": 94,
+   "sib": false,
+   "iou_base": 0.0531,
+   "iou_name_mtv": 0.0707,
+   "iou_fuse_mtv": 0.0974
+  },
+  {
+   "cls": "seat",
+   "idx": 95,
+   "sib": false,
+   "iou_base": 0.0108,
+   "iou_name_mtv": 0.0115,
+   "iou_fuse_mtv": 0.0203
+  },
+  {
+   "cls": "speaker",
+   "idx": 96,
+   "sib": false,
+   "iou_base": 0.0001,
+   "iou_name_mtv": 0.0001,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "column",
+   "idx": 97,
+   "sib": true,
+   "iou_base": 0.1655,
+   "iou_name_mtv": 0.2154,
+   "iou_fuse_mtv": 0.2567
+  },
+  {
+   "cls": "bicycle",
+   "idx": 98,
+   "sib": false,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "ladder",
+   "idx": 99,
+   "sib": false,
+   "iou_base": 0.2214,
+   "iou_name_mtv": 0.2941,
+   "iou_fuse_mtv": 0.2807
+  },
+  {
+   "cls": "bathroom stall",
+   "idx": 100,
+   "sib": true,
+   "iou_base": 0.4996,
+   "iou_name_mtv": 0.5712,
+   "iou_fuse_mtv": 0.5557
+  },
+  {
+   "cls": "shower wall",
+   "idx": 101,
+   "sib": true,
+   "iou_base": 0.4957,
+   "iou_name_mtv": 0.6321,
+   "iou_fuse_mtv": 0.4765
+  },
+  {
+   "cls": "cup",
+   "idx": 102,
+   "sib": true,
+   "iou_base": 0.0346,
+   "iou_name_mtv": 0.0203,
+   "iou_fuse_mtv": 0.0207
+  },
+  {
+   "cls": "jacket",
+   "idx": 103,
+   "sib": false,
+   "iou_base": 0.0337,
+   "iou_name_mtv": 0.0308,
+   "iou_fuse_mtv": 0.0691
+  },
+  {
+   "cls": "storage bin",
+   "idx": 104,
+   "sib": false,
+   "iou_base": 0.0137,
+   "iou_name_mtv": 0.0128,
+   "iou_fuse_mtv": 0.017
+  },
+  {
+   "cls": "coffee maker",
+   "idx": 105,
+   "sib": true,
+   "iou_base": 0.3059,
+   "iou_name_mtv": 0.4423,
+   "iou_fuse_mtv": 0.4125
+  },
+  {
+   "cls": "dishwasher",
+   "idx": 106,
+   "sib": false,
+   "iou_base": 0.1579,
+   "iou_name_mtv": 0.1768,
+   "iou_fuse_mtv": 0.1863
+  },
+  {
+   "cls": "paper towel roll",
+   "idx": 107,
+   "sib": false,
+   "iou_base": 0.0871,
+   "iou_name_mtv": 0.1215,
+   "iou_fuse_mtv": 0.018
+  },
+  {
+   "cls": "machine",
+   "idx": 108,
+   "sib": false,
+   "iou_base": 0.0855,
+   "iou_name_mtv": 0.3852,
+   "iou_fuse_mtv": 0.3965
+  },
+  {
+   "cls": "mat",
+   "idx": 109,
+   "sib": false,
+   "iou_base": 0.2764,
+   "iou_name_mtv": 0.306,
+   "iou_fuse_mtv": 0.3
+  },
+  {
+   "cls": "windowsill",
+   "idx": 110,
+   "sib": false,
+   "iou_base": 0.0872,
+   "iou_name_mtv": 0.0456,
+   "iou_fuse_mtv": 0.0575
+  },
+  {
+   "cls": "bar",
+   "idx": 111,
+   "sib": false,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "toaster",
+   "idx": 112,
+   "sib": false,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "bulletin board",
+   "idx": 113,
+   "sib": false,
+   "iou_base": 0.1259,
+   "iou_name_mtv": 0.1608,
+   "iou_fuse_mtv": 0.1401
+  },
+  {
+   "cls": "ironing board",
+   "idx": 114,
+   "sib": false,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "fireplace",
+   "idx": 115,
+   "sib": false,
+   "iou_base": 0.5192,
+   "iou_name_mtv": 0.4957,
+   "iou_fuse_mtv": 0.5358
+  },
+  {
+   "cls": "soap dish",
+   "idx": 116,
+   "sib": false,
+   "iou_base": 0.0442,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "kitchen counter",
+   "idx": 117,
+   "sib": false,
+   "iou_base": 0.4753,
+   "iou_name_mtv": 0.5998,
+   "iou_fuse_mtv": 0.6324
+  },
+  {
+   "cls": "doorframe",
+   "idx": 118,
+   "sib": false,
+   "iou_base": 0.0464,
+   "iou_name_mtv": 0.0491,
+   "iou_fuse_mtv": 0.0729
+  },
+  {
+   "cls": "toilet paper dispenser",
+   "idx": 119,
+   "sib": false,
+   "iou_base": 0.2295,
+   "iou_name_mtv": 0.2828,
+   "iou_fuse_mtv": 0.2752
+  },
+  {
+   "cls": "mini fridge",
+   "idx": 120,
+   "sib": true,
+   "iou_base": 0.0032,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "fire extinguisher",
+   "idx": 121,
+   "sib": false,
+   "iou_base": 0.0048,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "ball",
+   "idx": 122,
+   "sib": false,
+   "iou_base": 0.2422,
+   "iou_name_mtv": 0.5102,
+   "iou_fuse_mtv": 0.4817
+  },
+  {
+   "cls": "hat",
+   "idx": 123,
+   "sib": false,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "shower curtain rod",
+   "idx": 124,
+   "sib": true,
+   "iou_base": 0.0599,
+   "iou_name_mtv": 0.0924,
+   "iou_fuse_mtv": 0.071
+  },
+  {
+   "cls": "water cooler",
+   "idx": 125,
+   "sib": false,
+   "iou_base": 0.0023,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "paper cutter",
+   "idx": 126,
+   "sib": false,
+   "iou_base": 0.0189,
+   "iou_name_mtv": 0.0014,
+   "iou_fuse_mtv": 0.0041
+  },
+  {
+   "cls": "tray",
+   "idx": 127,
+   "sib": true,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "shower door",
+   "idx": 128,
+   "sib": true,
+   "iou_base": 0.0358,
+   "iou_name_mtv": 0.0192,
+   "iou_fuse_mtv": 0.0211
+  },
+  {
+   "cls": "pillar",
+   "idx": 129,
+   "sib": true,
+   "iou_base": 0.1612,
+   "iou_name_mtv": 0.2733,
+   "iou_fuse_mtv": 0.0703
+  },
+  {
+   "cls": "ledge",
+   "idx": 130,
+   "sib": false,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "toaster oven",
+   "idx": 131,
+   "sib": false,
+   "iou_base": 0.1146,
+   "iou_name_mtv": 0.1459,
+   "iou_fuse_mtv": 0.1385
+  },
+  {
+   "cls": "mouse",
+   "idx": 132,
+   "sib": false,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "toilet seat cover dispenser",
+   "idx": 133,
+   "sib": false,
+   "iou_base": 0.0038,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "furniture",
+   "idx": 134,
+   "sib": false,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "cart",
+   "idx": 135,
+   "sib": false,
+   "iou_base": 0.1307,
+   "iou_name_mtv": 0.0878,
+   "iou_fuse_mtv": 0.4368
+  },
+  {
+   "cls": "storage container",
+   "idx": 136,
+   "sib": false,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "scale",
+   "idx": 137,
+   "sib": false,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "tissue box",
+   "idx": 138,
+   "sib": false,
+   "iou_base": 0.029,
+   "iou_name_mtv": 0.0511,
+   "iou_fuse_mtv": 0.0818
+  },
+  {
+   "cls": "light switch",
+   "idx": 139,
+   "sib": true,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "crate",
+   "idx": 140,
+   "sib": false,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "power outlet",
+   "idx": 141,
+   "sib": true,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "decoration",
+   "idx": 142,
+   "sib": false,
+   "iou_base": 0.0308,
+   "iou_name_mtv": 0.0128,
+   "iou_fuse_mtv": 0.0011
+  },
+  {
+   "cls": "sign",
+   "idx": 143,
+   "sib": true,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "projector",
+   "idx": 144,
+   "sib": false,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "closet door",
+   "idx": 145,
+   "sib": false,
+   "iou_base": 0.0973,
+   "iou_name_mtv": 0.1551,
+   "iou_fuse_mtv": 0.1125
+  },
+  {
+   "cls": "vacuum cleaner",
+   "idx": 146,
+   "sib": false,
+   "iou_base": 0.0789,
+   "iou_name_mtv": 0.0878,
+   "iou_fuse_mtv": 0.1253
+  },
+  {
+   "cls": "candle",
+   "idx": 147,
+   "sib": false,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "plunger",
+   "idx": 148,
+   "sib": false,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "stuffed animal",
+   "idx": 149,
+   "sib": false,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "headphones",
+   "idx": 150,
+   "sib": false,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "dish rack",
+   "idx": 151,
+   "sib": false,
+   "iou_base": 0.0115,
+   "iou_name_mtv": 0.0639,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "broom",
+   "idx": 152,
+   "sib": false,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "guitar case",
+   "idx": 153,
+   "sib": false,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "range hood",
+   "idx": 154,
+   "sib": false,
+   "iou_base": 0.2828,
+   "iou_name_mtv": 0.3338,
+   "iou_fuse_mtv": 0.3153
+  },
+  {
+   "cls": "dustpan",
+   "idx": 155,
+   "sib": false,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "hair dryer",
+   "idx": 156,
+   "sib": false,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "water bottle",
+   "idx": 157,
+   "sib": true,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "handicap bar",
+   "idx": 158,
+   "sib": false,
+   "iou_base": 0.0007,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0762
+  },
+  {
+   "cls": "purse",
+   "idx": 159,
+   "sib": false,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "vent",
+   "idx": 160,
+   "sib": false,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "shower floor",
+   "idx": 161,
+   "sib": true,
+   "iou_base": 0.0532,
+   "iou_name_mtv": 0.1229,
+   "iou_fuse_mtv": 0.1355
+  },
+  {
+   "cls": "water pitcher",
+   "idx": 162,
+   "sib": true,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "mailbox",
+   "idx": 163,
+   "sib": false,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "bowl",
+   "idx": 164,
+   "sib": true,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "paper bag",
+   "idx": 165,
+   "sib": false,
+   "iou_base": 0.0333,
+   "iou_name_mtv": 0.0385,
+   "iou_fuse_mtv": 0.0341
+  },
+  {
+   "cls": "alarm clock",
+   "idx": 166,
+   "sib": true,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "music stand",
+   "idx": 167,
+   "sib": false,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "projector screen",
+   "idx": 168,
+   "sib": false,
+   "iou_base": 0.0952,
+   "iou_name_mtv": 0.0493,
+   "iou_fuse_mtv": 0.1528
+  },
+  {
+   "cls": "divider",
+   "idx": 169,
+   "sib": false,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "laundry detergent",
+   "idx": 170,
+   "sib": false,
+   "iou_base": 0.0827,
+   "iou_name_mtv": 0.0801,
+   "iou_fuse_mtv": 0.1066
+  },
+  {
+   "cls": "bathroom counter",
+   "idx": 171,
+   "sib": false,
+   "iou_base": 0.0719,
+   "iou_name_mtv": 0.1127,
+   "iou_fuse_mtv": 0.1635
+  },
+  {
+   "cls": "object",
+   "idx": 172,
+   "sib": false,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "bathroom vanity",
+   "idx": 173,
+   "sib": false,
+   "iou_base": 0.1216,
+   "iou_name_mtv": 0.0454,
+   "iou_fuse_mtv": 0.3226
+  },
+  {
+   "cls": "closet wall",
+   "idx": 174,
+   "sib": false,
+   "iou_base": 0.0127,
+   "iou_name_mtv": 0.0072,
+   "iou_fuse_mtv": 0.0073
+  },
+  {
+   "cls": "laundry hamper",
+   "idx": 175,
+   "sib": false,
+   "iou_base": 0.0224,
+   "iou_name_mtv": 0.0008,
+   "iou_fuse_mtv": 0.0003
+  },
+  {
+   "cls": "bathroom stall door",
+   "idx": 176,
+   "sib": true,
+   "iou_base": 0.1192,
+   "iou_name_mtv": 0.1264,
+   "iou_fuse_mtv": 0.0762
+  },
+  {
+   "cls": "ceiling light",
+   "idx": 177,
+   "sib": false,
+   "iou_base": 0.2622,
+   "iou_name_mtv": 0.3321,
+   "iou_fuse_mtv": 0.3431
+  },
+  {
+   "cls": "trash bin",
+   "idx": 178,
+   "sib": false,
+   "iou_base": 0.0581,
+   "iou_name_mtv": 0.0622,
+   "iou_fuse_mtv": 0.0681
+  },
+  {
+   "cls": "dumbbell",
+   "idx": 179,
+   "sib": false,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "stair rail",
+   "idx": 180,
+   "sib": true,
+   "iou_base": 0.1955,
+   "iou_name_mtv": 0.1456,
+   "iou_fuse_mtv": 0.1375
+  },
+  {
+   "cls": "tube",
+   "idx": 181,
+   "sib": false,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "bathroom cabinet",
+   "idx": 182,
+   "sib": false,
+   "iou_base": 0.2159,
+   "iou_name_mtv": 0.2695,
+   "iou_fuse_mtv": 0.1294
+  },
+  {
+   "cls": "cd case",
+   "idx": 183,
+   "sib": false,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "closet rod",
+   "idx": 184,
+   "sib": false,
+   "iou_base": 0.0394,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "coffee kettle",
+   "idx": 185,
+   "sib": true,
+   "iou_base": 0.0236,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "structure",
+   "idx": 186,
+   "sib": false,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "shower head",
+   "idx": 187,
+   "sib": true,
+   "iou_base": 0.1207,
+   "iou_name_mtv": 0.1605,
+   "iou_fuse_mtv": 0.2405
+  },
+  {
+   "cls": "keyboard piano",
+   "idx": 188,
+   "sib": false,
+   "iou_base": 0.0167,
+   "iou_name_mtv": 0.0019,
+   "iou_fuse_mtv": 0.0032
+  },
+  {
+   "cls": "case of water bottles",
+   "idx": 189,
+   "sib": true,
+   "iou_base": 0.0277,
+   "iou_name_mtv": 0.0335,
+   "iou_fuse_mtv": 0.0293
+  },
+  {
+   "cls": "coat rack",
+   "idx": 190,
+   "sib": false,
+   "iou_base": 0.0087,
+   "iou_name_mtv": 0.0155,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "storage organizer",
+   "idx": 191,
+   "sib": false,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "folded chair",
+   "idx": 192,
+   "sib": false,
+   "iou_base": 0.0222,
+   "iou_name_mtv": 0.0311,
+   "iou_fuse_mtv": 0.0317
+  },
+  {
+   "cls": "fire alarm",
+   "idx": 193,
+   "sib": false,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "power strip",
+   "idx": 194,
+   "sib": true,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "calendar",
+   "idx": 195,
+   "sib": false,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "poster",
+   "idx": 196,
+   "sib": true,
+   "iou_base": 0.0217,
+   "iou_name_mtv": 0.0067,
+   "iou_fuse_mtv": 0.0063
+  },
+  {
+   "cls": "potted plant",
+   "idx": 197,
+   "sib": true,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "luggage",
+   "idx": 198,
+   "sib": false,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  },
+  {
+   "cls": "mattress",
+   "idx": 199,
+   "sib": false,
+   "iou_base": 0.0,
+   "iou_name_mtv": 0.0,
+   "iou_fuse_mtv": 0.0
+  }
+ ]
+}

@@ -38,3 +38,45 @@ So mask-based instance consistency is annotation-free.
 mask_text_vote is a baseline/consistency axis and must not be double-counted as a "fix". The scientific
 question for Method B is whether *trained* direction correction adds fg-mIoU **on top of** the 0.17573
 consistency axis, and whether the gain concentrates on the sibling pairs identified in TASK2.
+
+---
+
+# 交接任务追加：判别性文本锚点(A) + caption 命名(B)｜ScanNet200｜annotation-free
+
+## 组合轴表（本任务新增，全部可部署 / qz baseline ckpt；口径自检 name+base=0.15475 逐位复现）
+| axis | fg-mIoU | Δ vs baseline | Δ vs base+MTV | mAP | 备注 |
+|---|---:|---:|---:|---:|---|
+| baseline (name+base) | 0.15475 | — | — | 0.1149 | 自检 OK |
+| + attr_mean 锚点 (baseline 读出) | 0.14557 | −0.0092 | — | 0.1214 | 纯属性**有害** |
+| + fuse0.7 锚点 (baseline 读出) | 0.15891 | +0.0042 | — | 0.1250 | 非机制小增益 |
+| + mask_text_vote (一致性轴) | 0.17573 | +0.02098 | 0 | 0.1124 | 既有 |
+| + MTV + fuse0.5 锚点 | 0.18005 | +0.0253 | +0.0043 | 0.1241 | 非机制 |
+| **+ MTV + fuse0.7 锚点** | **0.18231** | **+0.0276** | **+0.0066** | 0.1225 | 最优可部署；但增益**弥散、不落同辈簇** |
+
+## 命名信号阶梯（sibling 命名 acc；tight 簇 44 类）
+| 命名法 | sibling acc | 部署性 | 说明 |
+|---|---:|---|---|
+| baseline pred_majority（部署读出，val） | 0.3822 | 可部署 | 自检≈TASK2 0.379 |
+| unsup_textname（文本锚点，val） | 0.377 | 可部署 | TASK2 负结果 |
+| 属性锚点 attr/fuse（重读，val 上界） | 0.69–0.76 | 可部署 | **≤ 类名重读 0.792**，无增益 |
+| **caption 类名众数词（train，上限）** | **0.7311** | **不可部署(val 无 caption)** | ≫ 文本锚点，信号在**词**里 |
+
+## 增益分解（fuse0.7+MTV vs name+MTV，逐类）
+- 同辈簇 dMeanIoU **+0.0033**，非同辈 **+0.0075** → 增益**不集中在同辈簇**（非同辈更大）。
+- 属于锚点扰动的净正集成/去噪，**非命名修复**；伴随明显附带损伤（washing machine −0.54、table −0.16、pillar/shower wall 同辈受损）。
+
+## 三问最终回答（命名死结是否被打开）
+- **(a) 判别性锚点让近义锚点去共线？否。** 簇内 |cos| 0.9194→0.9101（不显著）。CLIP 文本编码器把「刻意写区别」的近义描述仍映射到近共线嵌入。
+- **(b) 把 cos(d_vis,d_txt) 拉起来？否。** 0.1108→0.1136（未抬升）。读出方向仍与视觉判别方向近正交。
+- **(c) 在同辈簇上把命名 acc/fg-mIoU 抬到一致性轴之上？**
+  - 属性锚点：**命名 acc 否**（≤ 类名重读）；fg-mIoU 虽 0.18231>0.17573 但**增益不在同辈簇、不来自命名**（非机制）。
+  - caption 词命名：**命名 acc 是**（0.7311 ≫ 0.379），但**只在 train 可得、val 不可部署**。
+- **裁定：命名死结未被「属性文本锚点」打开（本任务核心假设被否）。** 但 TASK B 定位到真正的命名信号——
+  **caption 的离散类名词**（≈2× 文本锚点）。Method B/caption_proto 之所以失败，是因为它们对齐/读出 caption 的 **CLIP 文本嵌入**（近义仍共线），
+  而信号在**词**里被 CLIP 抹平。
+
+## 下一步（TASK C 的正确形态，待定/需算力与确认）
+- **不要**照搬 TASK C 原文（对齐 A 的共线属性锚点）——那等于 Method B 覆辙。
+- 推荐：把「caption 类名众数词」当**离散命名目标**，frozen backbone 训一个轻量分类/命名头（annotation-free 词监督），
+  或先做**零训练可部署验证**：用 caption 词把 train 实例分组→求各类**视觉原型**→val 用视觉特征最近原型命名（部署侧不需 caption）。
+- 判据仍按四条：B' 或 B'+MTV fg-mIoU>0.17573、cos(d_vis,d_txt)↑、增益落同辈簇、mAP 维持、且不打坏 baseline 读出(<0.155)。
