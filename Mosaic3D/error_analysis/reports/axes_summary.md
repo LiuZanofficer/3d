@@ -118,3 +118,11 @@ annotation-free 门控（train caption 词伪标签 2-fold，不碰 GT）选中 
 - 判定：C1 在线不落地；命名增益集中在低 IoU 稀有实例，renaming 引 FP，fg-mIoU 不升反降。
 - 对 C2：词蒸馏 fg-mIoU 绝对上限=+0.0158，可部署侵蚀已使 oracle 版离线≈持平 → C2 落地≈0，性价比极低。
   主杠杆是部署差距（0.79→0.38：mask/实例成形+逐点读出），非锚点/命名 → 倾向 D reframe。
+
+
+### D 线 部署差距拆解（否定 mask 假设，重定位杠杆）— 见 deployment_gap.md
+- L0 GT-instance sib 0.7916 → L1 Segment3D-mask sib **0.8030**（+0.011，full-200 0.379→0.458）→ **mask 质量/池化不是瓶颈**。
+- "0.379" = L0 的 full-200 acc（0.3794）→ "0.79 vs 0.379" 是**簇内限制 vs 全200-way**，非部署退化。
+- tight 类错误归因：簇外 0.43（点权 0.224）>> 同辈 0.11（点权 0.142）→ **簇外混淆是同辈 ~4×**，sibling 线只治小头。
+- fg-mIoU 被长尾主导：miou_tail 0.033 vs head 0.368。
+- 结论：sibling 命名线=低杠杆（顶 +0.0158）。真正杠杆=全200-way判别(簇外混淆)+长尾IoU+score校准，均 annotation-free 可做。
