@@ -224,7 +224,7 @@ python scripts/ablation_study.py \
 
 ---
 
-## 📊 消融实验结果
+## 📊 消融实验设计目标（Design targets, not measured results）
 
 | 配置 | ACBS | MSSOE | HPZA | CEP | SED | PMTL | TTAC | f-mIoU |
 |------|------|-------|------|-----|-----|------|------|--------|
@@ -237,7 +237,7 @@ python scripts/ablation_study.py \
 | +PMTL | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | - | 22.3% |
 | **LZ-Full** | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | **23.5%** |
 
-每个模块的独立贡献已通过严格的消融实验验证。
+> ⚠️ 注意：上表为**设计目标值**，非实测结果。消融实验计划在路线图 Week 11-12 完成，届时将以实测数据替换。目前实测验证过的增益见 `Mosaic3D/error_analysis/` 中的实验报告。
 
 ---
 
@@ -311,7 +311,7 @@ Input (N×3)
 ```bibtex
 @inproceedings{longtail-zero3d2025,
   title={LongTail-Zero3D: Tackling Long-Tail Distribution and Small Objects in Open-Vocabulary 3D Scene Understanding},
-  author={Your Name},
+  author={Liu Zan},
   booktitle={CVPR},
   year={2025}
 }
@@ -357,8 +357,7 @@ Input (N×3)
 
 ## 💬 联系方式
 
-- **Issues**: [GitHub Issues](https://github.com/yourusername/LongTail-Zero3D/issues)
-- **Email**: your.email@example.com
+- **Issues**: [GitHub Issues](https://github.com/LiuZanofficer/3d/issues)
 
 ---
 

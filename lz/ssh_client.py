@@ -1,12 +1,17 @@
+import os
 import paramiko
 import sys
 import argparse
 
-# Configuration
-HOSTNAME = 'connect.nma1.seetacloud.com'
-PORT = 19699
-USERNAME = 'root'
-PASSWORD = 'pJEtQajdHPPB'
+# Configuration — all read from environment variables; never hardcode credentials.
+#   export AUTODL_HOST=connect.xxx.seetacloud.com
+#   export AUTODL_PORT=19699
+#   export AUTODL_USER=root
+#   export AUTODL_PASSWORD=<your-password>
+HOSTNAME = os.environ['AUTODL_HOST']
+PORT = int(os.environ.get('AUTODL_PORT', '22'))
+USERNAME = os.environ['AUTODL_USER']
+PASSWORD = os.environ['AUTODL_PASSWORD']
 
 def run_remote_command(command):
     client = paramiko.SSHClient()

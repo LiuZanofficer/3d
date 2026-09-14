@@ -17,3 +17,14 @@ Mosaic3D/datasets/
 *.npz
 *.ply
 *.pcd
+
+# Experiment artifacts — keep out of future commits (already-tracked files unaffected)
+*.log
+*.pid
+*.tar.gz
+tmp/
+.tmp_remote/
+outputs/
+analysis_outputs/
+experiments/
+lz/artifacts/
